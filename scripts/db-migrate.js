@@ -3,7 +3,16 @@ const fsSync = require("node:fs");
 const fs = require("node:fs/promises");
 const path = require("node:path");
 const { execFileSync } = require("node:child_process");
-const { Pool } = require("pg");
+let Pool;
+try {
+  ({ Pool } = require("pg"));
+} catch (_) {
+  Pool = class {
+    constructor() {
+      throw new Error("pg module is required for database migrations. Run pnpm add pg");
+    }
+  };
+}
 
 const MIGRATIONS_DIR = path.resolve(process.cwd(), "apps", "web", "src", "features", "shared", "infrastructure", "db", "migrations");
 const explicitEnvKeys = new Set(Object.keys(process.env));
