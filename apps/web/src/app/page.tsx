@@ -10,6 +10,7 @@ import { HeroSection } from "@/components/home/hero-section";
 import { NewsSection } from "@/components/home/news-section";
 import { TourDatesSection } from "@/components/home/tour-dates-section";
 import { MusicSection } from "@/components/home/music-section";
+import { MediaPressKitSection } from "@/components/home/media-press-kit-section";
 import { MerchSection } from "@/components/home/merch-section";
 import { NewsletterSection } from "@/components/home/newsletter-section";
 import { AboutBookingSection } from "@/components/home/about-booking-section";
@@ -26,6 +27,7 @@ export default function HomePage() {
         <NewsSection />
         <TourDatesSection />
         <MusicSection />
+        <MediaPressKitSection />
         <MerchSection />
         <NewsletterSection />
         <AboutBookingSection />
