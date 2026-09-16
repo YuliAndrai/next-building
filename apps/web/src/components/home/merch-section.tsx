@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { siteConfig } from "@/data/site-config";
 import { ShoppingBag, ArrowUpRight } from "lucide-react";
 
@@ -40,9 +41,11 @@ export function MerchSection() {
             >
               {/* Image Container */}
               <div className="relative aspect-square w-full overflow-hidden bg-neutral-900">
-                <img
+                <Image
                   src={item.image}
                   alt={item.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale contrast-125 group-hover:grayscale-0"
                 />
 

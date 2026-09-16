@@ -52,9 +52,11 @@ export function MusicSection() {
             >
               {/* Cover Artwork */}
               <div className="relative aspect-square w-full overflow-hidden bg-neutral-900">
-                <img
+                <Image
                   src={release.artwork}
                   alt={release.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
@@ -133,15 +135,15 @@ export function MusicSection() {
                 FEATURED LIVE PERFORMANCE
               </span>
               <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-wide text-white">
-                ANDHRAY LIVE @ HARD SOUND ARENA // 2026
+                ANDHRAY | HÖR BERLIN (JULY 24 / 2026)
               </h3>
               <p className="text-xs uppercase tracking-widest text-neutral-400 font-mono mt-1">
-                Complete 90-minute industrial hard techno ceremony with visual production.
+                Transmisión en vivo en alta fidelidad grabada en el estudio de HÖR Berlín.
               </p>
             </div>
 
             <a
-              href={siteConfig.socials.youtube}
+              href="https://www.youtube.com/watch?v=_xtvbbRCeGU"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-2.5 border border-white text-xs font-bold uppercase tracking-widest text-white hover:bg-white hover:text-black transition-colors shrink-0 text-center"
@@ -154,8 +156,8 @@ export function MusicSection() {
           <div className="relative aspect-video w-full overflow-hidden bg-neutral-950 border border-neutral-800">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
-              title="ANDHRAY Live Techno Set"
+              src="https://www.youtube.com/embed/_xtvbbRCeGU"
+              title="Andhray | HÖR Berlin (July 24 / 2026)"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />

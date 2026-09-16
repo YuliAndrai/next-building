@@ -7,6 +7,7 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/home/hero-section";
+import { NewsSection } from "@/components/home/news-section";
 import { TourDatesSection } from "@/components/home/tour-dates-section";
 import { MusicSection } from "@/components/home/music-section";
 import { MerchSection } from "@/components/home/merch-section";
@@ -22,6 +23,7 @@ export default function HomePage() {
       {/* Main Content Sections */}
       <main className="flex-1 flex flex-col">
         <HeroSection />
+        <NewsSection />
         <TourDatesSection />
         <MusicSection />
         <MerchSection />

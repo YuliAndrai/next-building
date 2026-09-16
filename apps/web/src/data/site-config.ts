@@ -53,15 +53,31 @@ export interface MerchItem {
   link: string;
 }
 
+export interface NewsItem {
+  id: string;
+  title: string;
+  category: string;
+  youtubeEmbedUrl?: string;
+  originalUrl?: string;
+  spotifyEmbedUrl?: string;
+  soundcloudEmbedUrl?: string;
+  spotifyUrl?: string;
+  soundcloudUrl?: string;
+}
+
 export const siteConfig = {
   artist: {
     name: "ANDHRAY",
+    heroBanner: "EURO TOUR (NOV - DIC)",
+    role: "DJ • Productora • Fundadora de Industrial Girls",
+    slogan: "Música sensual para almas sensuales",
+    genres: ["Hard Dance", "Acid", "Groove"],
+    tourBadge: "Europa Tour 2026 – 2027 | Nov-Enero",
     tagline: "Industrial Hard Techno & Relentless Sonic Energy",
-    bioHeadline: "HIGH VOLTAGE HARD TECHNO // DARK SONIC RITUALS",
+    bioHeadline: "SONIDO PROPIO // INDUSTRIAL GIRLS",
     bio: [
-      "ANDHRAY commands the underground with razor-sharp industrial precision, apocalyptic percussion, and visceral sound engineering designed for raw warehouse catharsis.",
-      "Rooted in the unyielding heritage of industrial techno and driven by relentless modern tempo, ANDHRAY's performances blur the line between a techno set and a sensory ritual.",
-      "From legendary European basement raves to thunderous South American festival stages, ANDHRAY continues to conquer dancefloors worldwide with unrelenting devotion to the hard sound."
+      "Nacida en Colombia, DJ, productora y organizadora de eventos. Desde 2018 ha forjado un sonido propio; Andhray es un universo donde los sonidos se encuentran, se transforman y conectan con el cuerpo. Ritmos, energía y sensualidad que se entremezclan entre lo oscuro, lo hipnótico, la psicodelia y el groove. Amante de la percusión, frecuencias ácidas y ritmos hipnóticos.",
+      "En 2019 fundó Industrial Girls, un sello, colectivo y agencia de desarrollo artístico nacida en Colombia, enfocada en impulsar el talento femenino y LGBTQIA+. Con una visión internacional, el proyecto ha fortalecido su comunidad y proyección global a través de showcases y plataformas de visibilización artística."
     ],
     pressQuotes: [
       {
@@ -74,6 +90,25 @@ export const siteConfig = {
       }
     ]
   },
+
+  news: [
+    {
+      id: "news-hor-berlin",
+      title: "Andhray | HÖR Berlin (July 24 / 2026)",
+      category: "SESIÓN HÖR BERLIN // EN ALTA CALIDAD",
+      youtubeEmbedUrl: "https://www.youtube.com/embed/_xtvbbRCeGU",
+      originalUrl: "https://www.youtube.com/watch?v=_xtvbbRCeGU"
+    },
+    {
+      id: "news-memento",
+      title: "Último Lanzamiento: MEMENTO",
+      category: "ÚLTIMO TRACK // OUT NOW",
+      spotifyEmbedUrl: "https://open.spotify.com/embed/album/4zmRL1DHbEIYsITw4HOYRn?utm_source=generator&theme=0",
+      soundcloudEmbedUrl: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/andhray/mementosp&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
+      spotifyUrl: "https://open.spotify.com/album/4zmRL1DHbEIYsITw4HOYRn",
+      soundcloudUrl: "https://soundcloud.com/andhray/mementosp"
+    }
+  ] as NewsItem[],
 
   announcement: {
     enabled: true,

@@ -25,6 +25,7 @@ export function Header() {
 
   const navLinks = [
     { label: "HOME", href: "/" },
+    { label: "NEWS", href: "/#news" },
     { label: "TOUR DATES", href: "/#tour" },
     { label: "MUSIC", href: "/#music" },
     { label: "MERCH", href: "/#merch" },
