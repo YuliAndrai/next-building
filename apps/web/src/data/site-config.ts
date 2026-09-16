@@ -130,7 +130,12 @@ export const siteConfig = {
 
   tourConfig: {
     useSeatedWidget: false,
-    seatedArtistId: "c96949f0-d93e-45b7-aa12-925369587d20"
+    seatedArtistId: "c96949f0-d93e-45b7-aa12-925369587d20",
+    featuredTour: {
+      title: "EURO TOUR (NOV - DIC)",
+      detail: "Fechas confirmadas en Italia y Alemania. Booking y agenda abierta para promotores y clubes.",
+      currentLocation: "Colombia / Gira internacional"
+    }
   },
 
   tourDates: [

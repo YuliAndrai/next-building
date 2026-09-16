@@ -63,12 +63,6 @@ export function HeroSection() {
           ))}
         </div>
 
-        {/* 3.4: Discrete Highlighted Tour Badge / Etiqueta destacada discreta */}
-        <div className="mt-5 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-800/80 bg-black/60 text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 font-mono">
-          <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-          <span>{siteConfig.artist.tourBadge}</span>
-        </div>
-
         {/* High-Contrast Action Buttons (Sara Landry Style) */}
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto">
           <Link

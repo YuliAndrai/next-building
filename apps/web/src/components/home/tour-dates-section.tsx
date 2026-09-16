@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import { siteConfig, TourDate } from "@/data/site-config";
-import { Ticket, MapPin, Search } from "lucide-react";
+import { Ticket, MapPin, Search, Globe } from "lucide-react";
 
 interface TourDatesSectionProps {
   standalone?: boolean;
@@ -52,6 +52,42 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
             />
           </div>
         </div>
+
+        {/* Featured Tour Announcement Card */}
+        {siteConfig.tourConfig.featuredTour && (
+          <div className="mb-10 p-6 sm:p-8 bg-neutral-950 border border-neutral-850 hover:border-neutral-700 transition-colors relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-72 h-72 bg-red-950/20 blur-[100px] rounded-full pointer-events-none" />
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="space-y-2">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center gap-2 px-2.5 py-0.5 border border-red-900/60 bg-red-950/50 text-[10px] font-mono uppercase tracking-widest text-red-400 font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                    GIRA DESTACADA
+                  </span>
+                  <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider flex items-center gap-1.5">
+                    <Globe className="w-3.5 h-3.5 text-neutral-500" />
+                    <span>Ubicación actual: {siteConfig.tourConfig.featuredTour.currentLocation}</span>
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-wide text-white">
+                  {siteConfig.tourConfig.featuredTour.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed max-w-2xl">
+                  {siteConfig.tourConfig.featuredTour.detail}
+                </p>
+              </div>
+
+              <div className="shrink-0">
+                <a
+                  href="/#contact"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-white text-xs font-bold uppercase tracking-widest text-white hover:bg-white hover:text-black transition-colors"
+                >
+                  CONTACTAR BOOKING
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Optional Seated.com Widget (As used by Sara Landry) */}
         {siteConfig.tourConfig.useSeatedWidget ? (
