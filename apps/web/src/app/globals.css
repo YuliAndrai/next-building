@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0c;
-  --foreground: #ededed;
+  --background: #030303;
+  --foreground: #f4f4f5;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -14,4 +19,46 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  selection-background-color: #ffffff;
+  selection-color: #000000;
+}
+
+/* Sara Landry / Industrial Techno Typography Utilities */
+.tracking-ultra {
+  letter-spacing: 0.28em;
+}
+
+.tracking-widest-plus {
+  letter-spacing: 0.2em;
+}
+
+/* Subtle Film Grain Overlay */
+.grain-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glow effects */
+.glow-subtle {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+}
+
+.glow-red {
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.15);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #404040;
 }

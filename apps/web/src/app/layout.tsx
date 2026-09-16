@@ -1,16 +1,40 @@
 /**
  * @file apps/web/src/app/layout.tsx
- * @description Layer 1: Presentation - Root Layout for Next.js App Router.
- * Configures base metadata, HTML shell, and global context providers.
+ * @description Root layout for ANDHRAY official website.
  */
 
 import type { Metadata } from "next";
-import { Providers } from "./providers";
+import { siteConfig } from "@/data/site-config";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Next.js + Solana Starter",
-  description: "High-performance Web3 starter with 4-Layer Architecture and Autonomous Governance",
+  title: `${siteConfig.artist.name} | Official Website`,
+  description: siteConfig.artist.tagline,
+  keywords: [
+    "Andhray",
+    "Sara Landry",
+    "Techno",
+    "Hard Techno",
+    "Industrial Techno",
+    "Tour Dates",
+    "DJ",
+    "Hekate",
+    "Awakenings",
+    "Verknipt",
+    "Electronic Music"
+  ],
+  openGraph: {
+    title: `${siteConfig.artist.name} | Official Website`,
+    description: siteConfig.artist.tagline,
+    type: "website",
+    locale: "en_US",
+    siteName: siteConfig.artist.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.artist.name} | Official Website`,
+    description: siteConfig.artist.tagline,
+  }
 };
 
 export default function RootLayout({
@@ -18,11 +42,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Step 1: Wrap app contents in HTML shell with dark theme and providers
   return (
-    <html lang="en" className="dark">
-      <body className="bg-neutral-950 text-neutral-100 antialiased selection:bg-blue-500 selection:text-white">
-        <Providers>{children}</Providers>
+    <html lang="en" className="dark bg-black">
+      <body className="bg-black text-neutral-100 antialiased min-h-screen">
+        {children}
       </body>
     </html>
   );
