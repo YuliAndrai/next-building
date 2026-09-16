@@ -33,6 +33,54 @@ export interface MusicRelease {
   };
 }
 
+/**
+ * TrackItem Interface
+ *
+ * Represents an entry in the chronological discography catalog.
+ */
+export interface TrackItem {
+  id: string;
+  title: string;
+  year: string;
+  hasMiniPlayer?: boolean;
+  spotifyEmbedUrl?: string;
+  soundcloudEmbedUrl?: string;
+  links: {
+    spotify?: string;
+    soundcloud?: string;
+    beatport?: string;
+    appleMusic?: string;
+    bandcamp?: string;
+  };
+}
+
+/**
+ * PodcastSetItem Interface
+ *
+ * Represents a live DJ performance, radio broadcast, or curated podcast set.
+ */
+export interface PodcastSetItem {
+  id: string;
+  title: string;
+  date: string;
+  year: string;
+  platform: "youtube" | "soundcloud";
+  url: string;
+  embedUrl?: string;
+  description?: string;
+}
+
+/**
+ * OfficialChannel Interface
+ *
+ * Represents an official streaming or purchase platform channel for the artist.
+ */
+export interface OfficialChannel {
+  name: string;
+  url: string;
+  platform: "spotify" | "soundcloud" | "appleMusic" | "beatport" | "bandcamp";
+}
+
 export interface LiveSet {
   id: string;
   title: string;
@@ -125,8 +173,18 @@ export const siteConfig = {
     facebook: "https://facebook.com",
     twitch: "https://twitch.tv",
     tiktok: "https://tiktok.com",
-    residentAdvisor: "https://ra.co"
+    residentAdvisor: "https://ra.co",
+    beatport: "https://www.beatport.com",
+    bandcamp: "https://andhray.bandcamp.com"
   },
+
+  officialChannels: [
+    { name: "SPOTIFY", url: "https://open.spotify.com/artist/4zmRL1DHbEIYsITw4HOYRn", platform: "spotify" },
+    { name: "SOUNDCLOUD", url: "https://soundcloud.com/andhray", platform: "soundcloud" },
+    { name: "APPLE MUSIC", url: "https://music.apple.com", platform: "appleMusic" },
+    { name: "BEATPORT", url: "https://www.beatport.com", platform: "beatport" },
+    { name: "BANDCAMP", url: "https://andhray.bandcamp.com", platform: "bandcamp" }
+  ] as OfficialChannel[],
 
   tourConfig: {
     useSeatedWidget: false,
@@ -152,6 +210,231 @@ export const siteConfig = {
       status: "booking"
     }
   ] as TourDate[],
+
+  tracks: [
+    {
+      id: "track-memento",
+      title: "MEMENTO",
+      year: "2025",
+      hasMiniPlayer: true,
+      spotifyEmbedUrl: "https://open.spotify.com/embed/album/4zmRL1DHbEIYsITw4HOYRn?utm_source=generator&theme=0",
+      soundcloudEmbedUrl: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/andhray/mementosp&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
+      links: {
+        spotify: "https://open.spotify.com/album/4zmRL1DHbEIYsITw4HOYRn",
+        soundcloud: "https://soundcloud.com/andhray/mementosp",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-en-napl",
+      title: "EN NAPL",
+      year: "2025",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20EN%20NAPL",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-danseo-mental",
+      title: "Danseo Mental",
+      year: "2024",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20Danseo%20Mental",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-ilusion",
+      title: "ILUSION",
+      year: "2024",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20ILUSION",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-en-un-rave",
+      title: "EN UN RAVE",
+      year: "2024",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20EN%20UN%20RAVE",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-feline-blink",
+      title: "Feline Blink (con DEBBIE IT)",
+      year: "2024",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20Feline%20Blink",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-sensual",
+      title: "SENSUAL",
+      year: "2024",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20SENSUAL",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-mi",
+      title: "MI",
+      year: "2024",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20MI",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-maybe-we-are-crazy",
+      title: "MAYBE, WE ARE CRAZY",
+      year: "2024",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20MAYBE%20WE%20ARE%20CRAZY",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-fkn-rythm",
+      title: "FKN RYTHM",
+      year: "2024",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20FKN%20RYTHM",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-daga-adicta",
+      title: "DAGA ADICTA RE EDIT",
+      year: "Bootleg",
+      links: {
+        soundcloud: "https://soundcloud.com/andhray",
+        bandcamp: "https://andhray.bandcamp.com",
+        spotify: "https://open.spotify.com/search/ANDHRAY%20DAGA%20ADICTA"
+      }
+    },
+    {
+      id: "track-girl-from-the-dark",
+      title: "Girl From the Dark",
+      year: "2022",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20Girl%20From%20the%20Dark",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-sin-miedo",
+      title: "Sin Miedo",
+      year: "2022",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20Sin%20Miedo",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    },
+    {
+      id: "track-resignificar",
+      title: "Resignificar",
+      year: "2021",
+      links: {
+        spotify: "https://open.spotify.com/search/ANDHRAY%20Resignificar",
+        soundcloud: "https://soundcloud.com/andhray",
+        beatport: "https://www.beatport.com",
+        appleMusic: "https://music.apple.com",
+        bandcamp: "https://andhray.bandcamp.com"
+      }
+    }
+  ] as TrackItem[],
+
+  podcastsAndSets: [
+    {
+      id: "set-hor-berlin-2026",
+      title: "HÖR Berlin",
+      date: "July 24 / 2026",
+      year: "2026",
+      platform: "youtube",
+      url: "https://www.youtube.com/watch?v=_xtvbbRCeGU",
+      embedUrl: "https://www.youtube.com/embed/_xtvbbRCeGU",
+      description: "Transmisión en vivo en alta fidelidad grabada en el estudio de HÖR Berlín."
+    },
+    {
+      id: "set-riot-scampia-2024",
+      title: "Riöt.scampia - 360 DJ Set",
+      date: "2024",
+      year: "2024",
+      platform: "youtube",
+      url: "https://www.youtube.com/watch?v=SZTMVVqo-HA",
+      embedUrl: "https://www.youtube.com/embed/SZTMVVqo-HA",
+      description: "Set inmersivo 360° con enfoque en hard techno y texturas ácidas."
+    },
+    {
+      id: "podcast-techno-germany-127",
+      title: "Techno Germany Podcast 127",
+      date: "2024",
+      year: "2024",
+      platform: "soundcloud",
+      url: "https://soundcloud.com/technogermany/andhray-techno-germany-podcast-127",
+      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/technogermany/andhray-techno-germany-podcast-127&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
+      description: "Sesión curada exclusiva para la plataforma alemana Techno Germany."
+    },
+    {
+      id: "podcast-tmorcast-115",
+      title: "TMORCAST115 | The Meaning Of Rave",
+      date: "2024",
+      year: "2024",
+      platform: "soundcloud",
+      url: "https://soundcloud.com/themeaningofrave",
+      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/themeaningofrave&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
+      description: "Episodio exclusivo en la serie de podcasts del colectivo The Meaning Of Rave."
+    },
+    {
+      id: "podcast-comme-dans-les-films-16",
+      title: "COMME DANS LES FILMS #16 by Parfait",
+      date: "2023",
+      year: "2023",
+      platform: "soundcloud",
+      url: "https://soundcloud.com/parfaitparfait/comme-dans-les-films-16-andhray",
+      embedUrl: "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/parfaitparfait/comme-dans-les-films-16-andhray&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
+      description: "Mix curado para la aclamada serie Comme Dans Les Films por Parfait."
+    }
+  ] as PodcastSetItem[],
 
   releases: [
     {

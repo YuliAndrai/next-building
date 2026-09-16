@@ -1,169 +1,516 @@
+/**
+ * @file apps/web/src/components/home/music-section.tsx
+ * @layer Presentation Layer / Home UI Component
+ * @description Official Music Section featuring the chronological track discography, embedded media players (Spotify/SoundCloud/YouTube), official channels quickbar, and curated podcasts/DJ sets.
+ */
+
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { siteConfig } from "@/data/site-config";
-import { Play, ExternalLink, Radio, Disc } from "lucide-react";
+import React, { useState } from "react";
+import { siteConfig, TrackItem, PodcastSetItem, OfficialChannel } from "@/data/site-config";
+import {
+  SpotifyIcon,
+  SoundcloudIcon,
+  AppleMusicIcon,
+  BeatportIcon,
+  BandcampIcon,
+  YoutubeIcon
+} from "@/components/ui/social-icons";
+import { ExternalLink, Disc3, Radio, Headphones } from "lucide-react";
 
-export function MusicSection() {
+/**
+ * MusicSection Component
+ *
+ * Renders the comprehensive music portfolio of ANDHRAY:
+ * 1. Official channels quick-access bar (Spotify, SoundCloud, Apple Music, Beatport, Bandcamp).
+ * 2. Complete chronological discography catalog (newest to oldest) without numerical stream metrics.
+ * 3. Embedded media players for featured release (MEMENTO).
+ * 4. Podcasts and live DJ sets subsection with responsive video/audio players.
+ *
+ * @returns {React.JSX.Element} The rendered Music section.
+ */
+export function MusicSection(): React.JSX.Element {
+  // Step 1: Track local player preference for MEMENTO (Spotify vs SoundCloud mini-player)
+  const [activeMementoPlayer, setActiveMementoPlayer] = useState<"spotify" | "soundcloud">("spotify");
+
+  const channels: OfficialChannel[] = siteConfig.officialChannels;
+  const tracks: TrackItem[] = siteConfig.tracks;
+  const podcasts: PodcastSetItem[] = siteConfig.podcastsAndSets;
+
+  const mementoTrack = tracks.find((t) => t.id === "track-memento") || tracks[0];
+  const catalogTracks = tracks.filter((t) => t.id !== "track-memento");
+
   return (
     <section id="music" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4 pb-6 border-b border-neutral-900">
-          <div>
-            <span className="text-[11px] font-mono uppercase tracking-ultra text-red-600 font-semibold block mb-2">
-              {"// DISCOGRAPHY"}
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-widest text-white">
-              RELEASES & SETS
-            </h2>
-            <p className="mt-2 text-xs uppercase tracking-widest text-neutral-400">
-              Original productions, curated EP releases, and uncompromising hard techno rituals.
+      <div className="max-w-7xl mx-auto space-y-16 sm:space-y-24">
+        
+        {/* Step 2: Main Section Header & Official Channels Quickbar */}
+        <div className="space-y-8 pb-8 border-b border-neutral-900">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <span className="text-[11px] font-mono uppercase tracking-ultra text-red-600 font-semibold block mb-2">
+                {"// OFFICIAL DISCOGRAPHY & ARCHIVE"}
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-widest text-white">
+                MÚSICA // RELEASES & SETS
+              </h2>
+              <p className="mt-2 text-xs sm:text-sm uppercase tracking-widest text-neutral-400 max-w-2xl">
+                Catálogo sonoro de producciones originales, remezclas, podcasts curatoriales y transmisiones en vivo.
+              </p>
+            </div>
+          </div>
+
+          {/* Step 2.1: Barra de Canales Oficiales */}
+          <div className="bg-black border border-neutral-900 p-4 sm:p-5 rounded-none">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                <Headphones className="w-3.5 h-3.5 text-neutral-500" />
+                CANALES OFICIALES:
+              </span>
+
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                {channels.map((channel) => (
+                  <a
+                    key={channel.platform}
+                    href={channel.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 min-h-[44px] bg-neutral-900/80 border border-neutral-800 hover:border-white hover:bg-neutral-800 text-neutral-300 hover:text-white transition-all text-xs font-mono font-bold uppercase tracking-wider"
+                    aria-label={`Visitar canal oficial de ${channel.name}`}
+                  >
+                    {channel.platform === "spotify" && <SpotifyIcon className="w-4 h-4 text-emerald-400" />}
+                    {channel.platform === "soundcloud" && <SoundcloudIcon className="w-4 h-4 text-orange-400" />}
+                    {channel.platform === "appleMusic" && <AppleMusicIcon className="w-4 h-4 text-pink-400" />}
+                    {channel.platform === "beatport" && <BeatportIcon className="w-4 h-4 text-cyan-400" />}
+                    {channel.platform === "bandcamp" && <BandcampIcon className="w-4 h-4 text-sky-400" />}
+                    <span>{channel.name}</span>
+                    <ExternalLink className="w-2.5 h-2.5 opacity-60 ml-0.5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Step 3: Catálogo de Tracks (de más recientes a más antiguos) */}
+        <div className="space-y-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-4 border-b border-neutral-900">
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
+                {"// CHRONOLOGICAL DISCOGRAPHY"}
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-wider text-white">
+                CATÁLOGO DE TRACKS
+              </h3>
+            </div>
+            <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
+              14 LANZAMIENTOS OFICIALES &bull; ENLACES DIRECTOS
             </p>
           </div>
 
-          <div className="flex items-center space-x-3">
-            <a
-              href={siteConfig.socials.spotify}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 border border-neutral-800 text-[11px] uppercase tracking-widest text-neutral-300 hover:text-white hover:border-neutral-600 transition-colors"
-            >
-              SPOTIFY
-            </a>
-            <a
-              href={siteConfig.socials.soundcloud}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 border border-neutral-800 text-[11px] uppercase tracking-widest text-neutral-300 hover:text-white hover:border-neutral-600 transition-colors"
-            >
-              SOUNDCLOUD
-            </a>
-          </div>
-        </div>
-
-        {/* Releases Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {siteConfig.releases.map((release) => (
-            <div
-              key={release.id}
-              className="group bg-black border border-neutral-900 hover:border-neutral-700 transition-all duration-300 flex flex-col overflow-hidden"
-            >
-              {/* Cover Artwork */}
-              <div className="relative aspect-square w-full overflow-hidden bg-neutral-900">
-                <Image
-                  src={release.artwork}
-                  alt={release.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                  {release.links.spotify && (
-                    <a
-                      href={release.links.spotify}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform shadow-xl"
-                      aria-label="Stream on Spotify"
-                    >
-                      <Play className="w-4 h-4 fill-current ml-0.5" />
-                    </a>
-                  )}
-                  {release.links.soundcloud && (
-                    <a
-                      href={release.links.soundcloud}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform shadow-xl"
-                      aria-label="Stream on SoundCloud"
-                    >
-                      <Radio className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
-
-                <span className="absolute top-2 left-2 bg-black/80 backdrop-blur-sm border border-neutral-800 text-[10px] font-mono uppercase tracking-widest text-neutral-300 px-2 py-0.5">
-                  {release.type}
-                </span>
-              </div>
-
-              {/* Info */}
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-sm font-bold uppercase tracking-wide text-white group-hover:text-neutral-200">
-                    {release.title}
-                  </h3>
-                  <p className="mt-1 text-[11px] font-mono uppercase tracking-widest text-neutral-500">
-                    {release.label} &bull; {release.releaseYear}
+          {/* Step 3.1: Featured Track: MEMENTO [2025] con Mini Player Integrado */}
+          {mementoTrack && (
+            <article className="bg-black border border-neutral-800 p-6 sm:p-8 relative overflow-hidden group">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-neutral-900">
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="px-2.5 py-1 bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-[10px] font-bold uppercase tracking-widest">
+                      ÚLTIMO LANZAMIENTO
+                    </span>
+                    <span className="px-2.5 py-1 bg-neutral-900 border border-neutral-800 text-neutral-300 font-mono text-[11px] font-bold uppercase tracking-wider">
+                      [{mementoTrack.year}]
+                    </span>
+                  </div>
+                  <h4 className="text-2xl sm:text-4xl font-black uppercase tracking-wider text-white">
+                    {mementoTrack.title}
+                  </h4>
+                  <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
+                    Industrial Hard Techno &bull; Reproductor oficial disponible
                   </p>
                 </div>
 
-                {/* Links */}
-                <div className="mt-4 pt-3 border-t border-neutral-900 flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                  <a
-                    href={release.links.spotify || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white uppercase tracking-widest flex items-center gap-1"
+                {/* Switcher para Spotify / SoundCloud mini player */}
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 mr-1 hidden sm:inline-block">
+                    REPRODUCTOR:
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setActiveMementoPlayer("spotify")}
+                    className={`min-h-[44px] px-3.5 py-2 text-xs font-mono font-bold uppercase tracking-wider border transition-all flex items-center gap-2 ${
+                      activeMementoPlayer === "spotify"
+                        ? "bg-white text-black border-white"
+                        : "bg-neutral-900 border-neutral-800 text-neutral-400 hover:text-white"
+                    }`}
                   >
-                    <span>STREAM</span>
-                    <ExternalLink className="w-2.5 h-2.5" />
-                  </a>
-                  {release.links.beatport && (
+                    <SpotifyIcon className="w-3.5 h-3.5" />
+                    <span>SPOTIFY</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveMementoPlayer("soundcloud")}
+                    className={`min-h-[44px] px-3.5 py-2 text-xs font-mono font-bold uppercase tracking-wider border transition-all flex items-center gap-2 ${
+                      activeMementoPlayer === "soundcloud"
+                        ? "bg-white text-black border-white"
+                        : "bg-neutral-900 border-neutral-800 text-neutral-400 hover:text-white"
+                    }`}
+                  >
+                    <SoundcloudIcon className="w-3.5 h-3.5" />
+                    <span>SOUNDCLOUD</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Contenedor del Mini Player */}
+              <div className="mt-6 mb-6">
+                {activeMementoPlayer === "spotify" && mementoTrack.spotifyEmbedUrl && (
+                  <div className="w-full overflow-hidden rounded-none border border-neutral-800 bg-neutral-900/30">
+                    <iframe
+                      src={mementoTrack.spotifyEmbedUrl}
+                      width="100%"
+                      height="152"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      title="Spotify Mini Player - MEMENTO"
+                      className="w-full border-0 block"
+                    />
+                  </div>
+                )}
+
+                {activeMementoPlayer === "soundcloud" && mementoTrack.soundcloudEmbedUrl && (
+                  <div className="w-full overflow-hidden rounded-none border border-neutral-800 bg-neutral-900/30">
+                    <iframe
+                      width="100%"
+                      height="166"
+                      scrolling="no"
+                      frameBorder="no"
+                      allow="autoplay"
+                      src={mementoTrack.soundcloudEmbedUrl}
+                      title="SoundCloud Mini Player - MEMENTO"
+                      className="w-full border-0 block"
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* Botones y Enlaces Directos de MEMENTO */}
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-neutral-900">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">
+                  DISPONIBLE EN TODAS LAS TIENDAS:
+                </span>
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                  {mementoTrack.links.spotify && (
                     <a
-                      href={release.links.beatport}
+                      href={mementoTrack.links.spotify}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-white uppercase tracking-widest"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-600 text-neutral-300 hover:text-white transition-colors text-xs font-mono uppercase tracking-wider"
+                      aria-label="Escuchar MEMENTO en Spotify"
                     >
-                      BEATPORT
+                      <SpotifyIcon className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>SPOTIFY</span>
+                    </a>
+                  )}
+                  {mementoTrack.links.soundcloud && (
+                    <a
+                      href={mementoTrack.links.soundcloud}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-600 text-neutral-300 hover:text-white transition-colors text-xs font-mono uppercase tracking-wider"
+                      aria-label="Escuchar MEMENTO en SoundCloud"
+                    >
+                      <SoundcloudIcon className="w-3.5 h-3.5 text-orange-400" />
+                      <span>SOUNDCLOUD</span>
+                    </a>
+                  )}
+                  {mementoTrack.links.beatport && (
+                    <a
+                      href={mementoTrack.links.beatport}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-600 text-neutral-300 hover:text-white transition-colors text-xs font-mono uppercase tracking-wider"
+                      aria-label="Comprar MEMENTO en Beatport"
+                    >
+                      <BeatportIcon className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>BEATPORT</span>
+                    </a>
+                  )}
+                  {mementoTrack.links.appleMusic && (
+                    <a
+                      href={mementoTrack.links.appleMusic}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-600 text-neutral-300 hover:text-white transition-colors text-xs font-mono uppercase tracking-wider"
+                      aria-label="Escuchar MEMENTO en Apple Music"
+                    >
+                      <AppleMusicIcon className="w-3.5 h-3.5 text-pink-400" />
+                      <span>APPLE MUSIC</span>
+                    </a>
+                  )}
+                  {mementoTrack.links.bandcamp && (
+                    <a
+                      href={mementoTrack.links.bandcamp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-600 text-neutral-300 hover:text-white transition-colors text-xs font-mono uppercase tracking-wider"
+                      aria-label="Adquirir MEMENTO en Bandcamp"
+                    >
+                      <BandcampIcon className="w-3.5 h-3.5 text-sky-400" />
+                      <span>BANDCAMP</span>
                     </a>
                   )}
                 </div>
               </div>
-            </div>
-          ))}
+            </article>
+          )}
+
+          {/* Step 3.2: Grid del Catálogo Completo (Tracks 2 al 14) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+            {catalogTracks.map((track, idx) => (
+              <article
+                key={track.id}
+                className="bg-black border border-neutral-900 hover:border-neutral-700 transition-all p-4 sm:p-5 flex flex-col justify-between group"
+              >
+                {/* Cabecera del Track: Título y Año */}
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono text-neutral-600 group-hover:text-neutral-400 transition-colors w-6">
+                      {String(idx + 2).padStart(2, "0")}
+                    </span>
+                    <Disc3 className="w-4 h-4 text-neutral-500 group-hover:text-neutral-300 transition-colors shrink-0" />
+                    <h4 className="text-base sm:text-lg font-bold uppercase tracking-wide text-white group-hover:text-neutral-200 transition-colors">
+                      {track.title}
+                    </h4>
+                  </div>
+
+                  <span className="px-2 py-0.5 bg-neutral-900 border border-neutral-800 text-neutral-300 font-mono text-xs font-semibold uppercase tracking-wider shrink-0">
+                    [{track.year}]
+                  </span>
+                </div>
+
+                {/* Barra de Iconos/Enlaces Limpios por Plataforma */}
+                <div className="mt-5 pt-3.5 border-t border-neutral-900/80 flex items-center justify-between">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">
+                    ESCUCHAR / OBTENER:
+                  </span>
+
+                  <div className="flex items-center gap-2 sm:gap-2.5">
+                    {track.links.spotify && (
+                      <a
+                        href={track.links.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-400 hover:text-emerald-400 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 hover:border-neutral-700 transition-all"
+                        aria-label={`Escuchar ${track.title} en Spotify`}
+                        title="Spotify"
+                      >
+                        <SpotifyIcon className="w-4 h-4" />
+                      </a>
+                    )}
+                    {track.links.soundcloud && (
+                      <a
+                        href={track.links.soundcloud}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-400 hover:text-orange-400 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 hover:border-neutral-700 transition-all"
+                        aria-label={`Escuchar ${track.title} en SoundCloud`}
+                        title="SoundCloud"
+                      >
+                        <SoundcloudIcon className="w-4 h-4" />
+                      </a>
+                    )}
+                    {track.links.beatport && (
+                      <a
+                        href={track.links.beatport}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-400 hover:text-cyan-400 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 hover:border-neutral-700 transition-all"
+                        aria-label={`Comprar ${track.title} en Beatport`}
+                        title="Beatport"
+                      >
+                        <BeatportIcon className="w-4 h-4" />
+                      </a>
+                    )}
+                    {track.links.appleMusic && (
+                      <a
+                        href={track.links.appleMusic}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-400 hover:text-pink-400 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 hover:border-neutral-700 transition-all"
+                        aria-label={`Escuchar ${track.title} en Apple Music`}
+                        title="Apple Music"
+                      >
+                        <AppleMusicIcon className="w-4 h-4" />
+                      </a>
+                    )}
+                    {track.links.bandcamp && (
+                      <a
+                        href={track.links.bandcamp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-400 hover:text-sky-400 bg-neutral-950 hover:bg-neutral-900 border border-neutral-900 hover:border-neutral-700 transition-all"
+                        aria-label={`Adquirir ${track.title} en Bandcamp`}
+                        title="Bandcamp"
+                      >
+                        <BandcampIcon className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
-        {/* Featured Live DJ Set Showcase */}
-        <div className="bg-black border border-neutral-900 p-6 sm:p-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
+        {/* Step 4: Subsección de Podcasts y DJ Sets (Ordenados por fecha) */}
+        <div className="space-y-10 pt-8 border-t border-neutral-900">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-4 border-b border-neutral-900">
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-ultra text-neutral-500 block mb-1">
-                FEATURED LIVE PERFORMANCE
+              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
+                {"// LIVE RECORDINGS & CURATED PODCASTS"}
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-wide text-white">
-                ANDHRAY | HÖR BERLIN (JULY 24 / 2026)
+              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-wider text-white">
+                PODCASTS & DJ SETS
               </h3>
-              <p className="text-xs uppercase tracking-widest text-neutral-400 font-mono mt-1">
-                Transmisión en vivo en alta fidelidad grabada en el estudio de HÖR Berlín.
-              </p>
             </div>
-
-            <a
-              href="https://www.youtube.com/watch?v=_xtvbbRCeGU"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2.5 border border-white text-xs font-bold uppercase tracking-widest text-white hover:bg-white hover:text-black transition-colors shrink-0 text-center"
-            >
-              WATCH ON YOUTUBE
-            </a>
+            <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
+              SESIONES EN VIVO &bull; EMISIONES Y PODCASTS EXCLUSIVOS
+            </p>
           </div>
 
-          {/* YouTube Video Container with High-Aesthetic Poster fallback */}
-          <div className="relative aspect-video w-full overflow-hidden bg-neutral-950 border border-neutral-800">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/_xtvbbRCeGU"
-              title="Andhray | HÖR Berlin (July 24 / 2026)"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+          {/* Step 4.1: Video Performances en Vivo (HÖR Berlin & Riöt.scampia 360) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {podcasts
+              .filter((p) => p.platform === "youtube")
+              .map((set) => (
+                <article
+                  key={set.id}
+                  className="bg-black border border-neutral-900 p-5 sm:p-6 flex flex-col justify-between hover:border-neutral-800 transition-colors space-y-4"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="px-2.5 py-0.5 bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+                        YOUTUBE EMBED
+                      </span>
+                      <span className="text-xs font-mono text-neutral-400 font-semibold">
+                        {set.date}
+                      </span>
+                    </div>
+
+                    <h4 className="text-lg sm:text-xl font-bold uppercase tracking-wide text-white">
+                      {set.title}
+                    </h4>
+
+                    {set.description && (
+                      <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
+                        {set.description}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Reproductor de Video Embebido */}
+                  <div className="relative aspect-video w-full overflow-hidden bg-neutral-950 border border-neutral-800">
+                    {set.embedUrl ? (
+                      <iframe
+                        className="w-full h-full border-0"
+                        src={set.embedUrl}
+                        title={set.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-neutral-500 text-xs font-mono uppercase">
+                        Video stream pending
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="pt-2 flex justify-end">
+                    <a
+                      href={set.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] border border-neutral-800 hover:border-white text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white hover:bg-neutral-900 transition-colors"
+                    >
+                      <YoutubeIcon className="w-3.5 h-3.5 text-red-500" />
+                      <span>VER EN YOUTUBE</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </article>
+              ))}
+          </div>
+
+          {/* Step 4.2: Audio Podcasts en SoundCloud (Techno Germany, TMORCAST, Comme Dans Les Films) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {podcasts
+              .filter((p) => p.platform === "soundcloud")
+              .map((pod) => (
+                <article
+                  key={pod.id}
+                  className="bg-black border border-neutral-900 p-5 flex flex-col justify-between hover:border-neutral-800 transition-colors space-y-4"
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="px-2 py-0.5 bg-orange-600/20 border border-orange-500/40 text-orange-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
+                        <Radio className="w-3 h-3" />
+                        SOUNDCLOUD
+                      </span>
+                      <span className="text-xs font-mono text-neutral-400 font-semibold">
+                        [{pod.year}]
+                      </span>
+                    </div>
+
+                    <h4 className="text-base font-bold uppercase tracking-wide text-white line-clamp-2">
+                      {pod.title}
+                    </h4>
+
+                    {pod.description && (
+                      <p className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 line-clamp-2">
+                        {pod.description}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Reproductor Embebido SoundCloud o Fallback Estilizado */}
+                  {pod.embedUrl && (
+                    <div className="w-full overflow-hidden rounded-none border border-neutral-800 bg-neutral-900/30">
+                      <iframe
+                        width="100%"
+                        height="140"
+                        scrolling="no"
+                        frameBorder="no"
+                        allow="autoplay"
+                        src={pod.embedUrl}
+                        title={pod.title}
+                        loading="lazy"
+                        className="w-full border-0 block"
+                      />
+                    </div>
+                  )}
+
+                  <div className="pt-2 border-t border-neutral-900 flex justify-end">
+                    <a
+                      href={pod.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 min-h-[44px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-600 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-colors"
+                    >
+                      <SoundcloudIcon className="w-3.5 h-3.5 text-orange-400" />
+                      <span>ESCUCHAR EN SOUNDCLOUD</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                </article>
+              ))}
           </div>
         </div>
+
       </div>
     </section>
   );
 }
+
