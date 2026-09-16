@@ -118,9 +118,11 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
                         {show.dayNumber}
                       </span>
                     </div>
-                    <span className="text-xs font-mono text-neutral-500">
-                      {show.year}
-                    </span>
+                    {show.year && show.year !== show.dayNumber && (
+                      <span className="text-xs font-mono text-neutral-500">
+                        {show.year}
+                      </span>
+                    )}
                   </div>
 
                   {/* Middle: City & Venue */}
@@ -128,7 +130,7 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
                     <div className="flex items-center gap-2">
                       <MapPin className="w-3.5 h-3.5 text-neutral-500" />
                       <h3 className="text-lg sm:text-xl font-bold uppercase tracking-wide text-white group-hover:text-neutral-200 transition-colors">
-                        {show.city}, {show.country}
+                        {show.city}{show.country ? `, ${show.country}` : ""}
                       </h3>
                     </div>
                     <p className="mt-1 text-xs uppercase tracking-widest text-neutral-400 font-mono">
@@ -138,7 +140,14 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
 
                   {/* Right: Ticket Action Button */}
                   <div className="flex items-center justify-end">
-                    {show.status === "sold-out" ? (
+                    {show.status === "booking" ? (
+                      <a
+                        href={show.ticketUrl.startsWith("#") ? `/${show.ticketUrl}` : show.ticketUrl}
+                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-colors shadow-sm"
+                      >
+                        <span>BOOKING ABIERTO</span>
+                      </a>
+                    ) : show.status === "sold-out" ? (
                       <span className="px-5 py-2 border border-neutral-800 bg-neutral-900 text-neutral-500 text-xs font-mono font-bold uppercase tracking-widest">
                         SOLD OUT
                       </span>

@@ -14,7 +14,7 @@ export interface TourDate {
   country: string;
   venue: string;
   ticketUrl: string;
-  status: "tickets" | "sold-out" | "rsvp";
+  status: "tickets" | "sold-out" | "rsvp" | "booking";
 }
 
 export interface MusicRelease {
@@ -140,100 +140,16 @@ export const siteConfig = {
 
   tourDates: [
     {
-      id: "tour-1",
-      date: "OCT 24, 2026",
-      dayNumber: "24",
-      month: "OCT",
+      id: "tour-euro-2026",
+      date: "NOV - DIC 2026",
+      dayNumber: "2026",
+      month: "NOV - DIC",
       year: "2026",
-      city: "Amsterdam",
-      country: "Netherlands",
-      venue: "Awakenings ADE // Gashouder",
-      ticketUrl: "https://tickets.example.com",
-      status: "sold-out"
-    },
-    {
-      id: "tour-2",
-      date: "NOV 06, 2026",
-      dayNumber: "06",
-      month: "NOV",
-      year: "2026",
-      city: "Berlin",
-      country: "Germany",
-      venue: "RSO // Kraftwerk Industrial",
-      ticketUrl: "https://tickets.example.com",
-      status: "tickets"
-    },
-    {
-      id: "tour-3",
-      date: "NOV 14, 2026",
-      dayNumber: "14",
-      month: "NOV",
-      year: "2026",
-      city: "London",
-      country: "United Kingdom",
-      venue: "Drumsheds // Teletech Arena",
-      ticketUrl: "https://tickets.example.com",
-      status: "tickets"
-    },
-    {
-      id: "tour-4",
-      date: "NOV 28, 2026",
-      dayNumber: "28",
-      month: "NOV",
-      year: "2026",
-      city: "Paris",
-      country: "France",
-      venue: "Nexus // Possession Night",
-      ticketUrl: "https://tickets.example.com",
-      status: "tickets"
-    },
-    {
-      id: "tour-5",
-      date: "DEC 05, 2026",
-      dayNumber: "05",
-      month: "DEC",
-      year: "2026",
-      city: "Bogotá",
-      country: "Colombia",
-      venue: "Baum Festival // Main Warehouse",
-      ticketUrl: "https://tickets.example.com",
-      status: "tickets"
-    },
-    {
-      id: "tour-6",
-      date: "DEC 12, 2026",
-      dayNumber: "12",
-      month: "DEC",
-      year: "2026",
-      city: "Medellín",
-      country: "Colombia",
-      venue: "Plaza Mayor // Hard Sound Ritual",
-      ticketUrl: "https://tickets.example.com",
-      status: "tickets"
-    },
-    {
-      id: "tour-7",
-      date: "DEC 19, 2026",
-      dayNumber: "19",
-      month: "DEC",
-      year: "2026",
-      city: "Miami, FL",
-      country: "United States",
-      venue: "Space Miami // The Terrace",
-      ticketUrl: "https://tickets.example.com",
-      status: "rsvp"
-    },
-    {
-      id: "tour-8",
-      date: "DEC 31, 2026",
-      dayNumber: "31",
-      month: "DEC",
-      year: "2026",
-      city: "Barcelona",
-      country: "Spain",
-      venue: "Input High Fidelity Dance Club",
-      ticketUrl: "https://tickets.example.com",
-      status: "tickets"
+      city: "Italia & Alemania",
+      country: "",
+      venue: "EURO TOUR 2026 // Clubes & Showcases",
+      ticketUrl: "#contact",
+      status: "booking"
     }
   ] as TourDate[],
 
