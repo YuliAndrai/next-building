@@ -31,7 +31,7 @@ import { cn } from "@/lib/utils";
  *
  * Represents the track actively loaded in the embedded Spotify mini-player.
  */
-type ActiveTrackState = TrackItem | {
+type ActiveTrackState = {
   title: string;
   year: string;
   spotifyId?: string | null;
@@ -43,7 +43,7 @@ type ActiveTrackState = TrackItem | {
  * Renders the comprehensive music portfolio of ANDHRAY:
  * 1. Main Header with Official channels quick-access bar.
  * 2. Embedded Dynamic Spotify mini-player with stateful track switching.
- * 3. Complete digital tracklist table with row-level selection and fallback SoundCloud highlighting.
+ * 3. Complete digital tracklist table with row-level selection.
  * 4. Podcasts and live DJ sets subsection with responsive video/audio players.
  *
  * @returns {React.JSX.Element} The rendered Music section.
@@ -54,33 +54,12 @@ export function MusicSection(): React.JSX.Element {
   const tracks: TrackItem[] = releasesData;
   const podcasts: PodcastSetItem[] = podcastsData;
 
-  // Step 2: Initialize reactive activeTrack state (defaults to tracks[0])
-  const [activeTrack, setActiveTrack] = useState<TrackItem>(tracks[0]);
-  const [soundCloudHighlightId, setSoundCloudHighlightId] = useState<string | null>(null);
-  const [noticeMessage, setNoticeMessage] = useState<string | null>(null);
-
-  /**
-   * Handles user selection on a track row or title to update the active mini-player.
-   * If the track provides a valid spotifyId, updates activeTrack immediately and clears highlights.
-   * If the track lacks a spotifyId (e.g. DAGA ADICTA RE EDIT), preserves activeTrack
-   * and highlights the SoundCloud action button with an informative notice.
-   *
-   * @param track - Selected TrackItem from releasesData
-   */
-  const handleSelectTrack = (track: TrackItem) => {
-    // Step 2.1: Verify if track has a Spotify ID
-    if (track.spotifyId) {
-      setActiveTrack(track);
-      setSoundCloudHighlightId(null);
-      setNoticeMessage(null);
-    } else {
-      // Step 2.2: Track lacks Spotify -> keep previous player, highlight SoundCloud
-      setSoundCloudHighlightId(track.id);
-      setNoticeMessage(
-        `"${track.title}" no está disponible en Spotify. Escúchalo directamente en SoundCloud.`
-      );
-    }
-  };
+  // Step 2: Initialize reactive activeTrack state (defaults to MEMENTO [2025])
+  const [activeTrack, setActiveTrack] = useState<ActiveTrackState>({
+    title: "MEMENTO",
+    year: "2025",
+    spotifyId: "68KwzzA0ybAGpUALiaJ0Ci"
+  });
 
   // Step 3: Separate featured HÖR Berlin live video from curated podcasts/sets
   const featuredVideoSet = podcasts.find((p) => Boolean(p.embedUrl)) || podcasts[0];
@@ -90,7 +69,7 @@ export function MusicSection(): React.JSX.Element {
     <section id="music" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
       <div className="max-w-7xl mx-auto space-y-16 sm:space-y-24">
         
-        {/* Step 3: Main Section Header, Channels Quickbar & MEMENTO Spotify Mini Player */}
+        {/* Step 3: Main Section Header, Channels Quickbar */}
         <div className="space-y-8 pb-8 border-b border-neutral-900">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
@@ -131,28 +110,23 @@ export function MusicSection(): React.JSX.Element {
 
         {/* Step 4: Tracklist Digital (Tabla minimalista oscura en orden cronológico estricto) */}
         <div className="space-y-6">
-          {/* Contenedor del Reproductor con iframe oficial embebido de Spotify */}
-          <div className="w-full max-w-4xl mx-auto mb-8">
-            <div className="text-xs uppercase tracking-widest text-neutral-400 mb-2 font-mono flex items-center justify-between">
-              <span>{"// REPRODUCTOR // "}{activeTrack ? `${activeTrack.title} [${activeTrack.year}]` : "MEMENTO [2025]"}</span>
-              {noticeMessage && (
-                <span className="text-[10px] font-mono uppercase tracking-widest text-orange-400 flex items-center gap-1.5 animate-pulse">
-                  <Radio className="w-3.5 h-3.5 text-orange-400 shrink-0" />
-                  <span>{noticeMessage}</span>
-                </span>
-              )}
+          {/* Mini-player superior dinámico de Spotify */}
+          <div className="w-full max-w-4xl mx-auto mb-10">
+            <div className="flex items-center justify-between text-xs tracking-widest text-neutral-400 mb-3 font-mono">
+              <span>{"// EN REPRODUCCIÓN"}</span>
+              <span className="text-white font-bold">{activeTrack.title} [{activeTrack.year}]</span>
             </div>
-            <iframe
-              key={activeTrack?.spotifyId || "68KwzzA0ybAGpUALiaJ0Ci"}
-              style={{ borderRadius: "12px" }}
-              src={`https://open.spotify.com/embed/track/${activeTrack?.spotifyId || "68KwzzA0ybAGpUALiaJ0Ci"}?utm_source=generator&theme=0`}
-              width="100%"
-              height="80"
-              frameBorder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              title={`Spotify Mini Player - ${activeTrack?.title || "MEMENTO"}`}
-            />
+            <div className="w-full h-[80px] bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800">
+              <iframe
+                key={activeTrack.spotifyId}
+                src={`https://open.spotify.com/embed/track/${activeTrack.spotifyId}?utm_source=generator&theme=0`}
+                width="100%"
+                height="80"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-3 border-b border-neutral-900">
@@ -161,7 +135,7 @@ export function MusicSection(): React.JSX.Element {
                 {"// COMPLETE DIGITAL TRACKLIST"}
               </span>
               <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-wider text-white">
-                CATÁLOGO DE TRACKS ({tracks.length})
+                CATÁLOGO DE TRACKS (14)
               </h3>
             </div>
             <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
@@ -184,19 +158,18 @@ export function MusicSection(): React.JSX.Element {
               <tbody className="divide-y divide-neutral-900 font-mono text-xs">
                 {tracks.map((track) => {
                   const isCurrentlyPlaying = activeTrack.spotifyId === track.spotifyId;
-                  const isSoundcloudHighlighted = soundCloudHighlightId === track.id;
 
                   return (
                     <tr
                       key={track.id}
-                      onClick={() => handleSelectTrack(track)}
+                      onClick={() => {
+                        if (track.spotifyId) {
+                          setActiveTrack(track);
+                        }
+                      }}
                       className={cn(
                         "cursor-pointer hover:bg-neutral-900/50 transition-colors group",
-                        isCurrentlyPlaying
-                          ? "bg-neutral-900/60 border-l-2 border-l-red-500"
-                          : isSoundcloudHighlighted
-                          ? "bg-orange-950/20 border-l-2 border-l-orange-500"
-                          : ""
+                        isCurrentlyPlaying && "bg-neutral-900/60 border-l-2 border-l-red-500"
                       )}
                     >
                       {/* Columna [Año] */}
@@ -218,12 +191,6 @@ export function MusicSection(): React.JSX.Element {
                           {isCurrentlyPlaying && (
                             <span className="text-[9px] font-mono text-red-400 border border-red-500/40 px-1 py-0.5 bg-red-500/10 uppercase tracking-widest hidden sm:inline-block">
                               SONANDO
-                            </span>
-                          )}
-                          {isSoundcloudHighlighted && (
-                            <span className="text-[9px] font-mono text-orange-400 border border-orange-500/40 px-1 py-0.5 bg-orange-500/10 uppercase tracking-widest animate-pulse flex items-center gap-1">
-                              <Radio className="w-2.5 h-2.5" />
-                              EXCLUSIVO SOUNDCLOUD
                             </span>
                           )}
                         </div>
@@ -256,12 +223,7 @@ export function MusicSection(): React.JSX.Element {
                               href={track.links.soundcloud}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={cn(
-                                "p-2 min-h-[44px] min-w-[44px] flex items-center justify-center transition-all",
-                                isSoundcloudHighlighted
-                                  ? "bg-orange-500/20 border border-orange-500 text-orange-400 ring-2 ring-orange-500/60 shadow-[0_0_12px_rgba(249,115,22,0.4)] animate-pulse scale-105"
-                                  : "text-neutral-500 hover:text-orange-400 hover:bg-neutral-900 border border-transparent hover:border-neutral-800"
-                              )}
+                              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-500 hover:text-orange-400 hover:bg-neutral-900 border border-transparent hover:border-neutral-800 transition-all"
                               aria-label={`Escuchar ${track.title} en SoundCloud`}
                               title="SoundCloud"
                             >
