@@ -33,6 +33,56 @@ export interface MusicRelease {
   };
 }
 
+/**
+ * TrackItem Interface
+ *
+ * Represents an entry in the chronological discography catalog.
+ */
+export interface TrackItem {
+  id: string;
+  title: string;
+  year: string;
+  type?: string;
+  spotifyId?: string | null;
+  spotifyEmbed?: string;
+  spotifyEmbedUrl?: string;
+  hasMiniPlayer?: boolean;
+  links: {
+    spotify?: string;
+    soundcloud?: string;
+    beatport?: string;
+    appleMusic?: string;
+    bandcamp?: string;
+  };
+}
+
+/**
+ * PodcastSetItem Interface
+ *
+ * Represents a live DJ performance, radio broadcast, or curated podcast set.
+ */
+export interface PodcastSetItem {
+  id?: string;
+  title: string;
+  date: string;
+  year?: string;
+  platform?: "youtube" | "soundcloud";
+  url?: string;
+  embedUrl?: string;
+  description?: string;
+}
+
+/**
+ * OfficialChannel Interface
+ *
+ * Represents an official streaming or purchase platform channel for the artist.
+ */
+export interface OfficialChannel {
+  name: string;
+  url: string;
+  platform: "spotify" | "soundcloud" | "appleMusic" | "beatport" | "bandcamp";
+}
+
 export interface LiveSet {
   id: string;
   title: string;
@@ -64,6 +114,189 @@ export interface NewsItem {
   spotifyUrl?: string;
   soundcloudUrl?: string;
 }
+
+export const releasesData: TrackItem[] = [
+  {
+    id: "track-1",
+    title: "MEMENTO",
+    year: "2025",
+    type: "SINGLE",
+    spotifyId: "68KwzzA0ybAGpUALiaJ0Ci",
+    spotifyEmbed: "https://open.spotify.com/embed/track/68KwzzA0ybAGpUALiaJ0Ci?utm_source=generator&theme=0",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/68KwzzA0ybAGpUALiaJ0Ci",
+      soundcloud: "https://soundcloud.com/andhray/memento",
+      beatport: "https://www.beatport.com/es/release/memento/5437260",
+      appleMusic: "https://music.apple.com/co/song/memento/1842890835"
+    }
+  },
+  {
+    id: "track-2",
+    title: "EN NAPL",
+    year: "2025",
+    type: "SINGLE",
+    spotifyId: "0p10DSavZofwMZyQ02tMSM",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/0p10DSavZofwMZyQ02tMSM",
+      soundcloud: "https://soundcloud.com/andhray/andhray-en-napl",
+      beatport: "https://www.beatport.com/es/release/en-napl/5051876",
+      appleMusic: "https://music.apple.com/co/song/en-napl/1810081598"
+    }
+  },
+  {
+    id: "track-3",
+    title: "DANSEO MENTAL",
+    year: "2024",
+    type: "SINGLE",
+    spotifyId: "73hIIW3p4wuX4HeJNYOGWf",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/73hIIW3p4wuX4HeJNYOGWf",
+      soundcloud: "https://soundcloud.com/thefinesttechno/permiere-andhray-danseo-mental-va03d",
+      beatport: "https://www.beatport.com/es/release/danseo-mental/4742455",
+      bandcamp: "https://depthnoiserecords.bandcamp.com/track/danseo-mental"
+    }
+  },
+  {
+    id: "track-4",
+    title: "SENSUAL",
+    year: "2024",
+    type: "INDUSTRIAL GIRLS",
+    spotifyId: "5A7hfrGS41sSRTv6iQItQ6",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/5A7hfrGS41sSRTv6iQItQ6",
+      appleMusic: "https://music.apple.com/co/song/sensual-industrial-girls/1723834597"
+    }
+  },
+  {
+    id: "track-5",
+    title: "MI",
+    year: "2024",
+    type: "INDUSTRIAL GIRLS",
+    spotifyId: "6lzYhRcxLNPX6gfveAXh0S",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/6lzYhRcxLNPX6gfveAXh0S",
+      appleMusic: "https://music.apple.com/co/song/mi-industrial-girls/1723834818"
+    }
+  },
+  {
+    id: "track-6",
+    title: "MAYBE, WE ARE CRAZY",
+    year: "2024",
+    type: "INDUSTRIAL GIRLS",
+    spotifyId: "140e7NyEy4Sn5XIZHre9fM",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/140e7NyEy4Sn5XIZHre9fM",
+      appleMusic: "https://music.apple.com/co/song/maybe-we-are-crazy-industrial-girls/1723834600"
+    }
+  },
+  {
+    id: "track-7",
+    title: "FKN RYTHM",
+    year: "2024",
+    type: "INDUSTRIAL GIRLS",
+    spotifyId: "6pffPRPNH7BF67Qub1ED67",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/6pffPRPNH7BF67Qub1ED67",
+      appleMusic: "https://music.apple.com/co/song/fkn-rythm-industrial-girls/1723834825"
+    }
+  },
+  {
+    id: "track-8",
+    title: "DAGA ADICTA RE EDIT",
+    year: "Bootleg",
+    type: "EDIT",
+    spotifyId: null,
+    links: {
+      soundcloud: "https://soundcloud.com/andhray/andhray-daga-adicta-re-edit-luigi-21-plus-ftj-alvarez"
+    }
+  },
+  {
+    id: "track-9",
+    title: "ILUSION",
+    year: "2024",
+    type: "SINGLE",
+    spotifyId: "5Vvvbv1GnDLHR47nLo2Dwq",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/5Vvvbv1GnDLHR47nLo2Dwq",
+      beatport: "https://www.beatport.com/es/track/ilusion/19596639",
+      appleMusic: "https://music.apple.com/co/song/ilusion/1772158388"
+    }
+  },
+  {
+    id: "track-10",
+    title: "EN UN RAVE",
+    year: "2024",
+    type: "SINGLE",
+    spotifyId: "0EQGafE2qUvAIzLMbSP76C",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/0EQGafE2qUvAIzLMbSP76C",
+      beatport: "https://www.beatport.com/es/track/en-un-rave/19596638",
+      appleMusic: "https://music.apple.com/co/song/en-un-rave/1772158387"
+    }
+  },
+  {
+    id: "track-11",
+    title: "FELINE BLINK (CON DEBBIE IT)",
+    year: "2024",
+    type: "SINGLE",
+    spotifyId: "30TPs7A1WVHiqR3xCdh2TF",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/30TPs7A1WVHiqR3xCdh2TF",
+      soundcloud: "https://on.soundcloud.com/bHYUYFYbZq2A4ds7Wk",
+      beatport: "https://www.beatport.com/es/track/feline-blink/19463077",
+      bandcamp: "https://industrialgirls.bandcamp.com/track/debbie-it-andhray-feline-blink",
+      appleMusic: "https://music.apple.com/co/song/feline-blink/1766131706"
+    }
+  },
+  {
+    id: "track-12",
+    title: "GIRL FROM THE DARK (KOBAL AND JAY VOICES)",
+    year: "2022",
+    type: "SINGLE",
+    spotifyId: "1MzPqm1xWPSXZp9WtZimTp",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/1MzPqm1xWPSXZp9WtZimTp",
+      soundcloud: "https://soundcloud.com/industrial_girls/andhray-girl-from-the-dark",
+      beatport: "https://www.beatport.com/es/track/girl-from-the-dark-kobal-and-jay-voices/17187077",
+      bandcamp: "https://industrialgirls.bandcamp.com/track/andhray-girl-from-the-dark-kobal-and-jay-voices",
+      appleMusic: "https://music.apple.com/co/song/girl-from-the-dark-kobal-and-jay-voices/1657571142"
+    }
+  },
+  {
+    id: "track-13",
+    title: "SIN MIEDO",
+    year: "2022",
+    type: "SINGLE",
+    spotifyId: "4ZcCcVH4Df8GBdvUHXKcLJ",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/4ZcCcVH4Df8GBdvUHXKcLJ",
+      soundcloud: "https://soundcloud.com/industrial_girls/andhray-sin-miedo-free-download",
+      beatport: "https://www.beatport.com/es/track/sin-miedo/17050678",
+      appleMusic: "https://music.apple.com/co/album/sin-miedo/1651128604?i=1651128605"
+    }
+  },
+  {
+    id: "track-14",
+    title: "RESIGNIFICAR",
+    year: "2021",
+    type: "SINGLE",
+    spotifyId: "1M9QtwVh1Cu4bIfxSVw6Vd",
+    links: {
+      spotify: "https://open.spotify.com/intl-es/track/1M9QtwVh1Cu4bIfxSVw6Vd",
+      soundcloud: "https://soundcloud.com/andhray/andhray-resignificar-exclusive-industrial-girls",
+      beatport: "https://www.beatport.com/es/release/resignificar/3911818",
+      appleMusic: "https://music.apple.com/co/album/resignificar/1651128056?i=1651128057"
+    }
+  }
+];
+
+export const podcastsData: PodcastSetItem[] = [
+  { title: "Andhray | HÖR Berlin", date: "24 Julio 2026", embedUrl: "https://www.youtube.com/embed/_xtvbbRCeGU" },
+  { title: "ANDHRAY - Dj set Hard/Trance - 360 - Riöt.scampia", date: "2024", url: "https://www.youtube.com/watch?v=SZTMVVqo-HA" },
+  { title: "Techno Germany Podcast 127", date: "2024", url: "https://soundcloud.com/technogermany/andhray-techno-germany-podcast-127" },
+  { title: "TMORCAST115 | The Meaning Of Rave", date: "2024", url: "https://soundcloud.com/themeaningofrave/tmorcast115-andhray" },
+  { title: "COMME DANS LES FILMS #16 by Parfait", date: "2023", url: "https://soundcloud.com/parfaitparfait/comme-dans-les-films-16-andhray" }
+];
 
 export const siteConfig = {
   artist: {
@@ -125,8 +358,18 @@ export const siteConfig = {
     facebook: "https://facebook.com",
     twitch: "https://twitch.tv",
     tiktok: "https://tiktok.com",
-    residentAdvisor: "https://ra.co"
+    residentAdvisor: "https://ra.co",
+    beatport: "https://www.beatport.com/es/artist/andhray/1089914",
+    bandcamp: "https://andhray.bandcamp.com"
   },
+
+  officialChannels: [
+    { name: "SPOTIFY", url: "https://open.spotify.com/artist/4zmRL1DHbEIYsITw4HOYRn", platform: "spotify" },
+    { name: "SOUNDCLOUD", url: "https://soundcloud.com/andhray", platform: "soundcloud" },
+    { name: "APPLE MUSIC", url: "https://music.apple.com", platform: "appleMusic" },
+    { name: "BEATPORT", url: "https://www.beatport.com/es/artist/andhray/1089914", platform: "beatport" },
+    { name: "BANDCAMP", url: "https://andhray.bandcamp.com", platform: "bandcamp" }
+  ] as OfficialChannel[],
 
   tourConfig: {
     useSeatedWidget: false,
@@ -153,115 +396,11 @@ export const siteConfig = {
     }
   ] as TourDate[],
 
-  releases: [
-    {
-      id: "rel-1",
-      title: "OBSIDIAN AWAKENING",
-      type: "EP",
-      label: "HEKATE RECORDS",
-      releaseYear: "2026",
-      artwork: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
-      links: {
-        spotify: "https://spotify.com",
-        soundcloud: "https://soundcloud.com",
-        beatport: "https://beatport.com",
-        appleMusic: "https://apple.com",
-        bandcamp: "https://bandcamp.com"
-      }
-    },
-    {
-      id: "rel-2",
-      title: "INDUSTRIAL SEDUCTION",
-      type: "Single",
-      label: "BLACK RITUALS",
-      releaseYear: "2026",
-      artwork: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop",
-      links: {
-        spotify: "https://spotify.com",
-        soundcloud: "https://soundcloud.com",
-        beatport: "https://beatport.com"
-      }
-    },
-    {
-      id: "rel-3",
-      title: "SONIC SACRAMENT",
-      type: "EP",
-      label: "REKIDS",
-      releaseYear: "2025",
-      artwork: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop",
-      links: {
-        spotify: "https://spotify.com",
-        soundcloud: "https://soundcloud.com",
-        beatport: "https://beatport.com"
-      }
-    },
-    {
-      id: "rel-4",
-      title: "HYPNOTIC FORCE",
-      type: "Remix",
-      label: "TELETECH RECS",
-      releaseYear: "2025",
-      artwork: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop",
-      links: {
-        spotify: "https://spotify.com",
-        soundcloud: "https://soundcloud.com",
-        beatport: "https://beatport.com"
-      }
-    }
-  ] as MusicRelease[],
+  tracks: releasesData as TrackItem[],
 
-  liveSets: [
-    {
-      id: "set-1",
-      title: "ANDHRAY LIVE @ VERKNIPT ARENA",
-      event: "Verknipt Hard Techno Festival",
-      year: "2026",
-      youtubeId: "dQw4w9WgXcQ",
-      duration: "1h 32m"
-    }
-  ] as LiveSet[],
+  podcastsAndSets: podcastsData as PodcastSetItem[],
 
-  merch: [
-    {
-      id: "merch-1",
-      name: "ANDHRAY HEAVYWEIGHT OVERSIZED HOODIE",
-      price: "€85.00",
-      currency: "EUR",
-      image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=800&auto=format&fit=crop",
-      badge: "NEW",
-      category: "Apparel",
-      link: "#"
-    },
-    {
-      id: "merch-2",
-      name: "OBSIDIAN AWAKENING 12\" DOUBLE VINYL",
-      price: "€38.00",
-      currency: "EUR",
-      image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=800&auto=format&fit=crop",
-      badge: "LIMITED",
-      category: "Vinyl",
-      link: "#"
-    },
-    {
-      id: "merch-3",
-      name: "ACID RITUAL VINTAGE ACID-WASH TEE",
-      price: "€45.00",
-      currency: "EUR",
-      image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop",
-      category: "Apparel",
-      link: "#"
-    },
-    {
-      id: "merch-4",
-      name: "INDUSTRIAL RAVE TACTICAL CHEST BAG",
-      price: "€50.00",
-      currency: "EUR",
-      image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop",
-      badge: "LIMITED",
-      category: "Accessories",
-      link: "#"
-    }
-  ] as MerchItem[],
+  merch: [] as MerchItem[],
 
   contacts: {
     general: "mgmt@andhray.com",
