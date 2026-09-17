@@ -13,6 +13,7 @@ const config: Config = {
         darkBg: "#030303",
         darkCard: "#0a0a0a",
         darkBorder: "#171717",
+        "accent-red": "#FF0000",
       },
       letterSpacing: {
         ultra: "0.28em",

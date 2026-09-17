@@ -23,7 +23,7 @@ export function NewsSection(): React.JSX.Element {
       {/* Header de la sección */}
       <div className="flex items-center justify-between mb-8 pb-3 border-b border-neutral-800">
         <span className="text-xs font-mono tracking-widest text-neutral-500 uppercase">
-          {"// ÚLTIMAS NOTICIAS & RECIENTES"}
+          <span className="text-[#FF0000]">{"//"}</span> ÚLTIMAS NOTICIAS
         </span>
         <span className="text-[10px] font-mono tracking-widest text-neutral-600 uppercase">
           STREAMING &amp; MÚSICA
@@ -35,8 +35,9 @@ export function NewsSection(): React.JSX.Element {
         {/* COLUMNA IZQUIERDA: VIDEO EMBEBIDO DE HÖR BERLIN */}
         <div className="lg:col-span-7 flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider">
-              HÖR BERLIN // DJ SET
+            <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider flex items-center">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#FF0000] animate-pulse mr-2" />
+              HÖR BERLIN <span className="text-[#FF0000] mx-1">{"//"}</span> DJ SET
             </span>
             <span className="text-[11px] font-mono text-neutral-500">24 JULIO 2026</span>
           </div>
@@ -49,16 +50,27 @@ export function NewsSection(): React.JSX.Element {
               allowFullScreen
             />
           </div>
-          <p className="text-xs font-mono text-neutral-400">
-            Transmisión en directo desde los estudios de HÖR en Berlín. Hard Dance, frecuencias ácidas e industrial.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1">
+            <p className="text-xs font-mono text-neutral-400">
+              Transmisión en directo desde los estudios de HÖR en Berlín. Hard Dance, frecuencias ácidas e industrial.
+            </p>
+            <a
+              href="https://www.youtube.com/watch?v=_xtvbbRCeGU"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 text-xs font-mono text-neutral-300 hover:text-white transition-colors shrink-0"
+            >
+              <span>VER SET EN VIVO</span>
+              <span className="transition-colors group-hover:text-[#FF0000]">&rarr;</span>
+            </a>
+          </div>
         </div>
 
         {/* COLUMNA DERECHA: MINI REPRODUCTOR EMBEBIDO SPOTIFY / SOUNDCLOUD DE MEMENTO */}
         <div className="lg:col-span-5 flex flex-col gap-4">
           <div>
             <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider">
-              TRACK DESTACADO // MEMENTO
+              TRACK DESTACADO <span className="text-[#FF0000] mx-1">{"//"}</span> MEMENTO
             </span>
             <p className="text-[11px] font-mono text-neutral-500 mt-1">
               Original Mix • Fast Techno &amp; Groove

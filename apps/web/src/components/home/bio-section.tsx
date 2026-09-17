@@ -20,14 +20,12 @@ interface MetricItem {
 }
 
 /**
- * Curated career impact metrics displayed in the editorial presence card.
+ * Curated career impact metrics displayed in the editorial presence card (2x2 symmetrical grid).
  */
 const IMPACT_METRICS: readonly MetricItem[] = [
   { value: "12", label: "PAÍSES RECORRIDOS" },
   { value: "2", label: "CONTINENTES" },
-  { value: "16", label: "ORIGINAL MIXES" },
-  { value: "5", label: "COMPILADOS VA" },
-  { value: "+33.5K", label: "STREAMS SENSUAL" },
+  { value: "+33.5K", label: "STREAMS SENSUAL (SPOTIFY)" },
   { value: "HÖR BERLIN", label: "SHOWCASE (24 JUL 2026)", isAccent: true },
 ] as const;
 
@@ -52,7 +50,7 @@ export function BioSection(): React.JSX.Element {
         {/* Step 2: Columna Izquierda (lg:col-span-7) - Texto y Visión */}
         <div className="lg:col-span-7">
           <span className="text-xs font-mono tracking-widest text-neutral-500 uppercase block">
-            {"// BIO"}
+            <span className="text-[#FF0000]">{"//"}</span> BIO
           </span>
 
           <p className="text-sm font-mono tracking-wider text-neutral-400 uppercase mt-2 mb-6">
@@ -72,19 +70,19 @@ export function BioSection(): React.JSX.Element {
               href="https://industrialgirls.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-8 px-6 py-3 border border-neutral-700 bg-neutral-950/60 hover:bg-white hover:text-black hover:border-white transition-all text-xs font-mono tracking-widest uppercase text-neutral-200 rounded-sm"
+              className="group inline-flex items-center gap-2 mt-8 px-6 py-3 border border-neutral-700 bg-neutral-950/60 hover:bg-white hover:text-black hover:border-white transition-all text-xs font-mono tracking-widest uppercase text-neutral-200 rounded-sm"
             >
               <span>VISITAR INDUSTRIAL GIRLS</span>
-              <span>&rarr;</span>
+              <span className="transition-colors group-hover:text-[#FF0000]">&rarr;</span>
             </a>
           </div>
         </div>
 
         {/* Step 3: Columna Derecha (lg:col-span-5) - Tarjeta de Impacto Editorial */}
         <div className="lg:col-span-5">
-          <div className="border border-neutral-800 bg-neutral-950/70 p-6 md:p-8 rounded-sm backdrop-blur-sm">
+          <div className="border border-neutral-800 border-l-2 border-l-[#FF0000] bg-neutral-950/70 p-6 md:p-8 rounded-sm backdrop-blur-sm">
             <h3 className="text-xs font-mono tracking-widest text-neutral-400 uppercase mb-6 pb-3 border-b border-neutral-800">
-              {"// IMPACTO & PRESENCIA"}
+              <span className="text-[#FF0000]">{"//"}</span> IMPACTO &amp; PRESENCIA
             </h3>
 
             <div className="grid grid-cols-2 gap-6">
@@ -106,9 +104,9 @@ export function BioSection(): React.JSX.Element {
 
             <a 
               href="#epk" 
-              className="mt-6 inline-block w-full text-center py-2.5 border border-neutral-700/60 text-[11px] font-mono tracking-widest uppercase text-neutral-300 hover:text-white hover:border-neutral-500 transition-colors"
+              className="group mt-6 inline-block w-full text-center py-2.5 border border-neutral-700/60 text-[11px] font-mono tracking-widest uppercase text-neutral-300 hover:text-white hover:border-neutral-500 transition-colors"
             >
-              DOWNLOAD EPK (PDF) &darr;
+              DOWNLOAD EPK (PDF) <span className="transition-colors group-hover:text-[#FF0000]">&darr;</span>
             </a>
           </div>
         </div>
