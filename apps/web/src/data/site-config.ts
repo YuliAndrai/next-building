@@ -345,8 +345,8 @@ export const siteConfig = {
 
   announcement: {
     enabled: true,
-    text: "ANDHRAY X MERCH — WORLD TOUR CAPSULE 01 NOW AVAILABLE",
-    link: "#merch"
+    text: "EURO TOUR (NOV - DIC) — BOOKING & SHOWCASES",
+    link: "#events"
   },
 
   socials: {
@@ -391,7 +391,7 @@ export const siteConfig = {
       city: "Italia & Alemania",
       country: "",
       venue: "EURO TOUR 2026 // Clubes & Showcases",
-      ticketUrl: "#contact",
+      ticketUrl: "/contacto",
       status: "booking"
     }
   ] as TourDate[],
@@ -403,11 +403,13 @@ export const siteConfig = {
   merch: [] as MerchItem[],
 
   contacts: {
-    general: "mgmt@andhray.com",
-    management: "mgmt@andhray.com",
-    bookingAmericas: "americas@andhray-agency.com",
-    bookingEurope: "europe@andhray-agency.com",
-    press: "press@andhray.com",
+    general: "industrialgirls.techno@gmail.com",
+    management: "industrialgirls.techno@gmail.com",
+    bookingAgent: "Laura",
+    bookingPhone: "+57 320 257 2002",
+    bookingAmericas: "industrialgirls.techno@gmail.com",
+    bookingEurope: "industrialgirls.techno@gmail.com",
+    press: "industrialgirls.techno@gmail.com",
     pressKitUrl: "#"
   }
 };

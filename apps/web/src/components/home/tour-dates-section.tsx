@@ -24,7 +24,7 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
   });
 
   return (
-    <section id="events" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900 relative">
+    <section id="events" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-transparent relative z-10">
       <span id="tour" className="sr-only -top-20 relative" />
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
@@ -49,14 +49,14 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
               placeholder="FILTER BY CITY OR VENUE..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-neutral-950 border border-neutral-800 text-xs uppercase tracking-widest text-white pl-9 pr-4 py-2.5 focus:outline-none focus:border-neutral-500 placeholder:text-neutral-600 font-mono"
+              className="w-full bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl text-xs uppercase tracking-widest text-white pl-9 pr-4 py-2.5 focus:outline-none focus:border-neutral-500 placeholder:text-neutral-600 font-mono"
             />
           </div>
         </div>
 
         {/* Featured Tour Announcement Card */}
         {siteConfig.tourConfig.featuredTour && (
-          <div className="mb-10 p-6 sm:p-8 bg-neutral-950 border border-neutral-850 hover:border-neutral-700 transition-colors relative overflow-hidden">
+          <div className="mb-10 p-6 sm:p-8 bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl hover:border-neutral-700 transition-colors relative overflow-hidden">
             <div className="absolute top-0 right-0 w-72 h-72 bg-red-950/20 blur-[100px] rounded-full pointer-events-none" />
             <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="space-y-2">
@@ -102,16 +102,16 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
           </div>
         ) : (
           /* Interactive High-End Tour Schedule Table */
-          <div className="divide-y divide-neutral-900 border-y border-neutral-900">
+          <div className="bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl divide-y divide-neutral-800/60 overflow-hidden">
             {filteredDates.length > 0 ? (
               filteredDates.map((show: TourDate) => (
                 <div
                   key={show.id}
-                  className="group py-5 sm:py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-200 hover:bg-neutral-950/80 px-2 sm:px-4"
+                  className="group py-5 sm:py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-200 hover:bg-white/5 px-4 sm:px-6"
                 >
                   {/* Left: Date Display */}
                   <div className="flex items-center gap-4 min-w-[140px]">
-                    <div className="text-center font-mono border-r border-neutral-800 pr-4">
+                    <div className="text-center font-mono border-r border-neutral-800/60 pr-4">
                       <span className="text-xs uppercase text-neutral-500 font-bold block">
                         {show.month}
                       </span>
@@ -144,12 +144,12 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
                     {show.status === "booking" ? (
                       <a
                         href={show.ticketUrl.startsWith("#") ? `/${show.ticketUrl}` : show.ticketUrl}
-                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-colors shadow-sm"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-colors shadow-sm rounded-lg"
                       >
                         <span>BOOKING ABIERTO</span>
                       </a>
                     ) : show.status === "sold-out" ? (
-                      <span className="px-5 py-2 border border-neutral-800 bg-neutral-900 text-neutral-500 text-xs font-mono font-bold uppercase tracking-widest">
+                      <span className="px-5 py-2 border border-neutral-800/60 bg-black/50 text-neutral-400 text-xs font-mono font-bold uppercase tracking-widest rounded-lg">
                         SOLD OUT
                       </span>
                     ) : show.status === "rsvp" ? (
@@ -157,7 +157,7 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
                         href={show.ticketUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-2 border border-neutral-700 text-neutral-300 text-xs font-bold uppercase tracking-widest hover:border-white hover:text-white transition-colors"
+                        className="px-6 py-2 border border-neutral-700/60 bg-black/40 backdrop-blur-md text-neutral-300 text-xs font-bold uppercase tracking-widest hover:border-white hover:text-white transition-colors rounded-lg"
                       >
                         RSVP
                       </a>
@@ -166,7 +166,7 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
                         href={show.ticketUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-2 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-colors shadow-sm"
+                        className="inline-flex items-center gap-2 px-6 py-2 bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-colors shadow-sm rounded-lg"
                       >
                         <Ticket className="w-3.5 h-3.5" />
                         <span>TICKETS</span>

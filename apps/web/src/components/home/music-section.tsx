@@ -45,7 +45,7 @@ export function MusicSection(): React.JSX.Element {
   const otherPodcasts = podcasts.filter((p) => p !== featuredVideoSet);
 
   return (
-    <section id="music" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900">
+    <section id="music" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-transparent relative z-10">
       <div className="max-w-7xl mx-auto space-y-16 sm:space-y-24">
         
         {/* Step 3: Main Section Header, Channels Quickbar */}
@@ -71,7 +71,7 @@ export function MusicSection(): React.JSX.Element {
                   href={channel.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-2 min-h-[44px] bg-neutral-900/80 border border-neutral-800 hover:border-white hover:bg-neutral-800 text-neutral-300 hover:text-white transition-all text-xs font-mono font-bold uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 min-h-[44px] bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl hover:border-white/40 hover:bg-white/10 text-neutral-300 hover:text-white transition-all text-xs font-mono font-bold uppercase tracking-wider"
                   aria-label={`Visitar canal oficial de ${channel.name}`}
                 >
                   {channel.platform === "spotify" && <SpotifyIcon className="w-3.5 h-3.5 text-emerald-400" />}
@@ -104,22 +104,22 @@ export function MusicSection(): React.JSX.Element {
           </div>
 
           {/* Lista de Tracks con Reproductor Embebido Directo */}
-          <div className="divide-y divide-neutral-900 border border-neutral-900 bg-black">
+          <div className="divide-y divide-neutral-800/60 border border-neutral-800/60 bg-black/40 backdrop-blur-md rounded-xl overflow-hidden">
             {tracks.map((track) => (
               <article
                 key={track.id}
-                className="p-4 sm:p-5 hover:bg-neutral-900/20 transition-colors"
+                className="p-4 sm:p-5 hover:bg-white/5 transition-colors"
               >
                 {/* Cabecera del track con Año, Título, Badge de Tipo y Enlaces a Plataformas */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                   <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="px-2 py-0.5 bg-neutral-900 border border-neutral-800 text-neutral-300 font-mono text-[11px] font-semibold tracking-wider">
+                    <span className="px-2.5 py-0.5 bg-black/50 border border-neutral-800/60 text-neutral-300 font-mono text-[11px] font-semibold tracking-wider rounded-md">
                       {track.year}
                     </span>
                     <h4 className="font-sans font-bold text-sm sm:text-base text-white uppercase tracking-wide">
                       {track.title}
                     </h4>
-                    <span className="px-2 py-0.5 bg-neutral-950 border border-neutral-800 text-neutral-400 text-[10px] uppercase tracking-wider font-mono">
+                    <span className="px-2.5 py-0.5 bg-black/50 border border-neutral-800/60 text-neutral-400 text-[10px] uppercase tracking-wider font-mono rounded-md">
                       {track.type}
                     </span>
                   </div>
@@ -131,7 +131,7 @@ export function MusicSection(): React.JSX.Element {
                         href={track.links.spotify}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        className="p-2 rounded-lg hover:bg-white/10 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
                         aria-label={`Escuchar ${track.title} en Spotify`}
                         title="Spotify"
                       >
@@ -143,7 +143,7 @@ export function MusicSection(): React.JSX.Element {
                         href={track.links.soundcloud}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        className="p-2 rounded-lg hover:bg-white/10 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
                         aria-label={`Escuchar ${track.title} en SoundCloud`}
                         title="SoundCloud"
                       >
@@ -155,7 +155,7 @@ export function MusicSection(): React.JSX.Element {
                         href={track.links.beatport}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        className="p-2 rounded-lg hover:bg-white/10 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
                         aria-label={`Comprar ${track.title} en Beatport`}
                         title="Beatport"
                       >
@@ -167,7 +167,7 @@ export function MusicSection(): React.JSX.Element {
                         href={track.links.bandcamp}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        className="p-2 rounded-lg hover:bg-white/10 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
                         aria-label={`Comprar ${track.title} en Bandcamp`}
                         title="Bandcamp"
                       >
@@ -179,7 +179,7 @@ export function MusicSection(): React.JSX.Element {
                         href={track.links.appleMusic}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        className="p-2 rounded-lg hover:bg-white/10 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
                         aria-label={`Escuchar ${track.title} en Apple Music`}
                         title="Apple Music"
                       >
@@ -203,7 +203,7 @@ export function MusicSection(): React.JSX.Element {
                     />
                   </div>
                 ) : (
-                  <div className="w-full my-2 p-4 rounded-xl bg-neutral-900/60 border border-neutral-800 flex items-center justify-between">
+                  <div className="w-full my-2 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-neutral-800/60 flex items-center justify-between">
                     <span className="text-sm font-mono text-neutral-300">BOOTLEG EXCLUSIVO SOUNDCLOUD</span>
                     <a
                       href="https://soundcloud.com/andhray/andhray-daga-adicta-re-edit-luigi-21-plus-ftj-alvarez"
@@ -239,11 +239,11 @@ export function MusicSection(): React.JSX.Element {
 
           {/* Step 5.1: Video Performance Destacada: HÖR Berlin (July 24 / 2026) con Embed Responsivo */}
           {featuredVideoSet && (
-            <article className="bg-black border border-neutral-800 p-5 sm:p-8 space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-neutral-900">
+            <article className="bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl p-5 sm:p-8 space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-neutral-800/60">
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-2.5">
-                    <span className="px-2.5 py-0.5 bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
+                    <span className="px-2.5 py-0.5 bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5 rounded-full">
                       <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
                       SESIÓN EN VIVO // YOUTUBE
                     </span>
@@ -265,7 +265,7 @@ export function MusicSection(): React.JSX.Element {
                   href={featuredVideoSet.url || "https://www.youtube.com/watch?v=_xtvbbRCeGU"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-white text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-all self-start sm:self-auto shrink-0"
+                  className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-black/40 backdrop-blur-md hover:bg-white/10 border border-neutral-800/60 hover:border-white/40 rounded-xl text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-all self-start sm:self-auto shrink-0"
                 >
                   <YoutubeIcon className="w-4 h-4 text-red-500" />
                   <span>VER EN YOUTUBE</span>
@@ -274,7 +274,7 @@ export function MusicSection(): React.JSX.Element {
               </div>
 
               {/* Reproductor de Video Embebido Responsivo de YouTube (450px) */}
-              <div className="relative aspect-video w-full max-h-[450px] overflow-hidden bg-neutral-950 border border-neutral-800">
+              <div className="relative aspect-video w-full max-h-[450px] overflow-hidden bg-black/40 border border-neutral-800/60 rounded-xl">
                 <iframe
                   width="100%"
                   height="450"
@@ -297,17 +297,17 @@ export function MusicSection(): React.JSX.Element {
               return (
                 <article
                   key={item.title}
-                  className="bg-black border border-neutral-900 p-5 sm:p-6 flex flex-col justify-between hover:border-neutral-700 transition-colors space-y-4"
+                  className="bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl p-5 sm:p-6 flex flex-col justify-between hover:border-neutral-700 transition-colors space-y-4"
                 >
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between gap-2">
                       {isYouTube ? (
-                        <span className="px-2.5 py-0.5 bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
+                        <span className="px-2.5 py-0.5 bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5 rounded-full">
                           <YoutubeIcon className="w-3 h-3 text-red-500" />
                           YOUTUBE LIVE SET
                         </span>
                       ) : (
-                        <span className="px-2.5 py-0.5 bg-orange-600/20 border border-orange-500/40 text-orange-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
+                        <span className="px-2.5 py-0.5 bg-orange-600/20 border border-orange-500/40 text-orange-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5 rounded-full">
                           <Radio className="w-3 h-3 text-orange-400" />
                           SOUNDCLOUD PODCAST
                         </span>
@@ -328,12 +328,12 @@ export function MusicSection(): React.JSX.Element {
                     )}
                   </div>
 
-                  <div className="pt-3 border-t border-neutral-900 flex justify-end">
+                  <div className="pt-3 border-t border-neutral-800/60 flex justify-end">
                     <a
                       href={item.url || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-600 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-black/40 backdrop-blur-md hover:bg-white/10 border border-neutral-800/60 hover:border-white/40 rounded-xl text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-colors"
                     >
                       {isYouTube ? (
                         <>

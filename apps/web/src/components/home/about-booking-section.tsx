@@ -2,11 +2,11 @@
 
 import React from "react";
 import { siteConfig } from "@/data/site-config";
-import { Download, Mail, Quote } from "lucide-react";
+import { Download, Mail, Quote, Phone } from "lucide-react";
 
 export function AboutBookingSection() {
   return (
-    <section id="about" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900">
+    <section id="about" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-transparent relative z-10">
       <div className="max-w-6xl mx-auto">
         {/* Part 1: Biography & Press */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
@@ -20,7 +20,7 @@ export function AboutBookingSection() {
             <div className="pt-2">
               <a
                 href={siteConfig.contacts.pressKitUrl}
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-neutral-800 text-xs font-bold uppercase tracking-widest text-neutral-300 hover:text-white hover:border-white transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl text-xs font-bold uppercase tracking-widest text-neutral-300 hover:text-white hover:border-white transition-colors"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>DOWNLOAD PRESS KIT (EPK)</span>
@@ -60,63 +60,72 @@ export function AboutBookingSection() {
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Management */}
-            <div className="p-6 bg-neutral-950 border border-neutral-900 space-y-3">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
-                GLOBAL MANAGEMENT
+            {/* Booking Agent Laura */}
+            <div className="p-6 bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl space-y-3">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-red-400 font-semibold block">
+                BOOKING AGENT
               </span>
               <h4 className="text-sm font-bold uppercase tracking-wide text-white">
-                MANAGEMENT & RECORD LABEL
+                LAURA &bull; MANAGEMENT
               </h4>
               <p className="text-xs text-neutral-400">
-                For releases, publishing, branding, and major press inquiries.
+                Representación global, contrataciones y fechas de gira.
+              </p>
+              <div className="space-y-1.5 pt-2">
+                <a
+                  href="tel:+573202572002"
+                  className="flex items-center gap-2 text-xs font-mono text-neutral-200 hover:text-white"
+                >
+                  <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>+57 320 257 2002</span>
+                </a>
+                <a
+                  href="mailto:industrialgirls.techno@gmail.com"
+                  className="flex items-center gap-2 text-xs font-mono text-neutral-200 hover:text-white hover:underline"
+                >
+                  <Mail className="w-3.5 h-3.5 text-red-500" />
+                  <span className="break-all">industrialgirls.techno@gmail.com</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Platform / Sello */}
+            <div className="p-6 bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl space-y-3">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
+                SELLO &amp; PLATAFORMA
+              </span>
+              <h4 className="text-sm font-bold uppercase tracking-wide text-white">
+                INDUSTRIAL GIRLS
+              </h4>
+              <p className="text-xs text-neutral-400">
+                Para lanzamientos, colaboraciones y eventos temáticos del colectivo.
               </p>
               <a
-                href={`mailto:${siteConfig.contacts.management}`}
+                href="mailto:industrialgirls.techno@gmail.com"
                 className="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:underline pt-2"
               >
                 <Mail className="w-3.5 h-3.5" />
-                <span>{siteConfig.contacts.management}</span>
+                <span>industrialgirls.techno@gmail.com</span>
               </a>
             </div>
 
-            {/* Booking Americas */}
-            <div className="p-6 bg-neutral-950 border border-neutral-900 space-y-3">
+            {/* Euro Tour 2026 */}
+            <div className="p-6 bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl space-y-3">
               <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
-                TERRITORY: AMERICAS
+                GIRA CONFIRMADA
               </span>
               <h4 className="text-sm font-bold uppercase tracking-wide text-white">
-                NORTH & SOUTH AMERICA
+                EURO TOUR 2026
               </h4>
               <p className="text-xs text-neutral-400">
-                USA, Canada, Mexico, Colombia, Brazil, Argentina.
+                Italia, Alemania y resto de Europa (Noviembre &ndash; Diciembre 2026).
               </p>
               <a
-                href={`mailto:${siteConfig.contacts.bookingAmericas}`}
+                href="/contacto"
                 className="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:underline pt-2"
               >
                 <Mail className="w-3.5 h-3.5" />
-                <span>{siteConfig.contacts.bookingAmericas}</span>
-              </a>
-            </div>
-
-            {/* Booking Europe & ROW */}
-            <div className="p-6 bg-neutral-950 border border-neutral-900 space-y-3">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
-                TERRITORY: EUROPE & ROW
-              </span>
-              <h4 className="text-sm font-bold uppercase tracking-wide text-white">
-                EUROPE, UK & ASIA
-              </h4>
-              <p className="text-xs text-neutral-400">
-                Netherlands, Germany, UK, France, Spain, Australia & ROW.
-              </p>
-              <a
-                href={`mailto:${siteConfig.contacts.bookingEurope}`}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:underline pt-2"
-              >
-                <Mail className="w-3.5 h-3.5" />
-                <span>{siteConfig.contacts.bookingEurope}</span>
+                <span>FORMULARIO DE CONTACTO &rarr;</span>
               </a>
             </div>
           </div>
