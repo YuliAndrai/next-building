@@ -65,7 +65,7 @@ export default function ContactoPage(): React.JSX.Element {
                 LAURA &mdash; BOOKING ASSISTANT
               </h2>
               <p className="text-xs text-neutral-400 font-mono">
-                Asistente, logística travel &bull; Industrial Girls
+                Industrial Girls
               </p>
               
               <div className="space-y-3 pt-2">

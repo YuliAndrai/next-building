@@ -99,7 +99,7 @@ export function Footer() {
           <p className="text-xs text-neutral-500 font-mono">
             Booking Assistant:
             <span className="block text-neutral-200 font-bold mt-0.5">
-              Laura &mdash; Asistente, logística travel
+              Laura
             </span>
             <a 
               href="https://wa.me/573137721671" 
