@@ -307,21 +307,12 @@ export const siteConfig = {
     genres: ["Hard Dance", "Acid", "Groove"],
     tourBadge: "Europa Tour 2026 – 2027 | Nov-Enero",
     tagline: "Industrial Hard Techno & Relentless Sonic Energy",
-    bioHeadline: "SONIDO PROPIO // INDUSTRIAL GIRLS",
+    bioHeadline: "BIO",
     bio: [
       "Nacida en Colombia, DJ, productora y organizadora de eventos. Desde 2018 ha forjado un sonido propio; Andhray es un universo donde los sonidos se encuentran, se transforman y conectan con el cuerpo. Ritmos, energía y sensualidad que se entremezclan entre lo oscuro, lo hipnótico, la psicodelia y el groove. Amante de la percusión, frecuencias ácidas y ritmos hipnóticos.",
       "En 2019 fundó Industrial Girls, un sello, colectivo y agencia de desarrollo artístico nacida en Colombia, enfocada en impulsar el talento femenino y LGBTQIA+. Con una visión internacional, el proyecto ha fortalecido su comunidad y proyección global a través de showcases y plataformas de visibilización artística."
     ],
-    pressQuotes: [
-      {
-        quote: "A monumental force pushing hard techno into ferocious new dimensions.",
-        source: "Resident Advisor"
-      },
-      {
-        quote: "Pure adrenaline, dark elegance, and hypnotic mechanical precision.",
-        source: "Mixmag"
-      }
-    ]
+    pressQuotes: [] as { quote: string; source: string }[]
   },
 
   news: [
@@ -383,6 +374,18 @@ export const siteConfig = {
 
   tourDates: [
     {
+      id: "tour-octubre-2026",
+      date: "OCTUBRE 2026",
+      dayNumber: "2026",
+      month: "OCTUBRE",
+      year: "2026",
+      city: "Colombia & Latinoamérica",
+      country: "",
+      venue: "Octubre: Fechas por anunciar // Booking disponible en Colombia y Latinoamérica",
+      ticketUrl: "/contacto",
+      status: "booking"
+    },
+    {
       id: "tour-euro-2026",
       date: "NOV - DIC 2026",
       dayNumber: "2026",
@@ -405,8 +408,8 @@ export const siteConfig = {
   contacts: {
     general: "industrialgirls.techno@gmail.com",
     management: "industrialgirls.techno@gmail.com",
-    bookingAgent: "Laura",
-    bookingPhone: "+57 320 257 2002",
+    bookingAgent: "Laura — Booking Assistant",
+    bookingPhone: "+57 313 772 1671",
     bookingAmericas: "industrialgirls.techno@gmail.com",
     bookingEurope: "industrialgirls.techno@gmail.com",
     press: "industrialgirls.techno@gmail.com",
