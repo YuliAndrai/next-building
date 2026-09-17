@@ -55,14 +55,9 @@ export function BookingSection(): React.JSX.Element {
                 <span className="text-[10px] font-mono uppercase tracking-widest text-red-400 font-semibold block">
                   Asistencia, logística travel, contratos
                 </span>
-                <div>
-                  <h4 className="text-base font-bold uppercase tracking-wide text-white">
-                    Laura &mdash; Booking Assistant
-                  </h4>
-                  <p className="text-xs text-neutral-400 font-mono mt-0.5">
-                    Asistente, logística travel
-                  </p>
-                </div>
+                <h4 className="text-base font-bold uppercase tracking-wide text-white">
+                  Laura &mdash; Booking Assistant
+                </h4>
                 <div className="space-y-2 pt-1">
                   <a
                     href="mailto:industrialgirls.techno@gmail.com"
