@@ -1,152 +1,161 @@
 /**
  * @file apps/web/src/components/home/media-press-kit-section.tsx
  * @layer Presentation Layer / Home UI Component
- * @description Media & Press Kit section featuring responsive high-resolution photo placeholders, live video clip teaser, and official EPK download button.
+ * @description Fotos y Videos section featuring featured HÖR Berlin video embed/placeholder, editorial stills gallery, and curated media/press podcasts.
  */
 
 "use client";
 
 import React from "react";
-import { Download, Play, Camera, Film } from "lucide-react";
+
+/**
+ * Editorial still photography placeholder metadata
+ */
+interface EditorialStillItem {
+  id: string;
+  label: string;
+}
+
+/**
+ * Media and press interview/podcast item metadata
+ */
+interface MediaPressItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  url: string;
+}
+
+/**
+ * Editorial photography stills grid items
+ */
+const editorialStills: EditorialStillItem[] = [
+  { id: "01", label: "EDITORIAL STILL 01" },
+  { id: "02", label: "EDITORIAL STILL 02" },
+  { id: "03", label: "EDITORIAL STILL 03" },
+  { id: "04", label: "EDITORIAL STILL 04" },
+];
+
+/**
+ * Curated press and podcast interviews
+ */
+const pressItems: MediaPressItem[] = [
+  {
+    id: "hor-berlin",
+    title: "HÖR Berlin",
+    subtitle: "Live Broadcast Session (Berlín)",
+    url: "https://www.youtube.com/watch?v=_xtvbbRCeGU",
+  },
+  {
+    id: "techno-germany",
+    title: "Techno Germany Podcast",
+    subtitle: "Guest Mix",
+    url: "https://soundcloud.com/technogermany/andhray-techno-germany-podcast-127",
+  },
+  {
+    id: "comme-dans-les-films",
+    title: "Comme Dans Les Films by Parfait",
+    subtitle: "Feature Series",
+    url: "https://soundcloud.com/parfaitparfait/comme-dans-les-films-16-andhray",
+  },
+];
 
 /**
  * MediaPressKitSection Component
  *
- * Renders the Media & Press Kit visual skeleton for promoters, press, and festival organizers.
- * Displays a 4-slot stylized dark grid (3 hi-res photos and 1 live video clip) with download EPK CTA.
+ * Renders the "FOTOS Y VIDEOS" section with anchor id="media".
+ * Contains:
+ * - Block 1: Featured HÖR Berlin live video slot with responsive 16:9 container.
+ * - Block 2: 4-card editorial photographic gallery with dark placeholders.
+ * - Block 3: Media & Press block with curated podcasts and interview sessions.
  *
- * @returns {React.JSX.Element} The rendered Media & Press Kit section.
+ * @returns {React.JSX.Element} The rendered Media & Press section.
  */
-export function MediaPressKitSection() {
+export function MediaPressKitSection(): React.JSX.Element {
+  // Step 1: Pre-configured video embed URL (leave empty for placeholder or provide embed link)
+  const videoUrl = "";
+
   return (
     <section id="media" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900">
       <div className="max-w-7xl mx-auto">
-        {/* Step 1: Section Header & Descriptive Subtitle */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-6 border-b border-neutral-900">
-          <div>
-            <span className="text-[11px] font-mono uppercase tracking-ultra text-red-600 font-semibold block mb-2">
-              {"// PROMOTERS & PRESS ASSETS"}
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-widest text-white">
-              MEDIA // PRESS KIT
-            </h2>
-          </div>
-          <p className="text-xs font-mono uppercase tracking-widest text-neutral-400 mt-2 sm:mt-0 max-w-md text-left sm:text-right">
-            Material visual y prensa oficial para promotores y medios.
+        {/* Step 2: Section Header & Descriptive Industrial Subtitle */}
+        <div className="mb-10 pb-6 border-b border-neutral-900">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-widest text-white">
+            FOTOS Y VIDEOS
+          </h2>
+          <p className="mt-2 text-xs font-mono uppercase tracking-widest text-neutral-400">
+            {"// ARCHIVO AUDIOVISUAL, SESIONES EN VIVO Y PRENSA"}
           </p>
         </div>
 
-        {/* Step 2: Responsive Visual Grid of 4 Stylized Placeholders */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-          {/* Item 1: Photo Placeholder 1 */}
-          <div className="group relative aspect-[4/5] bg-neutral-950 border border-neutral-900 flex flex-col items-center justify-between p-6 hover:border-neutral-700 transition-all duration-300 overflow-hidden">
-            <div className="w-full flex items-center justify-between text-[10px] font-mono text-neutral-600 uppercase tracking-widest">
-              <span>PHOTO // 01</span>
-              <span>HI-RES</span>
-            </div>
-            
-            <div className="flex flex-col items-center gap-3 text-neutral-600 group-hover:text-neutral-300 transition-colors">
-              <div className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900/60">
-                <Camera className="w-5 h-5" />
+        {/* Step 3: Bloque 1 - SET DESTACADO (HÖR BERLIN) */}
+        <div className="w-full">
+          <div className="aspect-video w-full rounded-xl border border-neutral-800 overflow-hidden bg-neutral-950 flex items-center justify-center">
+            {videoUrl ? (
+              <iframe
+                src={videoUrl}
+                title="Andhray | HÖR Berlin"
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            ) : (
+              <div className="flex flex-col items-center justify-center p-6 text-center">
+                <span className="font-mono text-xs sm:text-sm text-neutral-400 tracking-wider">
+                  {"[ VIDEO DESTACADO: ANDHRAY | HÖR BERLIN // JULY 24, 2026 ]"}
+                </span>
               </div>
-              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 group-hover:text-neutral-300 transition-colors">
-                PORTRAIT SHOT
-              </span>
-            </div>
-
-            <div className="w-full text-center">
-              <span className="text-[9px] font-mono text-neutral-700 uppercase tracking-wider block">
-                ASPECT 4:5 • 300 DPI
-              </span>
-            </div>
-          </div>
-
-          {/* Item 2: Photo Placeholder 2 */}
-          <div className="group relative aspect-[4/5] bg-neutral-950 border border-neutral-900 flex flex-col items-center justify-between p-6 hover:border-neutral-700 transition-all duration-300 overflow-hidden">
-            <div className="w-full flex items-center justify-between text-[10px] font-mono text-neutral-600 uppercase tracking-widest">
-              <span>PHOTO // 02</span>
-              <span>HI-RES</span>
-            </div>
-            
-            <div className="flex flex-col items-center gap-3 text-neutral-600 group-hover:text-neutral-300 transition-colors">
-              <div className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900/60">
-                <Camera className="w-5 h-5" />
-              </div>
-              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 group-hover:text-neutral-300 transition-colors">
-                STAGE &amp; CROWD
-              </span>
-            </div>
-
-            <div className="w-full text-center">
-              <span className="text-[9px] font-mono text-neutral-700 uppercase tracking-wider block">
-                ASPECT 4:5 • 300 DPI
-              </span>
-            </div>
-          </div>
-
-          {/* Item 3: Photo Placeholder 3 */}
-          <div className="group relative aspect-[4/5] bg-neutral-950 border border-neutral-900 flex flex-col items-center justify-between p-6 hover:border-neutral-700 transition-all duration-300 overflow-hidden">
-            <div className="w-full flex items-center justify-between text-[10px] font-mono text-neutral-600 uppercase tracking-widest">
-              <span>PHOTO // 03</span>
-              <span>HI-RES</span>
-            </div>
-            
-            <div className="flex flex-col items-center gap-3 text-neutral-600 group-hover:text-neutral-300 transition-colors">
-              <div className="w-12 h-12 rounded-full border border-neutral-800 flex items-center justify-center bg-neutral-900/60">
-                <Camera className="w-5 h-5" />
-              </div>
-              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 group-hover:text-neutral-300 transition-colors">
-                STUDIO / EDITORIAL
-              </span>
-            </div>
-
-            <div className="w-full text-center">
-              <span className="text-[9px] font-mono text-neutral-700 uppercase tracking-wider block">
-                ASPECT 4:5 • 300 DPI
-              </span>
-            </div>
-          </div>
-
-          {/* Item 4: Live Video Clip Placeholder (Centered Play Button) */}
-          <div className="group relative aspect-[4/5] bg-neutral-950 border border-neutral-900 flex flex-col items-center justify-between p-6 hover:border-neutral-700 transition-all duration-300 overflow-hidden cursor-pointer">
-            <div className="w-full flex items-center justify-between text-[10px] font-mono text-neutral-600 uppercase tracking-widest">
-              <span className="text-red-500 flex items-center gap-1.5 font-semibold">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-                LIVE CLIP
-              </span>
-              <Film className="w-3.5 h-3.5" />
-            </div>
-
-            {/* Centered Play Button */}
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 rounded-full bg-white/5 border border-white/20 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                <Play className="w-6 h-6 fill-current ml-1" />
-              </div>
-              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 group-hover:text-white transition-colors">
-                VER TRANSMISIÓN EN VIVO
-              </span>
-            </div>
-
-            <div className="w-full text-center">
-              <span className="text-[9px] font-mono text-neutral-700 uppercase tracking-wider block">
-                FHD 1080P • REEL TEASER
-              </span>
-            </div>
+            )}
           </div>
         </div>
 
-        {/* Step 3: Centered EPK Download Action & Explanatory Metadata */}
-        <div className="flex flex-col items-center text-center">
-          <a
-            href="#"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-black text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-neutral-200 transition-all duration-200 shadow-xl"
-          >
-            <Download className="w-4 h-4" />
-            <span>DESCARGAR PRESS KIT OFICIAL (EPK)</span>
-          </a>
-          <p className="mt-3 text-[11px] sm:text-xs font-mono uppercase tracking-wider text-neutral-500">
-            Incluye: Fotos Hi-Res, Biografía en PDF, Logos vectoriales y Rider Técnico.
-          </p>
+        {/* Step 4: Bloque 2 - GALERÍA FOTOGRÁFICA EDITORIAL */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+          {editorialStills.map((still) => (
+            <div
+              key={still.id}
+              className="h-64 rounded-xl border border-neutral-800 bg-neutral-950 flex items-center justify-center p-4 text-center hover:border-neutral-700 transition-colors"
+            >
+              <span className="font-mono text-xs uppercase tracking-widest text-neutral-500">
+                {still.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Step 5: Bloque 3 - MEDIA & PRESS (Entrevistas y Podcasts) */}
+        <div className="border-t border-neutral-800 pt-8 mt-12">
+          <h3 className="text-sm sm:text-base font-bold font-mono uppercase tracking-widest text-neutral-300 mb-6">
+            {"ENTREVISTAS & PODCASTS // PRENSA"}
+          </h3>
+
+          <div className="flex flex-col gap-4">
+            {pressItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                  <span className="text-white font-semibold text-sm sm:text-base tracking-wide">
+                    {item.title}
+                  </span>
+                  <span className="hidden sm:inline text-neutral-600">—</span>
+                  <span className="font-mono text-xs text-neutral-400">
+                    {item.subtitle}
+                  </span>
+                </div>
+
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-medium uppercase tracking-wider text-neutral-300 hover:text-white bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 rounded-lg transition-all self-start sm:self-auto"
+                >
+                  {"ESCUCHAR ↗"}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
