@@ -17,7 +17,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-black border-t border-neutral-900 text-neutral-400 pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-black/60 backdrop-blur-md border-t border-neutral-900/80 text-neutral-400 pt-16 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-neutral-900">
         {/* Col 1: Artist branding */}
         <div className="space-y-4 md:col-span-2">
@@ -77,19 +77,16 @@ export function Footer() {
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
             </li>
             <li>
-              <Link href="/#news" className="hover:text-white transition-colors">News &amp; Media</Link>
+              <Link href="/musica" className="hover:text-white transition-colors">Música &amp; Discografía</Link>
             </li>
             <li>
-              <Link href="/live" className="hover:text-white transition-colors">Tour Dates (/live)</Link>
+              <Link href="/#events" className="hover:text-white transition-colors">Tour Dates</Link>
             </li>
             <li>
-              <Link href="/#music" className="hover:text-white transition-colors">Music &amp; Discography</Link>
+              <Link href="/fotos-videos" className="hover:text-white transition-colors">Fotos &amp; Videos</Link>
             </li>
             <li>
-              <Link href="/#merch" className="hover:text-white transition-colors">Official Merch</Link>
-            </li>
-            <li>
-              <Link href="/#about" className="hover:text-white transition-colors">Bio &amp; Press</Link>
+              <Link href="/#contact" className="hover:text-white transition-colors">Contacto &amp; Booking</Link>
             </li>
           </ul>
         </div>
@@ -100,21 +97,18 @@ export function Footer() {
             BOOKING &amp; INQUIRIES
           </h4>
           <p className="text-xs text-neutral-500 font-mono">
-            Direct Management:
-            <a 
-              href={`mailto:${siteConfig.contacts.management}`} 
-              className="block text-neutral-300 hover:text-white transition-colors mt-1"
-            >
-              {siteConfig.contacts.management}
-            </a>
+            Booking Agent:
+            <span className="block text-neutral-200 font-bold mt-0.5">
+              Laura &bull; +57 320 257 2002
+            </span>
           </p>
           <p className="text-xs text-neutral-500 font-mono pt-1">
-            Global Booking:
+            Email Oficial:
             <a 
-              href={`mailto:${siteConfig.contacts.bookingEurope}`} 
+              href="mailto:industrialgirls.techno@gmail.com" 
               className="block text-neutral-300 hover:text-white transition-colors mt-1"
             >
-              {siteConfig.contacts.bookingEurope}
+              industrialgirls.techno@gmail.com
             </a>
           </p>
         </div>

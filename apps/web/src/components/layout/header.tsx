@@ -24,25 +24,23 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { label: "HOME", href: "/#home" },
-    { label: "MÚSICA", href: "/#music" },
+    { label: "HOME", href: "/" },
+    { label: "MÚSICA", href: "/musica" },
     { label: "SIGUIENTES EVENTOS", href: "/#events" },
-    { label: "FOTOS Y VIDEOS", href: "/#media" },
+    { label: "FOTOS Y VIDEOS", href: "/fotos-videos" },
     { label: "CONTACTO", href: "/#contact" },
   ];
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-        isScrolled 
-          ? "bg-black/95 backdrop-blur-md border-b border-neutral-800/80 py-3 shadow-2xl" 
-          : "bg-black/70 backdrop-blur-sm border-b border-white/5 py-5"
+      className={`fixed top-0 left-0 w-full z-50 bg-transparent border-none transition-all duration-300 ${
+        isScrolled ? "py-3" : "py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo - Minimalist Bold Monochromatic Typography */}
         <Link 
-          href="/#home" 
+          href="/" 
           className="group flex flex-col items-start focus:outline-none"
         >
           <span className="text-xl sm:text-2xl font-black uppercase tracking-ultra text-white group-hover:text-neutral-300 transition-colors">
@@ -50,6 +48,9 @@ export function Header() {
           </span>
           <span className="text-[9px] uppercase tracking-widest text-neutral-500 font-mono">
             OFFICIAL
+          </span>
+          <span className="block text-xs font-mono tracking-widest text-neutral-400 uppercase mt-1">
+            &ldquo;Música sensual para almas sensuales&rdquo;
           </span>
         </Link>
 

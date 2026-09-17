@@ -76,7 +76,7 @@ export function MediaPressKitSection(): React.JSX.Element {
   const videoUrl = "";
 
   return (
-    <section id="media" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900">
+    <section id="media" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-transparent relative z-10">
       <div className="max-w-7xl mx-auto">
         {/* Step 2: Section Header & Descriptive Industrial Subtitle */}
         <div className="mb-10 pb-6 border-b border-neutral-900">
@@ -90,7 +90,7 @@ export function MediaPressKitSection(): React.JSX.Element {
 
         {/* Step 3: Bloque 1 - SET DESTACADO (HÖR BERLIN) */}
         <div className="w-full">
-          <div className="aspect-video w-full rounded-xl border border-neutral-800 overflow-hidden bg-neutral-950 flex items-center justify-center">
+          <div className="aspect-video w-full rounded-xl border border-neutral-800/60 overflow-hidden bg-black/40 backdrop-blur-md flex items-center justify-center">
             {videoUrl ? (
               <iframe
                 src={videoUrl}
@@ -114,7 +114,7 @@ export function MediaPressKitSection(): React.JSX.Element {
           {editorialStills.map((still) => (
             <div
               key={still.id}
-              className="h-64 rounded-xl border border-neutral-800 bg-neutral-950 flex items-center justify-center p-4 text-center hover:border-neutral-700 transition-colors"
+              className="h-64 rounded-xl border border-neutral-800/60 bg-black/40 backdrop-blur-md flex items-center justify-center p-4 text-center hover:border-neutral-700 transition-colors"
             >
               <span className="font-mono text-xs uppercase tracking-widest text-neutral-500">
                 {still.label}
@@ -124,7 +124,7 @@ export function MediaPressKitSection(): React.JSX.Element {
         </div>
 
         {/* Step 5: Bloque 3 - MEDIA & PRESS (Entrevistas y Podcasts) */}
-        <div className="border-t border-neutral-800 pt-8 mt-12">
+        <div className="border-t border-neutral-800/60 pt-8 mt-12">
           <h3 className="text-sm sm:text-base font-bold font-mono uppercase tracking-widest text-neutral-300 mb-6">
             {"ENTREVISTAS & PODCASTS // PRENSA"}
           </h3>
@@ -133,7 +133,7 @@ export function MediaPressKitSection(): React.JSX.Element {
             {pressItems.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors"
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-black/40 backdrop-blur-md border border-neutral-800/60 hover:border-neutral-700 transition-colors"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                   <span className="text-white font-semibold text-sm sm:text-base tracking-wide">
@@ -149,7 +149,7 @@ export function MediaPressKitSection(): React.JSX.Element {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-medium uppercase tracking-wider text-neutral-300 hover:text-white bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 rounded-lg transition-all self-start sm:self-auto"
+                  className="inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-medium uppercase tracking-wider text-neutral-300 hover:text-white bg-black/40 backdrop-blur-md hover:bg-white/10 border border-neutral-800/60 hover:border-white/40 rounded-xl transition-all self-start sm:self-auto min-h-[44px] min-w-[120px]"
                 >
                   {"ESCUCHAR ↗"}
                 </a>
