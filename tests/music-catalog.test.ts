@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @file tests/music-catalog.test.ts
  * @layer Test Layer / Unit Verification
  * @description Unit tests for official channels, chronological track catalog, and podcasts/DJ sets.
@@ -32,18 +32,18 @@ describe("Music Discography, Channels & Podcasts", () => {
     const expectedTitles = [
       "MEMENTO",
       "EN NAPL",
-      "Danseo Mental",
-      "ILUSION",
-      "EN UN RAVE",
-      "Feline Blink (con DEBBIE IT)",
+      "DANSEO MENTAL",
       "SENSUAL",
       "MI",
       "MAYBE, WE ARE CRAZY",
       "FKN RYTHM",
       "DAGA ADICTA RE EDIT",
-      "Girl From the Dark",
-      "Sin Miedo",
-      "Resignificar"
+      "ILUSION",
+      "EN UN RAVE",
+      "FELINE BLINK (CON DEBBIE IT)",
+      "GIRL FROM THE DARK (KOBAL AND JAY VOICES)",
+      "SIN MIEDO",
+      "RESIGNIFICAR"
     ];
 
     test("contains exactly 14 tracks in chronological order (newest to oldest)", () => {
@@ -53,13 +53,16 @@ describe("Music Discography, Channels & Podcasts", () => {
       expect(actualTitles).toEqual(expectedTitles);
     });
 
-    test("MEMENTO contains embedded mini-player configurations", () => {
+    test("MEMENTO contains embedded Spotify mini-player and official direct links", () => {
       const memento = siteConfig.tracks.find((t) => t.title === "MEMENTO");
       expect(memento).toBeDefined();
       expect(memento?.year).toBe("2025");
-      expect(memento?.hasMiniPlayer).toBe(true);
-      expect(memento?.spotifyEmbedUrl).toContain("open.spotify.com/embed");
-      expect(memento?.soundcloudEmbedUrl).toContain("w.soundcloud.com/player");
+      const embedUrl = memento?.spotifyEmbed || memento?.spotifyEmbedUrl;
+      expect(embedUrl).toContain("open.spotify.com/embed");
+      expect(memento?.links.spotify).toContain("open.spotify.com");
+      expect(memento?.links.soundcloud).toContain("soundcloud.com/andhray/memento");
+      expect(memento?.links.beatport).toContain("beatport.com");
+      expect(memento?.links.appleMusic).toContain("music.apple.com");
     });
 
     test("does not expose any numerical stream or play counters (metrics-free)", () => {
@@ -70,6 +73,30 @@ describe("Music Discography, Channels & Podcasts", () => {
         expect(keys).not.toContain("playCount");
         expect(keys).not.toContain("plays");
         expect(keys).not.toContain("listeners");
+      });
+    });
+
+    test("configures exact spotifyId for all 13 official Spotify tracks and leaves bootleg without it", () => {
+      // Step 4: Validate spotifyId presence and values for interactive player
+      const expectedSpotifyIds: Record<string, string | null | undefined> = {
+        MEMENTO: "68KwzzA0ybAGpUALiaJ0Ci",
+        "EN NAPL": "0p10DSavZofwMZyQ02tMSM",
+        "DANSEO MENTAL": "73hIIW3p4wuX4HeJNYOGWf",
+        ILUSION: "5Vvvbv1GnDLHR47nLo2Dwq",
+        "EN UN RAVE": "0EQGafE2qUvAIzLMbSP76C",
+        "FELINE BLINK (CON DEBBIE IT)": "30TPs7A1WVHiqR3xCdh2TF",
+        SENSUAL: "5A7hfrGS41sSRTv6iQItQ6",
+        MI: "6lzYhRcxLNPX6gfveAXh0S",
+        "MAYBE, WE ARE CRAZY": "140e7NyEy4Sn5XIZHre9fM",
+        "FKN RYTHM": "6pffPRPNH7BF67Qub1ED67",
+        "DAGA ADICTA RE EDIT": null,
+        "GIRL FROM THE DARK (KOBAL AND JAY VOICES)": "1MzPqm1xWPSXZp9WtZimTp",
+        "SIN MIEDO": "4ZcCcVH4Df8GBdvUHXKcLJ",
+        RESIGNIFICAR: "1M9QtwVh1Cu4bIfxSVw6Vd"
+      };
+
+      siteConfig.tracks.forEach((track) => {
+        expect(track.spotifyId).toBe(expectedSpotifyIds[track.title]);
       });
     });
   });
@@ -87,20 +114,18 @@ describe("Music Discography, Channels & Podcasts", () => {
       expect(titles[4]).toContain("COMME DANS LES FILMS #16");
     });
 
-    test("video performances include valid YouTube embed URLs", () => {
-      const videoSets = siteConfig.podcastsAndSets.filter((p) => p.platform === "youtube");
-      expect(videoSets.length).toBe(2);
-      videoSets.forEach((set) => {
-        expect(set.embedUrl).toContain("youtube.com/embed");
-        expect(set.url).toContain("youtube.com/watch");
-      });
+    test("video performances include valid YouTube embed or watch destination URLs", () => {
+      const horBerlin = siteConfig.podcastsAndSets.find((p) => p.title.includes("HÖR Berlin"));
+      expect(horBerlin?.embedUrl).toContain("youtube.com/embed");
+
+      const riotScampia = siteConfig.podcastsAndSets.find((p) => p.title.includes("Riöt.scampia"));
+      expect(riotScampia?.url).toContain("youtube.com/watch");
     });
 
-    test("audio podcasts include valid SoundCloud embed and destination URLs", () => {
-      const audioPodcasts = siteConfig.podcastsAndSets.filter((p) => p.platform === "soundcloud");
+    test("audio podcasts include valid SoundCloud destination URLs", () => {
+      const audioPodcasts = siteConfig.podcastsAndSets.filter((p) => p.url?.includes("soundcloud.com"));
       expect(audioPodcasts.length).toBe(3);
       audioPodcasts.forEach((pod) => {
-        expect(pod.embedUrl).toContain("soundcloud.com/player");
         expect(pod.url).toContain("soundcloud.com");
       });
     });

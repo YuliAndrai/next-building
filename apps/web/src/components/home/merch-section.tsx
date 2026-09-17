@@ -32,62 +32,73 @@ export function MerchSection() {
           </a>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {siteConfig.merch.map((item) => (
-            <div
-              key={item.id}
-              className="group bg-neutral-950 border border-neutral-900 hover:border-neutral-700 transition-all duration-300 flex flex-col"
-            >
-              {/* Image Container */}
-              <div className="relative aspect-square w-full overflow-hidden bg-neutral-900">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale contrast-125 group-hover:grayscale-0"
-                />
+        {/* Products Grid or Coming Soon State */}
+        {siteConfig.merch.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {siteConfig.merch.map((item) => (
+              <div
+                key={item.id}
+                className="group bg-neutral-950 border border-neutral-900 hover:border-neutral-700 transition-all duration-300 flex flex-col"
+              >
+                {/* Image Container */}
+                <div className="relative aspect-square w-full overflow-hidden bg-neutral-900">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale contrast-125 group-hover:grayscale-0"
+                  />
 
-                {item.badge && (
-                  <span className={`absolute top-2 left-2 text-[9px] font-mono uppercase tracking-widest px-2 py-0.5 border ${
-                    item.badge === "NEW" 
-                      ? "bg-white text-black border-white" 
-                      : "bg-red-950/80 text-red-400 border-red-800"
-                  }`}>
-                    {item.badge}
-                  </span>
-                )}
-              </div>
-
-              {/* Product Info */}
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-                    {item.category}
-                  </span>
-                  <h3 className="text-xs font-bold uppercase tracking-wide text-white group-hover:text-neutral-200 line-clamp-2">
-                    {item.name}
-                  </h3>
+                  {item.badge && (
+                    <span className={`absolute top-2 left-2 text-[9px] font-mono uppercase tracking-widest px-2 py-0.5 border ${
+                      item.badge === "NEW" 
+                        ? "bg-white text-black border-white" 
+                        : "bg-red-950/80 text-red-400 border-red-800"
+                    }`}>
+                      {item.badge}
+                    </span>
+                  )}
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-neutral-900 flex items-center justify-between">
-                  <span className="text-sm font-black font-mono text-white">
-                    {item.price}
-                  </span>
+                {/* Product Info */}
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
+                      {item.category}
+                    </span>
+                    <h3 className="text-xs font-bold uppercase tracking-wide text-white group-hover:text-neutral-200 line-clamp-2">
+                      {item.name}
+                    </h3>
+                  </div>
 
-                  <a
-                    href={item.link}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-white hover:text-black text-neutral-200 text-[10px] font-bold uppercase tracking-widest transition-colors border border-neutral-800"
-                  >
-                    <ShoppingBag className="w-3 h-3" />
-                    <span>ORDER</span>
-                  </a>
+                  <div className="mt-4 pt-3 border-t border-neutral-900 flex items-center justify-between">
+                    <span className="text-sm font-black font-mono text-white">
+                      {item.price}
+                    </span>
+
+                    <a
+                      href={item.link}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-neutral-900 hover:bg-white hover:text-black text-neutral-200 text-[10px] font-bold uppercase tracking-widest transition-colors border border-neutral-800"
+                    >
+                      <ShoppingBag className="w-3 h-3" />
+                      <span>ORDER</span>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="border border-neutral-900 bg-neutral-950 p-10 text-center">
+            <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-2">
+              {"// PRÓXIMO LANZAMIENTO // TOUR CAPSULE 2026"}
+            </span>
+            <p className="text-sm text-neutral-400 font-mono">
+              La tienda oficial se encuentra en preparación. Nuevos vinilos y prendas oficiales estarán disponibles próximamente.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
