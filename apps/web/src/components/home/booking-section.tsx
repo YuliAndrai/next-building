@@ -40,6 +40,9 @@ export function BookingSection(): React.JSX.Element {
           {/* Left Column: Direct Contact & Management */}
           <div className="lg:col-span-5 space-y-8">
             <div>
+              <span className="text-xs font-mono tracking-widest text-neutral-500 uppercase block mb-1">
+                <span className="text-[#FF0000]">{"//"}</span> BOOKING &amp; CONTACTO
+              </span>
               <h3 className="text-3xl sm:text-4xl font-black uppercase tracking-widest text-white leading-tight">
                 BOOKING &amp; MANAGEMENT
               </h3>
@@ -70,10 +73,11 @@ export function BookingSection(): React.JSX.Element {
                     href="https://wa.me/573137721671"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 text-xs font-mono text-neutral-300 hover:text-white transition-colors hover:underline"
+                    className="group flex items-center gap-2.5 text-xs font-mono text-neutral-300 hover:text-white transition-colors hover:underline"
                   >
                     <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>Escribir por WhatsApp &rarr;</span>
+                    <span>Escribir por WhatsApp</span>
+                    <span className="transition-colors group-hover:text-[#FF0000]">&rarr;</span>
                   </a>
                 </div>
               </div>

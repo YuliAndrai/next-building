@@ -3,12 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
-import { 
-  InstagramIcon, 
-  YoutubeIcon, 
-  SoundcloudIcon, 
-  SpotifyIcon 
-} from "@/components/ui/social-icons";
+import { OfficialSocialLinksBar } from "@/components/ui/social-icons";
 import { ArrowUp } from "lucide-react";
 
 export function Footer() {
@@ -24,47 +19,10 @@ export function Footer() {
           <span className="text-2xl font-black uppercase tracking-ultra text-white block">
             {siteConfig.artist.name}
           </span>
-          <p className="text-xs text-neutral-500 uppercase tracking-widest max-w-sm leading-relaxed">
+          <p className="text-xs font-mono text-neutral-500 uppercase tracking-widest max-w-sm leading-relaxed">
             {siteConfig.artist.tagline}
           </p>
-          <div className="flex items-center space-x-5 pt-2">
-            <a
-              href={siteConfig.socials.soundcloud}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-white transition-colors"
-              aria-label="SoundCloud"
-            >
-              <SoundcloudIcon className="w-5 h-5" />
-            </a>
-            <a
-              href={siteConfig.socials.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-white transition-colors"
-              aria-label="Instagram"
-            >
-              <InstagramIcon className="w-5 h-5" />
-            </a>
-            <a
-              href={siteConfig.socials.spotify}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-white transition-colors"
-              aria-label="Spotify"
-            >
-              <SpotifyIcon className="w-5 h-5" />
-            </a>
-            <a
-              href={siteConfig.socials.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-white transition-colors"
-              aria-label="YouTube"
-            >
-              <YoutubeIcon className="w-5 h-5" />
-            </a>
-          </div>
+          <OfficialSocialLinksBar className="flex items-center gap-5 flex-wrap pt-2" />
         </div>
 
         {/* Col 2: Quick Links */}
@@ -72,21 +30,18 @@ export function Footer() {
           <h4 className="text-xs font-bold uppercase tracking-widest text-white">
             NAVIGATION
           </h4>
-          <ul className="space-y-2 text-xs uppercase tracking-widest">
+          <ul className="space-y-2 text-xs uppercase tracking-widest font-mono">
             <li>
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
             </li>
             <li>
-              <Link href="/musica" className="hover:text-white transition-colors">Música &amp; Discografía</Link>
+              <Link href="/musica" className="hover:text-white transition-colors">Música</Link>
             </li>
             <li>
-              <Link href="/#events" className="hover:text-white transition-colors">Tour Dates</Link>
+              <Link href="/eventos" className="hover:text-white transition-colors">Tour Dates &amp; Contacto</Link>
             </li>
             <li>
-              <Link href="/fotos-videos" className="hover:text-white transition-colors">Fotos &amp; Videos</Link>
-            </li>
-            <li>
-              <Link href="/#contact" className="hover:text-white transition-colors">Contacto &amp; Booking</Link>
+              <Link href="/fotos-videos" className="hover:text-white transition-colors">Multimedia</Link>
             </li>
           </ul>
         </div>

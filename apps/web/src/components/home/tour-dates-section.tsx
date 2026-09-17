@@ -30,8 +30,11 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-neutral-900">
           <div>
+            <span className="text-xs font-mono tracking-widest text-neutral-500 uppercase block mb-1">
+              <span className="text-[#FF0000]">{"//"}</span> TOUR DATES
+            </span>
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-widest text-white">
-              TOUR DATES
+              PRÓXIMOS EVENTOS
             </h2>
             <p className="mt-2 text-xs uppercase tracking-widest text-neutral-400">
               Siguientes eventos.
@@ -185,9 +188,10 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
           <div className="mt-10 flex items-center justify-end text-xs text-neutral-500 font-mono uppercase tracking-widest pt-4">
             <Link 
               href="/eventos" 
-              className="text-white hover:text-neutral-300 underline underline-offset-4"
+              className="group text-white hover:text-neutral-300 underline underline-offset-4 inline-flex items-center gap-1.5"
             >
-              VER CALENDARIO COMPLETO &rarr;
+              <span>VER CALENDARIO COMPLETO</span>
+              <span className="transition-colors group-hover:text-[#FF0000]">&rarr;</span>
             </Link>
           </div>
         )}

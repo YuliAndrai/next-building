@@ -192,8 +192,131 @@ export function FacebookIcon({ className = "w-4 h-4" }: { className?: string }) 
       fill="currentColor"
       aria-hidden="true"
     >
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
     </svg>
+  );
+}
+
+/**
+ * TelegramIcon Component
+ *
+ * @param {object} props Component properties.
+ * @param {string} [props.className="w-4 h-4"] Tailwind CSS classes.
+ * @returns {React.JSX.Element} SVG Telegram icon element.
+ */
+export function TelegramIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.197 1.006.128.832.948z" />
+    </svg>
+  );
+}
+
+/**
+ * Standardized configuration item for official socials & platforms.
+ */
+export interface OfficialSocialItem {
+  id: string;
+  name: string;
+  url: string;
+  icon: React.ComponentType<{ className?: string }>;
+  title?: string;
+}
+
+/**
+ * Complete, organized list of official Andhray platforms and social networks.
+ */
+export const OFFICIAL_SOCIAL_ITEMS: readonly OfficialSocialItem[] = [
+  {
+    id: "spotify",
+    name: "Spotify",
+    url: "https://open.spotify.com/intl-es/artist/7uu2JnXxaCT7K4AJHocHsT?si=11mEbq7hTYGBWbg6Fk__1w",
+    icon: SpotifyIcon,
+  },
+  {
+    id: "soundcloud",
+    name: "SoundCloud",
+    url: "https://soundcloud.com/andhray",
+    icon: SoundcloudIcon,
+  },
+  {
+    id: "apple-music",
+    name: "Apple Music",
+    url: "https://music.apple.com/co/artist/andhray/1576855539",
+    icon: AppleMusicIcon,
+  },
+  {
+    id: "instagram",
+    name: "Instagram",
+    url: "https://www.instagram.com/andhray_/?hl=es",
+    icon: InstagramIcon,
+  },
+  {
+    id: "facebook",
+    name: "Facebook",
+    url: "https://www.facebook.com/Andhraymusic/?locale=es_LA",
+    icon: FacebookIcon,
+  },
+  {
+    id: "tiktok",
+    name: "TikTok",
+    url: "https://www.tiktok.com/@andhray",
+    icon: TiktokIcon,
+  },
+  {
+    id: "telegram",
+    name: "Telegram",
+    url: "#telegram",
+    title: "Canal Oficial Telegram - Próximamente",
+    icon: TelegramIcon,
+  },
+] as const;
+
+/**
+ * OfficialSocialLinksBar Component
+ *
+ * Renders the standardized list of official platforms and socials with uniform styling:
+ * - Container: flex items-center gap-5 flex-wrap
+ * - Style per icon: w-5 h-5 (20px), fill monocromático
+ * - Colors and transitions: text-neutral-400 hover:text-white transition-colors duration-200
+ * - Link attributes: target="_blank" rel="noopener noreferrer" aria-label with the network name
+ *
+ * @param {object} props Component properties.
+ * @param {string} [props.className="flex items-center gap-5 flex-wrap"] Tailwind CSS container classes.
+ * @param {string} [props.iconClassName="w-5 h-5"] Tailwind CSS icon classes.
+ * @returns {React.JSX.Element} Rendered social links bar.
+ */
+export function OfficialSocialLinksBar({
+  className = "flex items-center gap-5 flex-wrap",
+  iconClassName = "w-5 h-5",
+}: {
+  className?: string;
+  iconClassName?: string;
+}): React.JSX.Element {
+  return (
+    <div className={className}>
+      {OFFICIAL_SOCIAL_ITEMS.map((item) => {
+        const IconComponent = item.icon;
+        return (
+          <a
+            key={item.id}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={item.name}
+            title={item.title}
+            className="text-neutral-400 hover:text-white transition-colors duration-200"
+          >
+            <IconComponent className={iconClassName} />
+          </a>
+        );
+      })}
+    </div>
   );
 }
 

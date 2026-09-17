@@ -306,7 +306,7 @@ export const siteConfig = {
     slogan: "Música sensual para almas sensuales",
     genres: ["Hard Dance", "Acid", "Groove"],
     tourBadge: "Europa Tour 2026 – 2027 | Nov-Enero",
-    tagline: "Industrial Hard Techno & Relentless Sonic Energy",
+    tagline: "HARD DANCE - ACID - GROOVE",
     bioHeadline: "BIO",
     bio: [
       "Nacida en Colombia, DJ, productora y organizadora de eventos. Desde 2018 ha forjado un sonido propio; Andhray es un universo donde los sonidos se encuentran, se transforman y conectan con el cuerpo. Ritmos, energía y sensualidad que se entremezclan entre lo oscuro, lo hipnótico, la psicodelia y el groove. Amante de la percusión, frecuencias ácidas y ritmos hipnóticos.",
@@ -341,23 +341,24 @@ export const siteConfig = {
   },
 
   socials: {
-    soundcloud: "https://soundcloud.com",
-    instagram: "https://instagram.com",
-    spotify: "https://spotify.com",
-    appleMusic: "https://music.apple.com",
+    spotify: "https://open.spotify.com/intl-es/artist/7uu2JnXxaCT7K4AJHocHsT?si=11mEbq7hTYGBWbg6Fk__1w",
+    soundcloud: "https://soundcloud.com/andhray",
+    appleMusic: "https://music.apple.com/co/artist/andhray/1576855539",
+    instagram: "https://www.instagram.com/andhray_/?hl=es",
+    facebook: "https://www.facebook.com/Andhraymusic/?locale=es_LA",
+    tiktok: "https://www.tiktok.com/@andhray",
+    telegram: "#telegram",
     youtube: "https://youtube.com",
-    facebook: "https://facebook.com",
     twitch: "https://twitch.tv",
-    tiktok: "https://tiktok.com",
     residentAdvisor: "https://ra.co",
     beatport: "https://www.beatport.com/es/artist/andhray/1089914",
     bandcamp: "https://andhray.bandcamp.com"
   },
 
   officialChannels: [
-    { name: "SPOTIFY", url: "https://open.spotify.com/artist/4zmRL1DHbEIYsITw4HOYRn", platform: "spotify" },
+    { name: "SPOTIFY", url: "https://open.spotify.com/intl-es/artist/7uu2JnXxaCT7K4AJHocHsT?si=11mEbq7hTYGBWbg6Fk__1w", platform: "spotify" },
     { name: "SOUNDCLOUD", url: "https://soundcloud.com/andhray", platform: "soundcloud" },
-    { name: "APPLE MUSIC", url: "https://music.apple.com", platform: "appleMusic" },
+    { name: "APPLE MUSIC", url: "https://music.apple.com/co/artist/andhray/1576855539", platform: "appleMusic" },
     { name: "BEATPORT", url: "https://www.beatport.com/es/artist/andhray/1089914", platform: "beatport" },
     { name: "BANDCAMP", url: "https://andhray.bandcamp.com", platform: "bandcamp" }
   ] as OfficialChannel[],

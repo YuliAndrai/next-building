@@ -9,12 +9,7 @@
 import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
-import { Mail } from "lucide-react";
-import {
-  InstagramIcon,
-  SoundcloudIcon,
-  SpotifyIcon,
-} from "@/components/ui/social-icons";
+import { OfficialSocialLinksBar } from "@/components/ui/social-icons";
 
 /**
  * HeroSection Component
@@ -41,9 +36,10 @@ export function HeroSection(): React.JSX.Element {
       <div className="w-full max-w-6xl mx-auto">
         <div className="relative z-10 max-w-xl space-y-3.5 flex flex-col items-start text-left filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.95)]">
           {/* 1. Badge de Gira */}
-          <Link href="/#events" className="inline-block">
+          <Link href="/eventos" className="inline-block group">
             <span className="inline-flex items-center gap-1.5 border border-neutral-800 bg-black/60 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono tracking-widest text-neutral-300 hover:border-neutral-600 transition-colors">
-              EURO TOUR (NOV - DIC) &rarr;
+              <span>EURO TOUR (NOV - DIC)</span>
+              <span className="transition-colors group-hover:text-[#FF0000]">&rarr;</span>
             </span>
           </Link>
 
@@ -59,43 +55,8 @@ export function HeroSection(): React.JSX.Element {
             ))}
           </div>
 
-          {/* 3. Fila de redes sociales alineada a la izquierda con hover:text-white */}
-          <div className="flex items-center gap-4 text-neutral-400">
-            <a
-              href={siteConfig.socials.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-neutral-400 hover:text-white transition-colors"
-            >
-              <InstagramIcon className="w-5 h-5" />
-            </a>
-            <a
-              href={siteConfig.socials.soundcloud}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="SoundCloud"
-              className="text-neutral-400 hover:text-white transition-colors"
-            >
-              <SoundcloudIcon className="w-5 h-5" />
-            </a>
-            <a
-              href={siteConfig.socials.spotify}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Spotify"
-              className="text-neutral-400 hover:text-white transition-colors"
-            >
-              <SpotifyIcon className="w-5 h-5" />
-            </a>
-            <Link
-              href="/#contact"
-              aria-label="Contacto de Booking"
-              className="text-neutral-400 hover:text-white transition-colors"
-            >
-              <Mail className="w-5 h-5" />
-            </Link>
-          </div>
+          {/* 3. Fila de redes y plataformas oficiales estandarizada */}
+          <OfficialSocialLinksBar className="flex items-center gap-5 flex-wrap pt-1" />
         </div>
       </div>
     </section>

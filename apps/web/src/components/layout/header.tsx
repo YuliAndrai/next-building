@@ -3,12 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
-import { 
-  InstagramIcon, 
-  YoutubeIcon, 
-  SoundcloudIcon, 
-  SpotifyIcon 
-} from "@/components/ui/social-icons";
+import { OfficialSocialLinksBar } from "@/components/ui/social-icons";
 import { Menu, X } from "lucide-react";
 
 export function Header() {
@@ -26,9 +21,8 @@ export function Header() {
   const navLinks = [
     { label: "HOME", href: "/" },
     { label: "MÚSICA", href: "/musica" },
-    { label: "SIGUIENTES EVENTOS", href: "/#events" },
-    { label: "FOTOS Y VIDEOS", href: "/fotos-videos" },
-    { label: "CONTACTO", href: "/#contact" },
+    { label: "TOUR DATES & CONTACTO", href: "/eventos" },
+    { label: "MULTIMEDIA", href: "/fotos-videos" },
   ];
 
   return (
@@ -60,58 +54,20 @@ export function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-xs uppercase tracking-widest font-mono font-medium text-neutral-400 hover:text-white transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-white hover:after:w-full after:transition-all after:duration-300"
+              className="group text-xs uppercase tracking-widest font-mono text-neutral-400 hover:text-white transition-colors relative py-1 flex items-center gap-1.5"
             >
-              {link.label}
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-50 group-hover:scale-100" />
+              <span>{link.label}</span>
             </Link>
           ))}
         </nav>
 
-        {/* Desktop Socials & CTA */}
-        <div className="hidden lg:flex items-center space-x-4">
-          <a
-            href={siteConfig.socials.soundcloud}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-white transition-colors p-1.5"
-            aria-label="SoundCloud"
-          >
-            <SoundcloudIcon className="w-4 h-4" />
-          </a>
-          <a
-            href={siteConfig.socials.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-white transition-colors p-1.5"
-            aria-label="Instagram"
-          >
-            <InstagramIcon className="w-4 h-4" />
-          </a>
-          <a
-            href={siteConfig.socials.spotify}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-white transition-colors p-1.5"
-            aria-label="Spotify"
-          >
-            <SpotifyIcon className="w-4 h-4" />
-          </a>
-          <a
-            href={siteConfig.socials.youtube}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-400 hover:text-white transition-colors p-1.5"
-            aria-label="YouTube"
-          >
-            <YoutubeIcon className="w-4 h-4" />
-          </a>
-
-          <Link
-            href="/#events"
-            className="ml-2 px-4 py-1.5 border border-white/40 text-xs font-mono font-semibold uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-200"
-          >
-            LIVE DATES
-          </Link>
+        {/* Desktop Socials */}
+        <div className="hidden lg:flex items-center">
+          <OfficialSocialLinksBar
+            className="flex items-center gap-3 xl:gap-3.5"
+            iconClassName="w-4 h-4"
+          />
         </div>
 
         {/* Mobile Menu Button */}
@@ -135,60 +91,19 @@ export function Header() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-xs uppercase tracking-widest font-medium text-neutral-400 hover:text-white py-2 border-b border-neutral-900 transition-colors"
+                className="group text-xs uppercase tracking-widest font-mono text-neutral-400 hover:text-white py-2 border-b border-neutral-900 transition-colors flex items-center gap-2"
               >
-                {link.label}
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-50 group-hover:scale-100" />
+                <span>{link.label}</span>
               </Link>
             ))}
           </div>
 
-          <div className="pt-4 flex items-center justify-between border-t border-neutral-800">
-            <div className="flex items-center space-x-4">
-              <a
-                href={siteConfig.socials.soundcloud}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-white"
-                aria-label="SoundCloud"
-              >
-                <SoundcloudIcon className="w-5 h-5" />
-              </a>
-              <a
-                href={siteConfig.socials.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-white"
-                aria-label="Instagram"
-              >
-                <InstagramIcon className="w-5 h-5" />
-              </a>
-              <a
-                href={siteConfig.socials.spotify}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-white"
-                aria-label="Spotify"
-              >
-                <SpotifyIcon className="w-5 h-5" />
-              </a>
-              <a
-                href={siteConfig.socials.youtube}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 hover:text-white"
-                aria-label="YouTube"
-              >
-                <YoutubeIcon className="w-5 h-5" />
-              </a>
-            </div>
-
-            <Link
-              href="/#events"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2 border border-white text-xs font-mono font-bold uppercase tracking-widest text-white hover:bg-white hover:text-black"
-            >
-              TICKETS
-            </Link>
+          <div className="pt-5 flex items-center justify-center border-t border-neutral-800">
+            <OfficialSocialLinksBar
+              className="flex items-center gap-4 flex-wrap justify-center"
+              iconClassName="w-4.5 h-4.5"
+            />
           </div>
         </div>
       )}
