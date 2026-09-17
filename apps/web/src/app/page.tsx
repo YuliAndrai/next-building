@@ -10,16 +10,20 @@ import Image from "next/image";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/home/hero-section";
+import { BioSection } from "@/components/home/bio-section";
+import { NewsSection } from "@/components/home/news-section";
 import { TourDatesSection } from "@/components/home/tour-dates-section";
-import { AboutBookingSection } from "@/components/home/about-booking-section";
+import { BookingSection } from "@/components/home/booking-section";
 
 /**
  * HomePage Component
  *
  * Renders the official ANDHRAY landing page with:
  * 1. HeroSection editorial style full screen.
- * 2. Tour Dates / Próximos Eventos (Euro Tour 2026: Italia y Alemania).
- * 3. Booking / Contacto.
+ * 2. BioSection narrative biography and collective mission.
+ * 3. NewsSection featured HÖR Berlin DJ set & Memento player.
+ * 4. TourDatesSection / Próximos Eventos (Euro Tour 2026: Italia y Alemania).
+ * 5. BookingSection / Propuestas y colaboraciones.
  * (Música y Fotos/Videos accesibles exclusivamente a través de las rutas del navbar).
  *
  * @returns {React.JSX.Element} The rendered home page.
@@ -54,11 +58,17 @@ export default function HomePage(): React.JSX.Element {
         {/* 1. Hero editorial */}
         <HeroSection />
 
-        {/* 2. Tour Dates / Próximos Eventos */}
+        {/* 2. Bio editorial */}
+        <BioSection />
+
+        {/* 3. Últimas noticias & streams (HÖR Berlin + Memento) */}
+        <NewsSection />
+
+        {/* 4. Tour Dates / Próximos Eventos */}
         <TourDatesSection />
 
-        {/* 3. Booking / Contacto */}
-        <AboutBookingSection />
+        {/* 5. Booking / Propuestas & Colaboraciones */}
+        <BookingSection />
 
         {/* Footer */}
         <Footer />

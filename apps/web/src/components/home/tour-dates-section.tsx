@@ -30,14 +30,11 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-neutral-900">
           <div>
-            <span className="text-[11px] font-mono uppercase tracking-ultra text-red-600 font-semibold block mb-2">
-              {"// LIVE EXPERIENCE"}
-            </span>
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-widest text-white">
               TOUR DATES
             </h2>
             <p className="mt-2 text-xs uppercase tracking-widest text-neutral-400">
-              Upcoming rituals, festival headline dates, and club ceremonies.
+              Siguientes eventos.
             </p>
           </div>
 
@@ -184,17 +181,16 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
         )}
 
         {/* Footer Note / Dedicated route link */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 font-mono uppercase tracking-widest pt-4">
-          <span>ALL DATES SUBJECT TO CHANGE // 18+ UNLESS NOTED</span>
-          {!standalone && (
+        {!standalone && (
+          <div className="mt-10 flex items-center justify-end text-xs text-neutral-500 font-mono uppercase tracking-widest pt-4">
             <Link 
-              href="/live" 
-              className="mt-2 sm:mt-0 text-white hover:text-neutral-300 underline underline-offset-4"
+              href="/eventos" 
+              className="text-white hover:text-neutral-300 underline underline-offset-4"
             >
-              VIEW FULL TOUR CALENDAR ON /LIVE &rarr;
+              VER CALENDARIO COMPLETO &rarr;
             </Link>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );

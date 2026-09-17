@@ -1,7 +1,7 @@
 /**
  * @file apps/web/src/app/contacto/page.tsx
  * @layer Presentation Layer / Page Component
- * @description Dedicated Booking & Contact route featuring direct agency credentials (Laura: +57 320 257 2002, industrialgirls.techno@gmail.com) and interactive booking inquiry form.
+ * @description Dedicated Booking & Contact route featuring direct agency credentials (Laura: +57 313 772 1671, industrialgirls.techno@gmail.com) and interactive booking inquiry form.
  */
 
 "use client";
@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/data/site-config";
-import { Mail, Phone, MessageSquare, Send, CheckCircle2, Download, Globe, ShieldCheck } from "lucide-react";
+import { Mail, MessageSquare, Send, CheckCircle2, Download, Globe, ShieldCheck } from "lucide-react";
 
 export default function ContactoPage(): React.JSX.Element {
   const [formData, setFormData] = useState({
@@ -59,31 +59,24 @@ export default function ContactoPage(): React.JSX.Element {
             <div className="p-6 sm:p-8 bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl space-y-4 hover:border-neutral-700 transition-colors">
               <span className="inline-flex items-center gap-2 px-2.5 py-0.5 border border-red-900/60 bg-red-950/50 text-[10px] font-mono uppercase tracking-widest text-red-400 font-semibold rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                BOOKING EXCLUSIVO
+                ASISTENCIA, LOGÍSTICA TRAVEL, CONTRATOS
               </span>
               <h2 className="text-xl font-black uppercase tracking-wide text-white">
-                LAURA
+                LAURA &mdash; BOOKING ASSISTANT
               </h2>
               <p className="text-xs text-neutral-400 font-mono">
-                Booking Agent &amp; Representación Global &bull; Industrial Girls
+                Asistente, logística travel &bull; Industrial Girls
               </p>
               
               <div className="space-y-3 pt-2">
                 <a
-                  href="tel:+573202572002"
-                  className="flex items-center gap-3 text-xs font-mono text-neutral-300 hover:text-white transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>+57 320 257 2002</span>
-                </a>
-                <a
-                  href="https://wa.me/573202572002?text=Hola%20Laura,%20me%20gustar%C3%ADa%20consultar%20disponibilidad%20de%20Booking%20para%20Andhray"
+                  href="https://wa.me/573137721671?text=Hola%20Laura,%20me%20gustar%C3%ADa%20consultar%20disponibilidad%20de%20Booking%20para%20Andhray"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-950/60 border border-emerald-800/60 text-emerald-400 hover:text-white text-xs font-mono font-bold uppercase rounded-lg transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-950/60 border border-emerald-800/60 text-emerald-400 hover:text-white text-xs font-mono font-bold uppercase rounded-lg transition-colors"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
-                  <span>CONTACTAR POR WHATSAPP</span>
+                  <span>ESCRIBIR POR WHATSAPP &rarr;</span>
                 </a>
               </div>
             </div>

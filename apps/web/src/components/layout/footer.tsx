@@ -97,10 +97,18 @@ export function Footer() {
             BOOKING &amp; INQUIRIES
           </h4>
           <p className="text-xs text-neutral-500 font-mono">
-            Booking Agent:
+            Booking Assistant:
             <span className="block text-neutral-200 font-bold mt-0.5">
-              Laura &bull; +57 320 257 2002
+              Laura &mdash; Asistente, logística travel
             </span>
+            <a 
+              href="https://wa.me/573137721671" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-[11px] text-emerald-400 hover:text-white transition-colors mt-1"
+            >
+              <span>Escribir por WhatsApp &rarr;</span>
+            </a>
           </p>
           <p className="text-xs text-neutral-500 font-mono pt-1">
             Email Oficial:
