@@ -3,10 +3,9 @@
 /**
  * @file apps/web/src/components/home/music-section.tsx
  * @layer Presentation Layer / Home UI Component
- * @description Official Music Section featuring the digital tracklist table, embedded MEMENTO Spotify mini-player, official channels quickbar, and curated podcasts/DJ sets.
+ * @description Official Music Section featuring the digital tracklist with direct embedded Spotify mini-players, official channels quickbar, and curated podcasts/DJ sets.
  */
 
-import React, { useState } from "react";
 import {
   siteConfig,
   releasesData,
@@ -23,28 +22,15 @@ import {
   BandcampIcon,
   YoutubeIcon
 } from "@/components/ui/social-icons";
-import { ExternalLink, Radio, Play } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-/**
- * ActiveTrackState Interface
- *
- * Represents the track actively loaded in the embedded Spotify mini-player.
- */
-type ActiveTrackState = {
-  title: string;
-  year: string;
-  spotifyId?: string | null;
-};
+import { ExternalLink, Radio } from "lucide-react";
 
 /**
  * MusicSection Component
  *
  * Renders the comprehensive music portfolio of ANDHRAY:
  * 1. Main Header with Official channels quick-access bar.
- * 2. Embedded Dynamic Spotify mini-player with stateful track switching.
- * 3. Complete digital tracklist table with row-level selection.
- * 4. Podcasts and live DJ sets subsection with responsive video/audio players.
+ * 2. Complete digital tracklist with direct integrated Spotify/SoundCloud mini-players per track.
+ * 3. Podcasts and live DJ sets subsection with responsive video/audio players.
  *
  * @returns {React.JSX.Element} The rendered Music section.
  */
@@ -54,14 +40,7 @@ export function MusicSection(): React.JSX.Element {
   const tracks: TrackItem[] = releasesData;
   const podcasts: PodcastSetItem[] = podcastsData;
 
-  // Step 2: Initialize reactive activeTrack state (defaults to MEMENTO [2025])
-  const [activeTrack, setActiveTrack] = useState<ActiveTrackState>({
-    title: "MEMENTO",
-    year: "2025",
-    spotifyId: "68KwzzA0ybAGpUALiaJ0Ci"
-  });
-
-  // Step 3: Separate featured HÖR Berlin live video from curated podcasts/sets
+  // Step 2: Separate featured HÖR Berlin live video from curated podcasts/sets
   const featuredVideoSet = podcasts.find((p) => Boolean(p.embedUrl)) || podcasts[0];
   const otherPodcasts = podcasts.filter((p) => p !== featuredVideoSet);
 
@@ -80,7 +59,7 @@ export function MusicSection(): React.JSX.Element {
                 MÚSICA // RELEASES
               </h2>
               <p className="mt-2 text-xs sm:text-sm uppercase tracking-widest text-neutral-400 max-w-2xl">
-                Catálogo sonoro digital 100% oficial. Producciones originales, colaboraciones y remixes.
+                PRODUCCIONES Y PODCASTS
               </p>
             </div>
 
@@ -108,27 +87,8 @@ export function MusicSection(): React.JSX.Element {
           </div>
         </div>
 
-        {/* Step 4: Tracklist Digital (Tabla minimalista oscura en orden cronológico estricto) */}
+        {/* Step 4: Tracklist Digital con Mini Players Embebidos Directos */}
         <div className="space-y-6">
-          {/* Mini-player superior dinámico de Spotify */}
-          <div className="w-full max-w-4xl mx-auto mb-10">
-            <div className="flex items-center justify-between text-xs tracking-widest text-neutral-400 mb-3 font-mono">
-              <span>{"// EN REPRODUCCIÓN"}</span>
-              <span className="text-white font-bold">{activeTrack.title} [{activeTrack.year}]</span>
-            </div>
-            <div className="w-full h-[80px] bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800">
-              <iframe
-                key={activeTrack.spotifyId}
-                src={`https://open.spotify.com/embed/track/${activeTrack.spotifyId}?utm_source=generator&theme=0`}
-                width="100%"
-                height="80"
-                frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-              />
-            </div>
-          </div>
-
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-3 border-b border-neutral-900">
             <div>
               <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
@@ -143,138 +103,123 @@ export function MusicSection(): React.JSX.Element {
             </p>
           </div>
 
-          {/* Tabla Minimalista Oscura de Releases */}
-          <div className="overflow-x-auto border border-neutral-900 bg-black">
-            <table className="w-full text-left border-collapse">
-              <caption className="sr-only">Catálogo y discografía completa de lanzamientos digitales oficiales de ANDHRAY</caption>
-              <thead>
-                <tr className="border-b border-neutral-800 bg-neutral-950 font-mono text-[10px] uppercase tracking-widest text-neutral-400">
-                  <th scope="col" className="py-3 px-4 font-bold text-neutral-400 w-24 sm:w-28">AÑO</th>
-                  <th scope="col" className="py-3 px-4 font-bold text-neutral-400">TÍTULO DEL TRACK</th>
-                  <th scope="col" className="py-3 px-4 font-bold text-neutral-400 w-36 sm:w-48">TIPO / SELLO</th>
-                  <th scope="col" className="py-3 px-4 font-bold text-neutral-400 text-right sm:text-left w-48 sm:w-60">PLATAFORMAS</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-neutral-900 font-mono text-xs">
-                {tracks.map((track) => {
-                  const isCurrentlyPlaying = activeTrack.spotifyId === track.spotifyId;
+          {/* Lista de Tracks con Reproductor Embebido Directo */}
+          <div className="divide-y divide-neutral-900 border border-neutral-900 bg-black">
+            {tracks.map((track) => (
+              <article
+                key={track.id}
+                className="p-4 sm:p-5 hover:bg-neutral-900/20 transition-colors"
+              >
+                {/* Cabecera del track con Año, Título, Badge de Tipo y Enlaces a Plataformas */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="px-2 py-0.5 bg-neutral-900 border border-neutral-800 text-neutral-300 font-mono text-[11px] font-semibold tracking-wider">
+                      {track.year}
+                    </span>
+                    <h4 className="font-sans font-bold text-sm sm:text-base text-white uppercase tracking-wide">
+                      {track.title}
+                    </h4>
+                    <span className="px-2 py-0.5 bg-neutral-950 border border-neutral-800 text-neutral-400 text-[10px] uppercase tracking-wider font-mono">
+                      {track.type}
+                    </span>
+                  </div>
 
-                  return (
-                    <tr
-                      key={track.id}
-                      onClick={() => {
-                        if (track.spotifyId) {
-                          setActiveTrack(track);
-                        }
-                      }}
-                      className={cn(
-                        "cursor-pointer hover:bg-neutral-900/50 transition-colors group",
-                        isCurrentlyPlaying && "bg-neutral-900/60 border-l-2 border-l-red-500"
-                      )}
+                  {/* Enlaces con iconos a plataformas */}
+                  <div className="flex items-center gap-3">
+                    {track.links.spotify && (
+                      <a
+                        href={track.links.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        aria-label={`Escuchar ${track.title} en Spotify`}
+                        title="Spotify"
+                      >
+                        <SpotifyIcon className="w-5 h-5" />
+                      </a>
+                    )}
+                    {track.links.soundcloud && (
+                      <a
+                        href={track.links.soundcloud}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        aria-label={`Escuchar ${track.title} en SoundCloud`}
+                        title="SoundCloud"
+                      >
+                        <SoundcloudIcon className="w-5 h-5" />
+                      </a>
+                    )}
+                    {track.links.beatport && (
+                      <a
+                        href={track.links.beatport}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        aria-label={`Comprar ${track.title} en Beatport`}
+                        title="Beatport"
+                      >
+                        <BeatportIcon className="w-5 h-5" />
+                      </a>
+                    )}
+                    {track.links.bandcamp && (
+                      <a
+                        href={track.links.bandcamp}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        aria-label={`Comprar ${track.title} en Bandcamp`}
+                        title="Bandcamp"
+                      >
+                        <BandcampIcon className="w-5 h-5" />
+                      </a>
+                    )}
+                    {track.links.appleMusic && (
+                      <a
+                        href={track.links.appleMusic}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-md hover:bg-neutral-800 text-neutral-400 hover:text-white transition-all min-h-[44px] min-w-[44px] flex items-center justify-center"
+                        aria-label={`Escuchar ${track.title} en Apple Music`}
+                        title="Apple Music"
+                      >
+                        <AppleMusicIcon className="w-5 h-5" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Reproductor Embebido Directo */}
+                {track.spotifyId ? (
+                  <div className="w-full my-2">
+                    <iframe
+                      style={{ borderRadius: "12px" }}
+                      src={`https://open.spotify.com/embed/track/${track.spotifyId}?utm_source=generator&theme=0`}
+                      width="100%"
+                      height="80"
+                      frameBorder="0"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-full my-2 p-4 rounded-xl bg-neutral-900/60 border border-neutral-800 flex items-center justify-between">
+                    <span className="text-sm font-mono text-neutral-300">BOOTLEG EXCLUSIVO SOUNDCLOUD</span>
+                    <a
+                      href="https://soundcloud.com/andhray/andhray-daga-adicta-re-edit-luigi-21-plus-ftj-alvarez"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs uppercase px-3 py-1 bg-[#ff5500] text-white rounded font-bold hover:opacity-90"
                     >
-                      {/* Columna [Año] */}
-                      <td className="py-3.5 px-4 whitespace-nowrap">
-                        <span className="px-2 py-0.5 bg-neutral-900 border border-neutral-800 text-neutral-300 font-mono text-[11px] font-semibold tracking-wider">
-                          {track.year}
-                        </span>
-                      </td>
-
-                      {/* Columna [Título del Track] con botón interactivo para actualizar reproductor */}
-                      <td className="py-3.5 px-4">
-                        <div
-                          className="text-left font-sans font-bold text-sm text-white group-hover:text-red-400 transition-colors uppercase tracking-wide flex items-center gap-2"
-                        >
-                          {isCurrentlyPlaying && (
-                            <Play className="w-3 h-3 text-red-500 fill-red-500 shrink-0 animate-pulse" />
-                          )}
-                          <span>{track.title}</span>
-                          {isCurrentlyPlaying && (
-                            <span className="text-[9px] font-mono text-red-400 border border-red-500/40 px-1 py-0.5 bg-red-500/10 uppercase tracking-widest hidden sm:inline-block">
-                              SONANDO
-                            </span>
-                          )}
-                        </div>
-                      </td>
-
-                      {/* Columna [Tipo / Sello] */}
-                      <td className="py-3.5 px-4 whitespace-nowrap">
-                        <span className="px-2 py-0.5 bg-neutral-950 border border-neutral-800/80 text-neutral-400 text-[10px] uppercase tracking-wider font-mono">
-                          {track.type}
-                        </span>
-                      </td>
-
-                      {/* Columna [Enlaces con iconos discretos a Spotify, SoundCloud, Beatport, Apple Music, Bandcamp] */}
-                      <td className="py-3.5 px-4" onClick={(e) => e.stopPropagation()}>
-                        <div className="flex items-center justify-end sm:justify-start gap-1 sm:gap-2">
-                          {track.links.spotify && (
-                            <a
-                              href={track.links.spotify}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-500 hover:text-emerald-400 hover:bg-neutral-900 border border-transparent hover:border-neutral-800 transition-all"
-                              aria-label={`Escuchar ${track.title} en Spotify`}
-                              title="Spotify"
-                            >
-                              <SpotifyIcon className="w-4 h-4" />
-                            </a>
-                          )}
-                          {track.links.soundcloud && (
-                            <a
-                              href={track.links.soundcloud}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-500 hover:text-orange-400 hover:bg-neutral-900 border border-transparent hover:border-neutral-800 transition-all"
-                              aria-label={`Escuchar ${track.title} en SoundCloud`}
-                              title="SoundCloud"
-                            >
-                              <SoundcloudIcon className="w-4 h-4" />
-                            </a>
-                          )}
-                          {track.links.beatport && (
-                            <a
-                              href={track.links.beatport}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-500 hover:text-cyan-400 hover:bg-neutral-900 border border-transparent hover:border-neutral-800 transition-all"
-                              aria-label={`Comprar ${track.title} en Beatport`}
-                              title="Beatport"
-                            >
-                              <BeatportIcon className="w-4 h-4" />
-                            </a>
-                          )}
-                          {track.links.appleMusic && (
-                            <a
-                              href={track.links.appleMusic}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-500 hover:text-pink-400 hover:bg-neutral-900 border border-transparent hover:border-neutral-800 transition-all"
-                              aria-label={`Escuchar ${track.title} en Apple Music`}
-                              title="Apple Music"
-                            >
-                              <AppleMusicIcon className="w-4 h-4" />
-                            </a>
-                          )}
-                          {track.links.bandcamp && (
-                            <a
-                              href={track.links.bandcamp}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-500 hover:text-sky-400 hover:bg-neutral-900 border border-transparent hover:border-neutral-800 transition-all"
-                              aria-label={`Adquirir ${track.title} en Bandcamp`}
-                              title="Bandcamp"
-                            >
-                              <BandcampIcon className="w-4 h-4" />
-                            </a>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                      Escuchar en SoundCloud
+                    </a>
+                  </div>
+                )}
+              </article>
+            ))}
           </div>
         </div>
+
 
         {/* Step 5: Subsección de Podcasts y DJ Sets (Ordenados por fecha) */}
         <div className="space-y-10 pt-8 border-t border-neutral-900">

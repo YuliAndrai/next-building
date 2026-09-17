@@ -24,7 +24,8 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps) 
   });
 
   return (
-    <section id="tour" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900 relative">
+    <section id="events" className="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-900 relative">
+      <span id="tour" className="sr-only -top-20 relative" />
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-neutral-900">
