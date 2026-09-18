@@ -9,9 +9,7 @@
 import {
   siteConfig,
   releasesData,
-  podcastsData,
   TrackItem,
-  PodcastSetItem,
   OfficialChannel
 } from "@/data/site-config";
 import {
@@ -19,10 +17,10 @@ import {
   SoundcloudIcon,
   AppleMusicIcon,
   BeatportIcon,
-  BandcampIcon,
-  YoutubeIcon
+  BandcampIcon
 } from "@/components/ui/social-icons";
-import { ExternalLink, Radio } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import { PodcastsSection } from "@/components/home/podcasts-section";
 
 /**
  * MusicSection Component
@@ -35,14 +33,9 @@ import { ExternalLink, Radio } from "lucide-react";
  * @returns {React.JSX.Element} The rendered Music section.
  */
 export function MusicSection(): React.JSX.Element {
-  // Step 1: Retrieve configuration data directly from official releases and podcasts
+  // Step 1: Retrieve configuration data directly from official releases
   const channels: OfficialChannel[] = siteConfig.officialChannels;
   const tracks: TrackItem[] = releasesData;
-  const podcasts: PodcastSetItem[] = podcastsData;
-
-  // Step 2: Separate featured HÖR Berlin live video from curated podcasts/sets
-  const featuredVideoSet = podcasts.find((p) => Boolean(p.embedUrl)) || podcasts[0];
-  const otherPodcasts = podcasts.filter((p) => p !== featuredVideoSet);
 
   return (
     <section id="music" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-transparent relative z-10">
@@ -221,142 +214,14 @@ export function MusicSection(): React.JSX.Element {
         </div>
 
 
-        {/* Step 5: Subsección de Podcasts y DJ Sets (Ordenados por fecha) */}
-        <div className="space-y-10 pt-8 border-t border-neutral-900">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-4 border-b border-neutral-900">
-            <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-                {"// LIVE RECORDINGS & CURATED PODCASTS"}
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-wider text-white">
-                PODCASTS & DJ SETS
-              </h3>
-            </div>
-            <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
-              SESIONES EN VIVO &bull; EMISIONES Y PODCASTS EXCLUSIVOS
-            </p>
-          </div>
-
-          {/* Step 5.1: Video Performance Destacada: HÖR Berlin (July 24 / 2026) con Embed Responsivo */}
-          {featuredVideoSet && (
-            <article className="bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl p-5 sm:p-8 space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-neutral-800/60">
-                <div className="space-y-1.5">
-                  <div className="flex items-center gap-2.5">
-                    <span className="px-2.5 py-0.5 bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5 rounded-full">
-                      <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-                      SESIÓN EN VIVO // YOUTUBE
-                    </span>
-                    <span className="text-xs font-mono text-neutral-400 font-semibold">
-                      {featuredVideoSet.date}
-                    </span>
-                  </div>
-                  <h4 className="text-xl sm:text-3xl font-black uppercase tracking-wide text-white">
-                    {featuredVideoSet.title}
-                  </h4>
-                  {featuredVideoSet.description && (
-                    <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
-                      {featuredVideoSet.description}
-                    </p>
-                  )}
-                </div>
-
-                <a
-                  href={featuredVideoSet.url || "https://www.youtube.com/watch?v=_xtvbbRCeGU"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-black/40 backdrop-blur-md hover:bg-white/10 border border-neutral-800/60 hover:border-white/40 rounded-xl text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-all self-start sm:self-auto shrink-0"
-                >
-                  <YoutubeIcon className="w-4 h-4 text-red-500" />
-                  <span>VER EN YOUTUBE</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-
-              {/* Reproductor de Video Embebido Responsivo de YouTube (450px) */}
-              <div className="relative aspect-video w-full max-h-[450px] overflow-hidden bg-black/40 border border-neutral-800/60 rounded-xl">
-                <iframe
-                  width="100%"
-                  height="450"
-                  src="https://www.youtube.com/embed/_xtvbbRCeGU"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                  className="w-full h-full border-0"
-                />
-              </div>
-            </article>
-          )}
-
-          {/* Step 5.2: Grilla de Sets y Podcasts Curados (Riöt.scampia, Techno Germany 127, TMORCAST115, Comme Dans Les Films) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {otherPodcasts.map((item) => {
-              const isYouTube = Boolean(item.url?.includes("youtube.com"));
-              return (
-                <article
-                  key={item.title}
-                  className="bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl p-5 sm:p-6 flex flex-col justify-between hover:border-neutral-700 transition-colors space-y-4"
-                >
-                  <div className="space-y-2.5">
-                    <div className="flex items-center justify-between gap-2">
-                      {isYouTube ? (
-                        <span className="px-2.5 py-0.5 bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5 rounded-full">
-                          <YoutubeIcon className="w-3 h-3 text-red-500" />
-                          YOUTUBE LIVE SET
-                        </span>
-                      ) : (
-                        <span className="px-2.5 py-0.5 bg-orange-600/20 border border-orange-500/40 text-orange-400 font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5 rounded-full">
-                          <Radio className="w-3 h-3 text-orange-400" />
-                          SOUNDCLOUD PODCAST
-                        </span>
-                      )}
-                      <span className="text-xs font-mono text-neutral-400 font-semibold">
-                        [{item.date}]
-                      </span>
-                    </div>
-
-                    <h4 className="text-base sm:text-lg font-bold uppercase tracking-wide text-white">
-                      {item.title}
-                    </h4>
-
-                    {item.description && (
-                      <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="pt-3 border-t border-neutral-800/60 flex justify-end">
-                    <a
-                      href={item.url || "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-black/40 backdrop-blur-md hover:bg-white/10 border border-neutral-800/60 hover:border-white/40 rounded-xl text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-white transition-colors"
-                    >
-                      {isYouTube ? (
-                        <>
-                          <YoutubeIcon className="w-3.5 h-3.5 text-red-500" />
-                          <span>VER EN YOUTUBE</span>
-                        </>
-                      ) : (
-                        <>
-                          <SoundcloudIcon className="w-3.5 h-3.5 text-orange-400" />
-                          <span>ESCUCHAR EN SOUNDCLOUD</span>
-                        </>
-                      )}
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-        </div>
+        {/* Step 5: Subsección de Podcasts y DJ Sets con Red Accents */}
+        <PodcastsSection className="px-0 py-0" />
 
       </div>
     </section>
   );
 }
+
+export { PodcastsSection };
+
 
