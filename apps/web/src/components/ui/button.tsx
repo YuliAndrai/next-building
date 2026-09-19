@@ -24,14 +24,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", children, disabled, ...props }, ref) => {
     // Step 1: Compute base classes
     const baseClasses =
-      "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+      "inline-flex items-center justify-center rounded-sm font-medium font-mono uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FF0000] disabled:pointer-events-none disabled:opacity-50";
 
     // Step 2: Resolve variant classes
     const variantClasses = {
-      primary: "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500",
-      secondary: "bg-gray-800 text-gray-100 hover:bg-gray-700 focus-visible:ring-gray-600",
-      ghost: "hover:bg-gray-800/50 text-gray-300 hover:text-white",
-      outline: "border border-gray-700 hover:bg-gray-800 text-gray-200",
+      primary:
+        "border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)]",
+      secondary:
+        "border border-neutral-800 bg-neutral-900 text-white hover:bg-neutral-800 hover:border-neutral-700",
+      ghost:
+        "hover:bg-neutral-900 text-neutral-400 hover:text-white",
+      outline:
+        "border border-neutral-800 bg-black hover:border-[#FF0000] hover:text-[#FF0000] text-neutral-300",
     }[variant];
 
     // Step 3: Resolve size classes

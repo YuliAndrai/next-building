@@ -41,8 +41,8 @@ export default function ContactoPage(): React.JSX.Element {
         <div className="max-w-6xl mx-auto space-y-16">
           
           {/* Header */}
-          <div className="border-b border-neutral-900 pb-8 text-center sm:text-left">
-            <span className="text-[11px] font-mono uppercase tracking-ultra text-red-600 font-semibold block mb-2">
+          <div className="border-b border-neutral-800 pb-8 text-center sm:text-left">
+            <span className="text-[11px] font-mono uppercase tracking-ultra text-[#FF0000] font-semibold block mb-2">
               {"// DIRECT MANAGEMENT & WORLDWIDE BOOKING"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-widest text-white">
@@ -56,9 +56,9 @@ export default function ContactoPage(): React.JSX.Element {
           {/* Cards de Contacto Directo */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1: Booking Agent Laura */}
-            <div className="p-6 sm:p-8 bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl space-y-4 hover:border-neutral-700 transition-colors">
-              <span className="inline-flex items-center gap-2 px-2.5 py-0.5 border border-red-900/60 bg-red-950/50 text-[10px] font-mono uppercase tracking-widest text-red-400 font-semibold rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+            <div className="p-6 sm:p-8 bg-neutral-950 border border-neutral-800 rounded-sm space-y-4 hover:border-[#FF0000]/60 transition-colors duration-200">
+              <span className="inline-flex items-center gap-2 px-2.5 py-0.5 border border-neutral-800 bg-black text-[10px] font-mono uppercase tracking-widest text-white font-semibold rounded-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" />
                 ASISTENCIA, LOGÍSTICA TRAVEL, CONTRATOS
               </span>
               <h2 className="text-xl font-black uppercase tracking-wide text-white">
@@ -73,7 +73,7 @@ export default function ContactoPage(): React.JSX.Element {
                   href="https://wa.me/573137721671?text=Hola%20Laura,%20me%20gustar%C3%ADa%20consultar%20disponibilidad%20de%20Booking%20para%20Andhray"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-950/60 border border-emerald-800/60 text-emerald-400 hover:text-white text-xs font-mono font-bold uppercase rounded-lg transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-mono font-bold uppercase rounded-sm"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>ESCRIBIR POR WHATSAPP &rarr;</span>
@@ -82,7 +82,7 @@ export default function ContactoPage(): React.JSX.Element {
             </div>
 
             {/* Card 2: Email Oficial y Sello */}
-            <div className="p-6 sm:p-8 bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl space-y-4 hover:border-neutral-700 transition-colors">
+            <div className="p-6 sm:p-8 bg-neutral-950 border border-neutral-800 rounded-sm space-y-4 hover:border-[#FF0000]/60 transition-colors duration-200">
               <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
                 CORREO INSTITUCIONAL
               </span>
@@ -95,9 +95,9 @@ export default function ContactoPage(): React.JSX.Element {
               <div className="pt-2">
                 <a
                   href="mailto:industrialgirls.techno@gmail.com"
-                  className="inline-flex items-center gap-2 text-xs font-mono text-neutral-200 hover:text-white break-all hover:underline"
+                  className="inline-flex items-center gap-2 text-xs font-mono text-neutral-200 hover:text-[#FF0000] break-all hover:underline transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-red-500 shrink-0" />
+                  <Mail className="w-4 h-4 text-[#FF0000] shrink-0" />
                   <span>industrialgirls.techno@gmail.com</span>
                 </a>
               </div>
@@ -112,7 +112,7 @@ export default function ContactoPage(): React.JSX.Element {
             </div>
 
             {/* Card 3: Gira y Prensa */}
-            <div className="p-6 sm:p-8 bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl space-y-4 hover:border-neutral-700 transition-colors">
+            <div className="p-6 sm:p-8 bg-neutral-950 border border-neutral-800 rounded-sm space-y-4 hover:border-[#FF0000]/60 transition-colors duration-200">
               <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
                 TOUR &amp; PRENSA
               </span>
@@ -125,7 +125,7 @@ export default function ContactoPage(): React.JSX.Element {
               <div className="pt-2">
                 <a
                   href={siteConfig.contacts.pressKitUrl}
-                  className="inline-flex items-center gap-2 px-4 py-2 border border-neutral-700 bg-black/40 hover:bg-white hover:text-black text-white text-xs font-mono uppercase tracking-widest font-semibold rounded-lg transition-all"
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-mono uppercase tracking-widest font-semibold rounded-sm"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>PRESS KIT &amp; RIDERS (EPK)</span>
@@ -135,9 +135,9 @@ export default function ContactoPage(): React.JSX.Element {
           </div>
 
           {/* Formulario de Solicitud de Booking */}
-          <div className="bg-black/40 backdrop-blur-md border border-neutral-800/60 rounded-xl p-6 sm:p-10 space-y-8">
-            <div className="border-b border-neutral-800/60 pb-4">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-red-500 font-semibold block mb-1">
+          <div className="bg-neutral-950 border border-neutral-800 rounded-sm p-6 sm:p-10 space-y-8">
+            <div className="border-b border-neutral-800 pb-4">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF0000] font-semibold block mb-1">
                 {"// FORMULARIO DE CONTRATACIÓN"}
               </span>
               <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-widest text-white">
@@ -150,7 +150,7 @@ export default function ContactoPage(): React.JSX.Element {
 
             {submitted ? (
               <div className="py-12 flex flex-col items-center justify-center text-center space-y-4">
-                <CheckCircle2 className="w-16 h-16 text-emerald-400 animate-bounce" />
+                <CheckCircle2 className="w-16 h-16 text-[#FF0000] animate-bounce" />
                 <h3 className="text-2xl font-black uppercase tracking-wide text-white">
                   ¡SOLICITUD ENVIADA CORRECTAMENTE!
                 </h3>
@@ -159,7 +159,7 @@ export default function ContactoPage(): React.JSX.Element {
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-4 px-6 py-2 bg-neutral-900 border border-neutral-700 text-xs font-mono uppercase tracking-widest text-white hover:bg-neutral-800 rounded-lg transition-colors"
+                  className="mt-4 px-6 py-2 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-mono uppercase tracking-widest rounded-sm"
                 >
                   ENVIAR OTRA CONSULTA
                 </button>
@@ -178,7 +178,7 @@ export default function ContactoPage(): React.JSX.Element {
                       placeholder="Ej: Klubnacht / Juan Pérez"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-black/50 border border-neutral-800/80 rounded-lg px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-500"
+                      className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
                     />
                   </div>
 
@@ -193,7 +193,7 @@ export default function ContactoPage(): React.JSX.Element {
                       placeholder="booking@tuclub.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-black/50 border border-neutral-800/80 rounded-lg px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-500"
+                      className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
                     />
                   </div>
 
@@ -208,7 +208,7 @@ export default function ContactoPage(): React.JSX.Element {
                       placeholder="+39 000 0000 / +49 ..."
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-black/50 border border-neutral-800/80 rounded-lg px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-500"
+                      className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
                     />
                   </div>
 
@@ -223,7 +223,7 @@ export default function ContactoPage(): React.JSX.Element {
                       placeholder="Ej: Berlín, Alemania / Milán, Italia"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="w-full bg-black/50 border border-neutral-800/80 rounded-lg px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-500"
+                      className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
                     />
                   </div>
 
@@ -238,7 +238,7 @@ export default function ContactoPage(): React.JSX.Element {
                       placeholder="Ej: Tresor / Warehouse 21"
                       value={formData.venue}
                       onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
-                      className="w-full bg-black/50 border border-neutral-800/80 rounded-lg px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-500"
+                      className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
                     />
                   </div>
 
@@ -252,7 +252,7 @@ export default function ContactoPage(): React.JSX.Element {
                       required
                       value={formData.date}
                       onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      className="w-full bg-black/50 border border-neutral-800/80 rounded-lg px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-500"
+                      className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
                     />
                   </div>
                 </div>
@@ -265,13 +265,13 @@ export default function ContactoPage(): React.JSX.Element {
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                    className="w-full bg-black/50 border border-neutral-800/80 rounded-lg px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-neutral-500"
+                    className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#FF0000] transition-colors"
                   >
-                    <option value="Club Show">Club Show (DJ Set Extended)</option>
-                    <option value="Festival Headline">Festival Headline / Mainstage</option>
-                    <option value="Showcase Industrial Girls">Showcase Colectivo Industrial Girls</option>
-                    <option value="Live Stream / Podcast">Sesión En Vivo / Broadcast</option>
-                    <option value="Prensa / Entrevista">Entrevista / Media Feature</option>
+                    <option value="Club Show" className="bg-neutral-950 text-white">Club Show (DJ Set Extended)</option>
+                    <option value="Festival Headline" className="bg-neutral-950 text-white">Festival Headline / Mainstage</option>
+                    <option value="Showcase Industrial Girls" className="bg-neutral-950 text-white">Showcase Colectivo Industrial Girls</option>
+                    <option value="Live Stream / Podcast" className="bg-neutral-950 text-white">Sesión En Vivo / Broadcast</option>
+                    <option value="Prensa / Entrevista" className="bg-neutral-950 text-white">Entrevista / Media Feature</option>
                   </select>
                 </div>
 
@@ -285,7 +285,7 @@ export default function ContactoPage(): React.JSX.Element {
                     placeholder="Detalles sobre aforo, line-up, logística de vuelos/hotel y propuesta económica..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-black/50 border border-neutral-800/80 rounded-lg px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-neutral-500 resize-none"
+                    className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] resize-none transition-colors"
                   />
                 </div>
 
@@ -293,7 +293,7 @@ export default function ContactoPage(): React.JSX.Element {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-white hover:bg-neutral-200 text-black text-xs font-bold uppercase tracking-widest font-mono rounded-lg transition-all shadow-lg"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-bold uppercase tracking-widest font-mono rounded-sm"
                   >
                     <Send className="w-4 h-4" />
                     <span>ENVIAR SOLICITUD DE BOOKING</span>

@@ -21,8 +21,8 @@ export default function ErrorBoundary({
   }, [error]);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-neutral-950 p-6 text-center">
-      <h2 className="text-2xl font-bold text-red-400">Something went wrong</h2>
+    <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-black p-6 text-center">
+      <h2 className="text-2xl font-bold text-[#FF0000]">Something went wrong</h2>
       <p className="max-w-md text-sm text-neutral-400">
         An unexpected application error occurred. You can retry the previous action below.
       </p>

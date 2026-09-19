@@ -21,7 +21,7 @@ export default function LivePage() {
       <main className="flex-1 py-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
           <div className="text-center mb-10">
-            <span className="text-xs font-mono uppercase tracking-ultra text-red-600 font-bold block mb-2">
+            <span className="text-xs font-mono uppercase tracking-ultra text-[#FF0000] font-bold block mb-2">
               OFFICIAL TOUR CALENDAR
             </span>
             <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-ultra text-white">

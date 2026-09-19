@@ -93,7 +93,7 @@ export default function PressKitPage(): React.JSX.Element {
         <div className="min-h-screen bg-black text-white px-6 md:px-12 py-12 max-w-7xl mx-auto">
           
           {/* ENCABEZADO */}
-          <header className="border-b border-[#FF0000]/30 pb-6 mb-12">
+          <header className="border-b border-neutral-800 pb-6 mb-12">
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight">
               PRESS KIT
             </h1>
@@ -111,7 +111,7 @@ export default function PressKitPage(): React.JSX.Element {
               {photos.map((photoName) => (
                 <article
                   key={photoName}
-                  className="border border-neutral-800 hover:border-[#FF0000]/50 bg-neutral-950 p-3 rounded-sm transition-all group flex flex-col justify-between"
+                  className="border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-3 rounded-sm transition-colors duration-200 group flex flex-col justify-between"
                 >
                   <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-neutral-900">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -148,7 +148,7 @@ export default function PressKitPage(): React.JSX.Element {
               {videos.map((videoName) => (
                 <article
                   key={videoName}
-                  className="border border-[#FF0000]/30 bg-neutral-950 p-3 rounded-sm flex flex-col justify-between space-y-3"
+                  className="border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-3 rounded-sm transition-colors duration-200 flex flex-col justify-between space-y-3"
                 >
                   <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-black">
                     <video

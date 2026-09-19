@@ -15,12 +15,12 @@ export function NewsletterSection() {
   };
 
   return (
-    <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-950 border-t border-neutral-900 relative overflow-hidden">
+    <section className="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-black border-t border-neutral-800 relative overflow-hidden">
       {/* Subtle glow accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-red-950/15 blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-[#FF0000]/10 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-3xl mx-auto text-center relative z-10">
-        <span className="text-[11px] font-mono uppercase tracking-ultra text-red-600 font-semibold block mb-3">
+        <span className="text-[11px] font-mono uppercase tracking-ultra text-[#FF0000] font-semibold block mb-3">
           {"// THE INNER CIRCLE"}
         </span>
         <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-widest text-white">
@@ -31,8 +31,8 @@ export function NewsletterSection() {
         </p>
 
         {subscribed ? (
-          <div className="mt-8 p-4 bg-neutral-900 border border-neutral-800 text-neutral-200 inline-flex items-center gap-3 text-xs uppercase tracking-widest font-mono">
-            <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+          <div className="mt-8 p-4 bg-neutral-950 border border-neutral-800 text-neutral-200 inline-flex items-center gap-3 text-xs uppercase tracking-widest font-mono rounded-sm">
+            <CheckCircle2 className="w-5 h-5 text-[#FF0000]" />
             <span>YOU ARE REGISTERED IN THE INNER CIRCLE. CHECK YOUR INBOX SOON.</span>
           </div>
         ) : (
@@ -45,12 +45,12 @@ export function NewsletterSection() {
                 placeholder="ENTER YOUR EMAIL..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-black border border-neutral-800 text-xs uppercase tracking-widest text-white pl-10 pr-4 py-3.5 focus:outline-none focus:border-white placeholder:text-neutral-600 font-mono"
+                className="w-full bg-black border border-neutral-800 text-xs uppercase tracking-widest text-white pl-10 pr-4 py-3.5 focus:outline-none focus:border-[#FF0000] placeholder:text-neutral-600 font-mono rounded-sm transition-colors"
               />
             </div>
             <button
               type="submit"
-              className="px-8 py-3.5 bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-neutral-200 transition-colors shadow-lg"
+              className="px-8 py-3.5 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-black uppercase tracking-widest font-mono rounded-sm"
             >
               SUBSCRIBE
             </button>

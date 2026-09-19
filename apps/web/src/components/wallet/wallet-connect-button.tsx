@@ -19,7 +19,8 @@ export function WalletConnectButton() {
   if (connected) {
     return (
       <div className="flex items-center gap-2">
-        <span className="rounded-md border border-emerald-800/80 bg-emerald-950/40 px-3 py-1.5 text-xs font-mono text-emerald-400">
+        <span className="flex items-center gap-2 rounded-sm border border-neutral-800 bg-neutral-950 px-3 py-1.5 text-xs font-mono text-white">
+          <span className="w-2 h-2 rounded-full bg-[#FF0000] animate-pulse inline-block" />
           {formattedAddress}
         </span>
         <Button variant="outline" size="sm" onClick={() => void disconnect()}>

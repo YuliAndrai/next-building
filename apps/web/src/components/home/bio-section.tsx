@@ -70,17 +70,17 @@ export function BioSection(): React.JSX.Element {
               href="https://industrialgirls.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 mt-8 px-6 py-3 border border-neutral-700 bg-neutral-950/60 hover:bg-white hover:text-black hover:border-white transition-all text-xs font-mono tracking-widest uppercase text-neutral-200 rounded-sm"
+              className="group inline-flex items-center gap-2 mt-8 px-6 py-3 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-mono tracking-widest uppercase rounded-sm"
             >
               <span>VISITAR INDUSTRIAL GIRLS</span>
-              <span className="transition-colors group-hover:text-[#FF0000]">&rarr;</span>
+              <span className="transition-colors group-hover:text-black">&rarr;</span>
             </a>
           </div>
         </div>
 
         {/* Step 3: Columna Derecha (lg:col-span-5) - Tarjeta de Impacto Editorial */}
         <div className="lg:col-span-5">
-          <div className="border border-neutral-800 border-l-2 border-l-[#FF0000] bg-neutral-950/70 p-6 md:p-8 rounded-sm backdrop-blur-sm">
+          <div className="border border-neutral-800 border-l-2 border-l-[#FF0000] bg-neutral-950 p-6 md:p-8 rounded-sm hover:border-[#FF0000]/60 transition-colors duration-200">
             <h3 className="text-xs font-mono tracking-widest text-neutral-400 uppercase mb-6 pb-3 border-b border-neutral-800">
               <span className="text-[#FF0000]">{"//"}</span> IMPACTO &amp; PRESENCIA
             </h3>
@@ -104,9 +104,9 @@ export function BioSection(): React.JSX.Element {
 
             <a 
               href="#epk" 
-              className="group mt-6 inline-block w-full text-center py-2.5 border border-neutral-700/60 text-[11px] font-mono tracking-widest uppercase text-neutral-300 hover:text-white hover:border-neutral-500 transition-colors"
+              className="group mt-6 inline-block w-full text-center py-2.5 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-[11px] font-mono tracking-widest uppercase rounded-sm"
             >
-              DOWNLOAD EPK (PDF) <span className="transition-colors group-hover:text-[#FF0000]">&darr;</span>
+              DOWNLOAD EPK (PDF) <span className="transition-colors group-hover:text-black">&darr;</span>
             </a>
           </div>
         </div>
