@@ -309,8 +309,9 @@ export const siteConfig = {
     tagline: "HARD DANCE - ACID - GROOVE",
     bioHeadline: "BIO",
     bio: [
-      "Nacida en Colombia, DJ, productora y organizadora de eventos. Desde 2018 ha forjado un sonido propio; Andhray es un universo donde los sonidos se encuentran, se transforman y conectan con el cuerpo. Ritmos, energía y sensualidad que se entremezclan entre lo oscuro, lo hipnótico, la psicodelia y el groove. Amante de la percusión, frecuencias ácidas y ritmos hipnóticos.",
-      "En 2019 fundó Industrial Girls, un sello, colectivo y agencia de desarrollo artístico nacida en Colombia, enfocada en impulsar el talento femenino y LGBTQIA+. Con una visión internacional, el proyecto ha fortalecido su comunidad y proyección global a través de showcases y plataformas de visibilización artística."
+      "Nacida en Bogotá, Colombia, ANDHRAY es una DJ, productora y directora creativa que forja una identidad sónica singular desde 2018. Su sonido es un universo inmersivo donde la hipnosis oscura, frecuencias ácidas directas y grooves seductores convergen en la pista de baile.",
+      "En 2019 fundó Industrial Girls, sello discográfico independiente, concepto de eventos y agencia dedicada a potenciar el talento femenino del circuito electrónico underground.",
+      "Su techno propulsivo —enraizado en percusiones hipnóticas contundentes, líneas ácidas analógicas y tensión sensual— está conquistando los clubes más exigentes de Europa y Sudamérica, destacando en escenarios y festivales como BAUM Festival, Ritvales Medellín, Sensor Festival, Radikal Styles, F2F Napoli, entre otros."
     ],
     pressQuotes: [] as { quote: string; source: string }[]
   },

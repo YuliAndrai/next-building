@@ -108,6 +108,7 @@ export interface MessagesSchema {
     readonly description: string;
     readonly searchPlaceholder: string;
     readonly featuredBadge: string;
+    readonly featuredTitle: string;
     readonly currentLocationPrefix: string;
     readonly contactBookingButton: string;
     readonly bookingOpenBadge: string;
@@ -118,8 +119,10 @@ export interface MessagesSchema {
     readonly viewFullCalendar: string;
     readonly featuredDetail: string;
     readonly featuredLocation: string;
+    readonly tourDate1City: string;
     readonly tourDate1Month: string;
     readonly tourDate1Venue: string;
+    readonly tourDate2City: string;
     readonly tourDate2Month: string;
     readonly tourDate2Venue: string;
   };

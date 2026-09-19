@@ -32,11 +32,14 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
 
   const filteredDates = siteConfig.tourDates.filter((item) => {
     const term = searchQuery.toLowerCase();
+    const city = item.id === "tour-octubre-2026" ? t.tour.tourDate1City : item.id === "tour-euro-2026" ? t.tour.tourDate2City : item.city;
+    const venue = item.id === "tour-octubre-2026" ? t.tour.tourDate1Venue : item.id === "tour-euro-2026" ? t.tour.tourDate2Venue : item.venue;
+    const month = item.id === "tour-octubre-2026" ? t.tour.tourDate1Month : item.id === "tour-euro-2026" ? t.tour.tourDate2Month : item.month;
     return (
-      item.city.toLowerCase().includes(term) ||
+      city.toLowerCase().includes(term) ||
       item.country.toLowerCase().includes(term) ||
-      item.venue.toLowerCase().includes(term) ||
-      item.date.toLowerCase().includes(term)
+      venue.toLowerCase().includes(term) ||
+      month.toLowerCase().includes(term)
     );
   });
 
@@ -88,7 +91,7 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
                   </span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-wide text-white font-mono">
-                  {siteConfig.tourConfig.featuredTour.title}
+                  {t.tour.featuredTitle || siteConfig.tourConfig.featuredTour.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed max-w-2xl">
                   {t.tour.featuredDetail}
@@ -123,6 +126,7 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
             {filteredDates.length > 0 ? (
               filteredDates.map((show: TourDate) => {
                 const displayMonth = show.id === "tour-octubre-2026" ? t.tour.tourDate1Month : show.id === "tour-euro-2026" ? t.tour.tourDate2Month : show.month;
+                const displayCity = show.id === "tour-octubre-2026" ? t.tour.tourDate1City : show.id === "tour-euro-2026" ? t.tour.tourDate2City : show.city;
                 const displayVenue = show.id === "tour-octubre-2026" ? t.tour.tourDate1Venue : show.id === "tour-euro-2026" ? t.tour.tourDate2Venue : show.venue;
                 return (
                 <div
@@ -151,7 +155,7 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
                     <div className="flex items-center gap-2">
                       <MapPin className="w-3.5 h-3.5 text-neutral-500" />
                       <h3 className="text-lg sm:text-xl font-bold uppercase tracking-wide text-white group-hover:text-neutral-200 transition-colors">
-                        {show.city}{show.country ? `, ${show.country}` : ""}
+                        {displayCity}{show.country ? `, ${show.country}` : ""}
                       </h3>
                     </div>
                     <p className="mt-1 text-xs uppercase tracking-widest text-neutral-400 font-mono">
