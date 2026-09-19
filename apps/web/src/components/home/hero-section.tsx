@@ -37,7 +37,7 @@ export function HeroSection(): React.JSX.Element {
         <div className="relative z-10 max-w-xl space-y-3.5 flex flex-col items-start text-left filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.95)]">
           {/* 1. Badge de Gira */}
           <Link href="/eventos" className="inline-block group">
-            <span className="inline-flex items-center gap-1.5 border border-neutral-800 bg-black/60 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono tracking-widest text-neutral-300 hover:border-neutral-600 transition-colors">
+            <span className="inline-flex items-center gap-1.5 border border-neutral-800 bg-neutral-950/80 backdrop-blur-md px-3.5 py-1 rounded-sm text-[11px] font-mono tracking-widest text-neutral-300 hover:border-[#FF0000]/60 transition-colors">
               <span>EURO TOUR (NOV - DIC)</span>
               <span className="transition-colors group-hover:text-[#FF0000]">&rarr;</span>
             </span>
@@ -48,7 +48,7 @@ export function HeroSection(): React.JSX.Element {
             {["HARD DANCE", "ACID", "GROOVE"].map((genre) => (
               <span
                 key={genre}
-                className="text-[10px] font-mono px-2.5 py-1 rounded bg-black/70 border border-neutral-800 text-neutral-300 uppercase"
+                className="text-[10px] font-mono px-2.5 py-1 rounded-sm bg-neutral-950 border border-neutral-800 text-neutral-300 uppercase"
               >
                 {genre}
               </span>

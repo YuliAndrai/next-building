@@ -12,7 +12,7 @@ export function Card({ className, children, ...props }: CardProps) {
   return (
     <div
       className={cn(
-        "rounded-xl border border-gray-800 bg-gray-900/60 p-6 shadow-sm backdrop-blur-sm",
+        "rounded-sm border border-neutral-800 bg-neutral-950 p-6 shadow-sm transition-colors duration-200 hover:border-[#FF0000]/60",
         className
       )}
       {...props}

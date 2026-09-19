@@ -19,7 +19,7 @@ import React from "react";
  */
 export function NewsSection(): React.JSX.Element {
   return (
-    <section className="max-w-7xl mx-auto px-6 md:px-8 py-16 border-t border-neutral-900 w-full">
+    <section className="max-w-7xl mx-auto px-6 md:px-8 py-16 border-t border-neutral-800 w-full">
       {/* Header de la sección */}
       <div className="flex items-center justify-between mb-8 pb-3 border-b border-neutral-800">
         <span className="text-xs font-mono tracking-widest text-neutral-500 uppercase">
@@ -78,7 +78,7 @@ export function NewsSection(): React.JSX.Element {
           </div>
           
           {/* Mini Player iframe (Spotify embed compacto) */}
-          <div className="w-full rounded-sm overflow-hidden border border-neutral-800 bg-neutral-950 p-2">
+          <div className="w-full rounded-sm overflow-hidden border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-2 transition-colors duration-200">
             <iframe
               style={{ borderRadius: "4px" }}
               src="https://open.spotify.com/embed/track/68KwzzA0ybAGpUALiaJ0Ci?utm_source=generator&theme=0"
@@ -92,7 +92,7 @@ export function NewsSection(): React.JSX.Element {
           </div>
 
           {/* Tarjeta de Próximos Lanzamientos */}
-          <div className="border border-neutral-800/80 bg-neutral-950/50 p-4 rounded-sm">
+          <div className="border border-neutral-800 bg-neutral-950 p-4 rounded-sm hover:border-[#FF0000]/60 transition-colors duration-200">
             <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest block mb-1">
               PRÓXIMAMENTE
             </span>

@@ -21,9 +21,9 @@ import React from "react";
  */
 export function PodcastsSection({ className = "" }: { className?: string } = {}): React.JSX.Element {
   return (
-    <section className={`max-w-7xl mx-auto px-6 md:px-8 py-16 w-full border-t border-[#FF0000]/30 ${className}`}>
+    <section className={`max-w-7xl mx-auto px-6 md:px-8 py-16 w-full border-t border-neutral-800 ${className}`}>
       {/* Step 1: Encabezado de sección con prefijos técnicos */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-3 border-b border-[#FF0000]/30 gap-2">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-3 border-b border-neutral-800 gap-2">
         <div>
           <span className="text-xs font-mono tracking-widest text-[#FF0000] uppercase">
             {"//"} RECORDINGS &amp; PODCASTS
@@ -40,11 +40,11 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
       {/* Step 2: Grid de 2 Videos de YouTube */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         {/* Video 1: HÖR Berlin */}
-        <div className="border border-[#FF0000]/30 bg-neutral-950 p-4 rounded-sm flex flex-col justify-between">
+        <div className="border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-4 rounded-sm flex flex-col justify-between transition-colors duration-200">
           <div>
             <div className="flex items-center justify-between mb-3">
               <div className="inline-flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#FF0000] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#FF0000] animate-pulse inline-block" />
                 <span className="text-[10px] font-mono text-[#FF0000] tracking-wider uppercase">
                   SESIÓN EN VIVO {"//"} YOUTUBE
                 </span>
@@ -77,11 +77,11 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
         </div>
 
         {/* Video 2: Riöt.scampia 360 DJ Set */}
-        <div className="border border-[#FF0000]/30 bg-neutral-950 p-4 rounded-sm flex flex-col justify-between">
+        <div className="border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-4 rounded-sm flex flex-col justify-between transition-colors duration-200">
           <div>
             <div className="flex items-center justify-between mb-3">
               <div className="inline-flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#FF0000] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#FF0000] animate-pulse inline-block" />
                 <span className="text-[10px] font-mono text-[#FF0000] tracking-wider uppercase">
                   SESIÓN EN VIVO {"//"} YOUTUBE
                 </span>
@@ -133,7 +133,7 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
         {/* GRID MODULAR SOUNDCLOUD: 3 COLUMNAS EN ORDEN ESPECÍFICO */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
           {/* 1. Techno Germany */}
-          <div className="border border-neutral-800 hover:border-[#FF0000]/40 bg-neutral-950 p-2 rounded-sm transition-colors flex flex-col justify-between">
+          <div className="border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-2 rounded-sm transition-colors duration-200 flex flex-col justify-between">
             <iframe
               width="100%"
               height="120"
@@ -150,7 +150,7 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
           </div>
 
           {/* 2. Comme Dans Les Films by Parfait */}
-          <div className="border border-neutral-800 hover:border-[#FF0000]/40 bg-neutral-950 p-2 rounded-sm transition-colors flex flex-col justify-between">
+          <div className="border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-2 rounded-sm transition-colors duration-200 flex flex-col justify-between">
             <iframe
               width="100%"
               height="120"
@@ -167,7 +167,7 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
           </div>
 
           {/* 3. The Meaning Of Rave (TMOR) */}
-          <div className="border border-neutral-800 hover:border-[#FF0000]/40 bg-neutral-950 p-2 rounded-sm transition-colors flex flex-col justify-between">
+          <div className="border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-2 rounded-sm transition-colors duration-200 flex flex-col justify-between">
             <iframe
               width="100%"
               height="120"

@@ -12,8 +12,8 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-black/60 backdrop-blur-md border-t border-neutral-900/80 text-neutral-400 pt-16 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-neutral-900">
+    <footer className="bg-black border-t border-neutral-800 text-neutral-400 pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-neutral-800">
         {/* Col 1: Artist branding */}
         <div className="space-y-4 md:col-span-2">
           <span className="text-2xl font-black uppercase tracking-ultra text-white block">
@@ -32,16 +32,16 @@ export function Footer() {
           </h4>
           <ul className="space-y-2 text-xs uppercase tracking-widest font-mono">
             <li>
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+              <Link href="/" className="hover:text-[#FF0000] transition-colors">Home</Link>
             </li>
             <li>
-              <Link href="/musica" className="hover:text-white transition-colors">Música</Link>
+              <Link href="/musica" className="hover:text-[#FF0000] transition-colors">Música</Link>
             </li>
             <li>
-              <Link href="/#tour" className="hover:text-white transition-colors">Tour Dates &amp; Contacto</Link>
+              <Link href="/#tour" className="hover:text-[#FF0000] transition-colors">Tour Dates &amp; Contacto</Link>
             </li>
             <li>
-              <Link href="/press-kit" className="hover:text-white transition-colors">Press Kit</Link>
+              <Link href="/press-kit" className="hover:text-[#FF0000] transition-colors">Press Kit</Link>
             </li>
           </ul>
         </div>
@@ -60,7 +60,7 @@ export function Footer() {
               href="https://wa.me/573137721671" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[11px] text-emerald-400 hover:text-white transition-colors mt-1"
+              className="inline-flex items-center gap-1 text-[11px] text-[#FF0000] hover:text-white transition-colors mt-1"
             >
               <span>Escribir por WhatsApp &rarr;</span>
             </a>
@@ -69,7 +69,7 @@ export function Footer() {
             Email Oficial:
             <a 
               href="mailto:industrialgirls.techno@gmail.com" 
-              className="block text-neutral-300 hover:text-white transition-colors mt-1"
+              className="block text-neutral-300 hover:text-[#FF0000] transition-colors mt-1"
             >
               industrialgirls.techno@gmail.com
             </a>
@@ -85,7 +85,7 @@ export function Footer() {
 
         <button
           onClick={scrollToTop}
-          className="flex items-center gap-2 text-neutral-400 hover:text-white text-[10px] uppercase tracking-widest transition-colors"
+          className="flex items-center gap-2 text-neutral-400 hover:text-[#FF0000] text-[10px] uppercase tracking-widest transition-colors"
         >
           <span>BACK TO TOP</span>
           <ArrowUp className="w-3.5 h-3.5" />
