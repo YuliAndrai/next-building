@@ -1,20 +1,21 @@
 /**
  * @file apps/web/src/app/live/page.tsx
- * @description Dedicated Tour Dates & Live Shows Route (/live), mirroring saralandry.com/live
+ * @layer Presentation Layer / Page Component
+ * @description Dedicated Tour Dates & Live Shows Route (/live), localized across 8 languages.
  */
 
+"use client";
+
+import React from "react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { TourDatesSection } from "@/components/home/tour-dates-section";
-import { siteConfig } from "@/data/site-config";
-import type { Metadata } from "next";
+import { useI18n } from "@/i18n/client";
 
-export const metadata: Metadata = {
-  title: `${siteConfig.artist.name} // TOUR DATES & LIVE DATES`,
-  description: `Official tour schedule and tickets for ${siteConfig.artist.name}. European, American and world tour dates.`,
-};
+export default function LivePage(): React.JSX.Element {
+  // Step 1: Retrieve localized translations
+  const { t } = useI18n();
 
-export default function LivePage() {
   return (
     <div className="min-h-screen bg-black text-neutral-100 flex flex-col font-sans">
       <Header />
@@ -22,10 +23,10 @@ export default function LivePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
           <div className="text-center mb-10">
             <span className="text-xs font-mono uppercase tracking-ultra text-[#FF0000] font-bold block mb-2">
-              OFFICIAL TOUR CALENDAR
+              {t.livePage.tag}
             </span>
             <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-ultra text-white">
-              {siteConfig.artist.name} LIVE
+              {t.livePage.title}
             </h1>
           </div>
         </div>

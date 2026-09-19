@@ -7,6 +7,7 @@
  */
 
 import React from "react";
+import { useI18n } from "@/i18n/client";
 
 /**
  * PodcastsSection Component
@@ -20,24 +21,27 @@ import React from "react";
  * @returns {React.JSX.Element} The rendered Podcasts & Recordings section.
  */
 export function PodcastsSection({ className = "" }: { className?: string } = {}): React.JSX.Element {
+  // Step 1: Retrieve localized translations
+  const { t } = useI18n();
+
   return (
     <section className={`max-w-7xl mx-auto px-6 md:px-8 py-16 w-full border-t border-neutral-800 ${className}`}>
-      {/* Step 1: Encabezado de sección con prefijos técnicos */}
+      {/* Step 2: Encabezado de sección con prefijos técnicos */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-3 border-b border-neutral-800 gap-2">
         <div>
           <span className="text-xs font-mono tracking-widest text-[#FF0000] uppercase">
-            {"//"} RECORDINGS &amp; PODCASTS
+            {t.musicPage.recordingsTag}
           </span>
           <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight mt-1">
-            PODCASTS &amp; DJ SETS
+            {t.musicPage.recordingsTitle}
           </h2>
         </div>
         <span className="text-[11px] font-mono tracking-wider text-neutral-400 uppercase">
-          SESIONES EN VIVO • EMISIONES Y PODCASTS EXCLUSIVOS
+          {t.musicPage.recordingsSubtitle}
         </span>
       </div>
 
-      {/* Step 2: Grid de 2 Videos de YouTube */}
+      {/* Step 3: Grid de 2 Videos de YouTube */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         {/* Video 1: HÖR Berlin */}
         <div className="border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-4 rounded-sm flex flex-col justify-between transition-colors duration-200">
@@ -46,7 +50,7 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
               <div className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#FF0000] animate-pulse inline-block" />
                 <span className="text-[10px] font-mono text-[#FF0000] tracking-wider uppercase">
-                  SESIÓN EN VIVO {"//"} YOUTUBE
+                  {t.musicPage.liveSessionBadge}
                 </span>
               </div>
               <span className="text-[11px] font-mono text-neutral-400">24 Julio 2026</span>
@@ -71,7 +75,7 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-white transition-colors"
           >
-            <span>VER EN YOUTUBE</span>
+            <span>{t.musicPage.watchOnYoutube}</span>
             <span className="text-[#FF0000]">&nearr;</span>
           </a>
         </div>
@@ -83,10 +87,10 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
               <div className="inline-flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#FF0000] animate-pulse inline-block" />
                 <span className="text-[10px] font-mono text-[#FF0000] tracking-wider uppercase">
-                  SESIÓN EN VIVO {"//"} YOUTUBE
+                  {t.musicPage.liveSessionBadge}
                 </span>
               </div>
-              <span className="text-[11px] font-mono text-neutral-400">SET DESTACADO</span>
+              <span className="text-[11px] font-mono text-neutral-400">{t.musicPage.featuredSetBadge}</span>
             </div>
 
             <div className="relative w-full aspect-video rounded-sm overflow-hidden border border-neutral-800 bg-black mb-3">
@@ -108,15 +112,15 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 text-xs font-mono text-neutral-400 hover:text-white transition-colors"
           >
-            <span>VER EN YOUTUBE</span>
+            <span>{t.musicPage.watchOnYoutube}</span>
             <span className="text-[#FF0000]">&nearr;</span>
           </a>
         </div>
       </div>
 
-      {/* Step 3: Reproductores SoundCloud compactos */}
-      <div className="mt-8">
-        <div className="flex items-center justify-between mb-4 pb-2 border-b border-neutral-800">
+      {/* Step 4: Bloque 2 - Archivo SoundCloud */}
+      <div className="mt-8 border-t border-neutral-800 pt-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <span className="text-xs font-mono tracking-wider text-neutral-400 uppercase">
             {"//"} ARCHIVO DE PODCASTS &amp; MIXES (SOUNDCLOUD)
           </span>
@@ -126,7 +130,7 @@ export function PodcastsSection({ className = "" }: { className?: string } = {})
             rel="noopener noreferrer"
             className="text-[11px] font-mono text-[#FF0000] hover:underline"
           >
-            SOUNDCLOUD COMPLETO &rarr;
+            {`${t.musicPage.listenOnSoundcloud} →`}
           </a>
         </div>
 

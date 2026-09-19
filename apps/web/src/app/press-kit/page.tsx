@@ -2,7 +2,7 @@
  * @file apps/web/src/app/press-kit/page.tsx
  * @layer Presentation Layer / Page Component
  * @description Official Electronic Press Kit (EPK) route for ANDHRAY.
- * Delivers high-resolution photography and live video archive.
+ * Delivers high-resolution photography and live video archive with multi-language support.
  */
 
 import React from "react";
@@ -12,10 +12,31 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/data/site-config";
 import type { Metadata } from "next";
+import en from "@/messages/en.json";
+import es from "@/messages/es.json";
+import de from "@/messages/de.json";
+import it from "@/messages/it.json";
+import fr from "@/messages/fr.json";
+import pt from "@/messages/pt.json";
+import zh from "@/messages/zh.json";
+import ja from "@/messages/ja.json";
+import { resolveSafeLocale } from "@/i18n/constants";
+import type { MessagesSchema, SupportedLocale } from "@/i18n/types";
+
+const dictionaries: Record<SupportedLocale, MessagesSchema> = {
+  en,
+  es,
+  de,
+  it,
+  fr,
+  pt,
+  zh,
+  ja,
+};
 
 export const metadata: Metadata = {
   title: `${siteConfig.artist.name} // PRESS KIT`,
-  description: `Material oficial de prensa de ${siteConfig.artist.name}: Fotografías en alta resolución y registros de video en vivo.`,
+  description: `Official press material for ${siteConfig.artist.name}: High-resolution photography, live performance videos, and technical riders.`,
 };
 
 /**
@@ -70,18 +91,27 @@ function getPressKitMedia(): { photos: string[]; videos: string[] } {
   return { photos, videos };
 }
 
+interface PressKitPageProps {
+  locale?: string;
+}
+
 /**
  * PressKitPage Component
  *
  * Official press and booking resources hub:
- * - Section 01: High-resolution official photographs (FOTOS).
+ * - Section 01: High-resolution official photographs (PHOTOS).
  * - Section 02: Raw live video records & footage (VIDEOS).
  *
+ * @param props Optional locale property for static server rendering.
  * @returns {React.JSX.Element} Rendered EPK page.
  */
-export default function PressKitPage(): React.JSX.Element {
+export default function PressKitPage({ locale }: PressKitPageProps = {}): React.JSX.Element {
   // Step 1: Read media assets from directory
   const { photos, videos } = getPressKitMedia();
+
+  // Step 2: Resolve safe locale and matching dictionary
+  const safeLocale = resolveSafeLocale(locale);
+  const t = dictionaries[safeLocale] || dictionaries.en;
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col font-sans selection:bg-[#FF0000] selection:text-white">
@@ -95,7 +125,7 @@ export default function PressKitPage(): React.JSX.Element {
           {/* ENCABEZADO */}
           <header className="border-b border-neutral-800 pb-6 mb-12">
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight">
-              PRESS KIT
+              {t.pressKitPage.title}
             </h1>
           </header>
 
@@ -103,7 +133,7 @@ export default function PressKitPage(): React.JSX.Element {
           <section className="mb-16">
             <h2 className="mb-6">
               <span className="text-xs font-mono tracking-widest uppercase">
-                <span className="text-[#FF0000]">{"//"}</span> FOTOS
+                <span className="text-[#FF0000]">{"//"}</span> {t.pressKitPage.photosTag.replace(/^\/\/\s*/, "")}
               </span>
             </h2>
 
@@ -117,7 +147,7 @@ export default function PressKitPage(): React.JSX.Element {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={`/press-kit/photos/${encodeURIComponent(photoName)}`}
-                      alt={`Fotografía oficial de prensa - ${photoName}`}
+                      alt={`${t.pressKitPage.photoAlt} - ${photoName}`}
                       className="w-full h-full object-cover rounded-sm filter contrast-110 group-hover:scale-[1.02] transition-transform duration-300"
                       loading="lazy"
                     />
@@ -128,7 +158,7 @@ export default function PressKitPage(): React.JSX.Element {
                     download
                     className="mt-3 flex items-center justify-between text-[11px] font-mono text-neutral-400 hover:text-[#FF0000] transition-colors pt-1"
                   >
-                    <span>DESCARGAR ORIGINAL</span>
+                    <span>{t.pressKitPage.downloadOriginal}</span>
                     <span className="font-bold text-xs">&darr;</span>
                   </a>
                 </article>
@@ -140,7 +170,7 @@ export default function PressKitPage(): React.JSX.Element {
           <section className="mb-8">
             <h2 className="mb-6">
               <span className="text-xs font-mono tracking-widest uppercase">
-                <span className="text-[#FF0000]">{"//"}</span> VIDEOS
+                <span className="text-[#FF0000]">{"//"}</span> {t.pressKitPage.videosTag.replace(/^\/\/\s*/, "")}
               </span>
             </h2>
 
@@ -158,7 +188,7 @@ export default function PressKitPage(): React.JSX.Element {
                       className="w-full aspect-video object-cover rounded-sm bg-black"
                       src={`/press-kit/videos/${encodeURIComponent(videoName)}`}
                     >
-                      Tu navegador no soporta la reproducción de video.
+                      {t.pressKitPage.videoUnsupported}
                     </video>
                   </div>
 
