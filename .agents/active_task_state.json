@@ -1,23 +1,24 @@
 {
   "version": "1.0.0",
-  "task_id": "BRI-8",
-  "story_id": "STORY-UX-UI-FIXES",
-  "spec_id": "SPEC-13",
-  "branch": "SPEC/jaymusicmachine-BRI-8-s13-distribution-run-squads-view",
-  "parent_branch": "feature/jaymusicmachine-BRI-8-distributions-ux-ui-fixes",
-  "current_phase": "PHASE_7_ARCHITECT_GATE_2_VALIDATED",
+  "task_id": "I18N-8LANG",
+  "story_id": "STORY-I18N",
+  "spec_id": "SPEC-I18N",
+  "branch": "feature/app-internacionalizacion",
+  "parent_branch": "develop",
+  "current_phase": "PHASE_8_HUMAN_MERGE_APPROVED",
   "human_design_approval": {
     "approved": true,
-    "timestamp": "2026-08-23T10:50:14-05:00"
+    "timestamp": "2026-09-19T00:10:20-05:00",
+    "note": "Approved with Next.js 16 proxy.ts migration correction"
   },
   "phases": {
-    "PHASE_1_BOOTSTRAP": { "completed": true, "timestamp": "2026-08-23T10:50:22-05:00" },
-    "PHASE_2_DOCS_FILLED": { "completed": true, "timestamp": "2026-08-23T10:50:30-05:00" },
-    "PHASE_3_ARCHITECT_GATE_1_APPROVED": { "completed": true, "timestamp": "2026-08-23T10:50:35-05:00" },
-    "PHASE_4_HUMAN_DESIGN_APPROVED": { "completed": true, "timestamp": "2026-08-23T10:50:14-05:00" },
-    "PHASE_5_TESTS_RED": { "completed": true, "timestamp": "2026-08-23T10:50:54-05:00", "note": "Created TDD test for GET /api/admin/treasury/squads/proposals with ?runId" },
-    "PHASE_6_CODE_GREEN": { "completed": true, "timestamp": "2026-08-23T10:53:15-05:00" },
-    "PHASE_7_ARCHITECT_GATE_2_VALIDATED": { "completed": true, "timestamp": "2026-08-23T10:55:02-05:00" },
-    "PHASE_8_HUMAN_MERGE_APPROVED": { "completed": false }
+    "PHASE_1_BOOTSTRAP": { "completed": true, "timestamp": "2026-09-18T23:51:00-05:00" },
+    "PHASE_2_DOCS_FILLED": { "completed": true, "timestamp": "2026-09-18T23:51:30-05:00" },
+    "PHASE_3_ARCHITECT_GATE_1_APPROVED": { "completed": true, "timestamp": "2026-09-19T00:03:00-05:00" },
+    "PHASE_4_HUMAN_DESIGN_APPROVED": { "completed": true, "timestamp": "2026-09-19T00:10:20-05:00" },
+    "PHASE_5_TESTS_RED": { "completed": true, "timestamp": "2026-09-19T00:17:00-05:00", "note": "22 tests defined in tests/i18n.test.ts, 11 passed on contracts, 11 failed cleanly with AssertionError" },
+    "PHASE_6_CODE_GREEN": { "completed": true, "timestamp": "2026-09-19T00:28:00-05:00", "note": "All 22 i18n unit/integration tests passing (22/22), next-intl integration and proxy.ts complete" },
+    "PHASE_7_ARCHITECT_GATE_2_VALIDATED": { "completed": true, "timestamp": "2026-09-19T00:35:00-05:00", "note": "Gate 2 audit passed: 4-layer isolation verified, in-code commentary complete, clean root, typecheck and all tests passed" },
+    "PHASE_8_HUMAN_MERGE_APPROVED": { "completed": true, "timestamp": "2026-09-19T01:23:15-05:00", "note": "Human acceptance granted by user for full landing and subpage internationalization in 8 languages" }
   }
 }

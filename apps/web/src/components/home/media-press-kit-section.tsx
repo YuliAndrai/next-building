@@ -7,6 +7,7 @@
 "use client";
 
 import React from "react";
+import { useI18n } from "@/i18n/client";
 
 /**
  * Editorial still photography placeholder metadata
@@ -72,23 +73,26 @@ const pressItems: MediaPressItem[] = [
  * @returns {React.JSX.Element} The rendered Media & Press section.
  */
 export function MediaPressKitSection(): React.JSX.Element {
-  // Step 1: Pre-configured video embed URL (leave empty for placeholder or provide embed link)
+  // Step 1: Retrieve localized message catalog
+  const { t } = useI18n();
+
+  // Step 2: Pre-configured video embed URL (leave empty for placeholder or provide embed link)
   const videoUrl = "";
 
   return (
     <section id="media" className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-transparent relative z-10">
       <div className="max-w-7xl mx-auto">
-        {/* Step 2: Section Header & Descriptive Industrial Subtitle */}
+        {/* Step 3: Section Header & Descriptive Industrial Subtitle */}
         <div className="mb-10 pb-6 border-b border-neutral-900">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-widest text-white">
-            FOTOS Y VIDEOS
+            {t.mediaPage.title}
           </h2>
           <p className="mt-2 text-xs font-mono uppercase tracking-widest text-neutral-400">
-            {"// ARCHIVO AUDIOVISUAL, SESIONES EN VIVO Y PRENSA"}
+            {t.mediaPage.tag}
           </p>
         </div>
 
-        {/* Step 3: Bloque 1 - SET DESTACADO (HÖR BERLIN) */}
+        {/* Step 4: Bloque 1 - SET DESTACADO (HÖR BERLIN) */}
         <div className="w-full">
           <div className="aspect-video w-full rounded-xl border border-neutral-800/60 overflow-hidden bg-black/40 backdrop-blur-md flex items-center justify-center">
             {videoUrl ? (
@@ -102,14 +106,14 @@ export function MediaPressKitSection(): React.JSX.Element {
             ) : (
               <div className="flex flex-col items-center justify-center p-6 text-center">
                 <span className="font-mono text-xs sm:text-sm text-neutral-400 tracking-wider">
-                  {"[ VIDEO DESTACADO: ANDHRAY | HÖR BERLIN // JULY 24, 2026 ]"}
+                  {`[ ${t.mediaPage.featuredSetTitle} // JULY 24, 2026 ]`}
                 </span>
               </div>
             )}
           </div>
         </div>
 
-        {/* Step 4: Bloque 2 - GALERÍA FOTOGRÁFICA EDITORIAL */}
+        {/* Step 5: Bloque 2 - GALERÍA FOTOGRÁFICA EDITORIAL */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
           {editorialStills.map((still) => (
             <div
@@ -123,10 +127,10 @@ export function MediaPressKitSection(): React.JSX.Element {
           ))}
         </div>
 
-        {/* Step 5: Bloque 3 - MEDIA & PRESS (Entrevistas y Podcasts) */}
+        {/* Step 6: Bloque 3 - MEDIA & PRESS (Entrevistas y Podcasts) */}
         <div className="border-t border-neutral-800/60 pt-8 mt-12">
           <h3 className="text-sm sm:text-base font-bold font-mono uppercase tracking-widest text-neutral-300 mb-6">
-            {"ENTREVISTAS & PODCASTS // PRENSA"}
+            {`${t.mediaPage.pressTag} // ${t.mediaPage.pressTitle}`}
           </h3>
 
           <div className="flex flex-col gap-4">
@@ -151,7 +155,7 @@ export function MediaPressKitSection(): React.JSX.Element {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-medium uppercase tracking-wider text-neutral-300 hover:text-white bg-black/40 backdrop-blur-md hover:bg-white/10 border border-neutral-800/60 hover:border-white/40 rounded-xl transition-all self-start sm:self-auto min-h-[44px] min-w-[120px]"
                 >
-                  {"ESCUCHAR ↗"}
+                  {`${t.mediaPage.listenButton} ↗`}
                 </a>
               </div>
             ))}

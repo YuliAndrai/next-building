@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/social-icons";
 import { ExternalLink } from "lucide-react";
 import { PodcastsSection } from "@/components/home/podcasts-section";
+import { useI18n } from "@/i18n/client";
 
 /**
  * MusicSection Component
@@ -33,7 +34,10 @@ import { PodcastsSection } from "@/components/home/podcasts-section";
  * @returns {React.JSX.Element} The rendered Music section.
  */
 export function MusicSection(): React.JSX.Element {
-  // Step 1: Retrieve configuration data directly from official releases
+  // Step 1: Retrieve localized translations
+  const { t } = useI18n();
+
+  // Step 2: Retrieve configuration data directly from official releases
   const channels: OfficialChannel[] = siteConfig.officialChannels;
   const tracks: TrackItem[] = releasesData;
 
@@ -46,13 +50,13 @@ export function MusicSection(): React.JSX.Element {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <span className="text-[11px] font-mono uppercase tracking-ultra text-[#FF0000] font-semibold block mb-2">
-                {"// DIGITAL DISCOGRAPHY & ARCHIVE"}
+                {t.musicPage.tag}
               </span>
               <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-widest text-white">
-                MÚSICA // RELEASES
+                {t.musicPage.title}
               </h2>
-              <p className="mt-2 text-xs sm:text-sm uppercase tracking-widest text-neutral-400 max-w-2xl">
-                PRODUCCIONES Y PODCASTS
+              <p className="mt-2 text-xs sm:text-sm uppercase tracking-widest text-neutral-400 max-w-2xl font-mono">
+                {t.musicPage.subtitle}
               </p>
             </div>
 
@@ -65,7 +69,7 @@ export function MusicSection(): React.JSX.Element {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 px-3.5 py-2 min-h-[44px] bg-neutral-950 border border-neutral-800 rounded-sm hover:border-[#FF0000]/60 text-neutral-400 hover:text-white transition-colors text-xs font-mono font-bold uppercase tracking-wider"
-                  aria-label={`Visitar canal oficial de ${channel.name}`}
+                  aria-label={`${t.musicPage.channelAriaLabel} ${channel.name}`}
                 >
                   {channel.platform === "spotify" && <SpotifyIcon className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white transition-colors" />}
                   {channel.platform === "soundcloud" && <SoundcloudIcon className="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" />}
@@ -85,14 +89,14 @@ export function MusicSection(): React.JSX.Element {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-3 border-b border-neutral-800">
             <div>
               <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-1">
-                {"// COMPLETE DIGITAL TRACKLIST"}
+                {t.musicPage.tracklistTag}
               </span>
               <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-wider text-white">
-                CATÁLOGO DE TRACKS (14)
+                {`${t.musicPage.tracklistTitle} (${tracks.length})`}
               </h3>
             </div>
             <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
-              DISCOGRAFÍA DIGITAL &bull; 2025 – 2021
+              {t.musicPage.tracklistSubtitle}
             </p>
           </div>
 

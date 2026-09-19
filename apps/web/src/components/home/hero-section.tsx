@@ -10,6 +10,7 @@ import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
 import { OfficialSocialLinksBar } from "@/components/ui/social-icons";
+import { useI18n } from "@/i18n/client";
 
 /**
  * HeroSection Component
@@ -21,6 +22,8 @@ import { OfficialSocialLinksBar } from "@/components/ui/social-icons";
  * @returns {React.JSX.Element} The rendered hero section.
  */
 export function HeroSection(): React.JSX.Element {
+  const { locale, t } = useI18n();
+
   return (
     <section
       id="hero"
@@ -30,20 +33,20 @@ export function HeroSection(): React.JSX.Element {
       <span id="home" className="sr-only -top-20 relative" />
 
       {/* Screen reader heading for accessibility without visual obstruction */}
-      <h1 className="sr-only">{siteConfig.artist.name} - Official Website</h1>
+      <h1 className="sr-only">{siteConfig.artist.name} - {t.home.heroSubtitle}</h1>
 
       {/* Bloque alineado estrictamente con el margen vertical de Tour Dates */}
       <div className="w-full max-w-6xl mx-auto">
         <div className="relative z-10 max-w-xl space-y-3.5 flex flex-col items-start text-left filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.95)]">
           {/* 1. Badge de Gira */}
-          <Link href="/eventos" className="inline-block group">
+          <Link href={`/${locale}/#tour`} className="inline-block group">
             <span className="inline-flex items-center gap-1.5 border border-neutral-800 bg-neutral-950/80 backdrop-blur-md px-3.5 py-1 rounded-sm text-[11px] font-mono tracking-widest text-neutral-300 hover:border-[#FF0000]/60 transition-colors">
-              <span>EURO TOUR (NOV - DIC)</span>
+              <span>{t.home.badge}</span>
               <span className="transition-colors group-hover:text-[#FF0000]">&rarr;</span>
             </span>
           </Link>
 
-          {/* 2. Badges de género en fila horizontal */}
+          {/* 2. Badges de género en fila horizontal (inmutables en techno internacional) */}
           <div className="flex flex-wrap gap-2">
             {["HARD DANCE", "ACID", "GROOVE"].map((genre) => (
               <span

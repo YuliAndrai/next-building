@@ -9,10 +9,13 @@
 import React, { useState } from "react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { siteConfig } from "@/data/site-config";
-import { Mail, MessageSquare, Send, CheckCircle2, Download, Globe, ShieldCheck } from "lucide-react";
+import { useI18n } from "@/i18n/client";
+import { Mail, MessageSquare, Send, CheckCircle2, Download } from "lucide-react";
 
 export default function ContactoPage(): React.JSX.Element {
+  // Step 1: Retrieve localized translations and current locale
+  const { t, locale } = useI18n();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,6 +29,7 @@ export default function ContactoPage(): React.JSX.Element {
 
   const [submitted, setSubmitted] = useState(false);
 
+  // Step 2: Handle booking inquiry submission
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
@@ -43,13 +47,13 @@ export default function ContactoPage(): React.JSX.Element {
           {/* Header */}
           <div className="border-b border-neutral-800 pb-8 text-center sm:text-left">
             <span className="text-[11px] font-mono uppercase tracking-ultra text-[#FF0000] font-semibold block mb-2">
-              {"// DIRECT MANAGEMENT & WORLDWIDE BOOKING"}
+              {t.contactPage.tag}
             </span>
             <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-widest text-white">
-              CONTACTO // BOOKING
+              {t.contactPage.title}
             </h1>
-            <p className="mt-3 text-xs sm:text-sm uppercase tracking-widest text-neutral-400 max-w-3xl">
-              CONTRATACIONES PARA CLUBES, FESTIVALES, SHOWCASES Y COMUNICACIONES DE PRENSA OFICIAL.
+            <p className="mt-3 text-xs sm:text-sm uppercase tracking-widest text-neutral-400 max-w-3xl font-mono">
+              {t.contactPage.subtitle}
             </p>
           </div>
 
@@ -59,13 +63,13 @@ export default function ContactoPage(): React.JSX.Element {
             <div className="p-6 sm:p-8 bg-neutral-950 border border-neutral-800 rounded-sm space-y-4 hover:border-[#FF0000]/60 transition-colors duration-200">
               <span className="inline-flex items-center gap-2 px-2.5 py-0.5 border border-neutral-800 bg-black text-[10px] font-mono uppercase tracking-widest text-white font-semibold rounded-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" />
-                ASISTENCIA, LOGÍSTICA TRAVEL, CONTRATOS
+                {t.contactPage.cardAssistantBadge}
               </span>
               <h2 className="text-xl font-black uppercase tracking-wide text-white">
-                LAURA &mdash; BOOKING ASSISTANT
+                {t.contactPage.cardAssistantTitle}
               </h2>
               <p className="text-xs text-neutral-400 font-mono">
-                Industrial Girls
+                {t.contactPage.cardAssistantRole}
               </p>
               
               <div className="space-y-3 pt-2">
@@ -76,7 +80,7 @@ export default function ContactoPage(): React.JSX.Element {
                   className="inline-flex items-center gap-2 px-4 py-2 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-mono font-bold uppercase rounded-sm"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
-                  <span>ESCRIBIR POR WHATSAPP &rarr;</span>
+                  <span>{t.contactPage.cardAssistantButton}</span>
                 </a>
               </div>
             </div>
@@ -84,13 +88,13 @@ export default function ContactoPage(): React.JSX.Element {
             {/* Card 2: Email Oficial y Sello */}
             <div className="p-6 sm:p-8 bg-neutral-950 border border-neutral-800 rounded-sm space-y-4 hover:border-[#FF0000]/60 transition-colors duration-200">
               <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
-                CORREO INSTITUCIONAL
+                {t.contactPage.cardEmailBadge}
               </span>
               <h2 className="text-xl font-black uppercase tracking-wide text-white">
-                EMAIL DIRECTO
+                {t.contactPage.cardEmailTitle}
               </h2>
               <p className="text-xs text-neutral-400 font-mono">
-                Para propuestas formales de contratación, riders técnicos y prensa.
+                {t.contactPage.cardEmailDescription}
               </p>
               <div className="pt-2">
                 <a
@@ -103,7 +107,7 @@ export default function ContactoPage(): React.JSX.Element {
               </div>
               <div className="pt-2">
                 <span className="text-[10px] font-mono uppercase text-neutral-500 block">
-                  COLECTIVO / PLATAFORMA:
+                  {t.contactPage.cardEmailPlatformLabel}
                 </span>
                 <span className="text-xs font-bold font-mono tracking-wider text-white">
                   INDUSTRIAL GIRLS
@@ -114,21 +118,21 @@ export default function ContactoPage(): React.JSX.Element {
             {/* Card 3: Gira y Prensa */}
             <div className="p-6 sm:p-8 bg-neutral-950 border border-neutral-800 rounded-sm space-y-4 hover:border-[#FF0000]/60 transition-colors duration-200">
               <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">
-                TOUR &amp; PRENSA
+                {t.contactPage.cardTourBadge}
               </span>
               <h2 className="text-xl font-black uppercase tracking-wide text-white">
-                EURO TOUR 2026
+                {t.contactPage.cardTourTitle}
               </h2>
               <p className="text-xs text-neutral-400 font-mono leading-relaxed">
-                Agenda abierta para fechas en Italia, Alemania y resto de Europa (Noviembre &ndash; Diciembre 2026).
+                {t.contactPage.cardTourDescription}
               </p>
               <div className="pt-2">
                 <a
-                  href={siteConfig.contacts.pressKitUrl}
+                  href={`/${locale}/press-kit`}
                   className="inline-flex items-center gap-2 px-4 py-2 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-mono uppercase tracking-widest font-semibold rounded-sm"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  <span>PRESS KIT &amp; RIDERS (EPK)</span>
+                  <span>{t.contactPage.cardTourButton}</span>
                 </a>
               </div>
             </div>
@@ -138,13 +142,13 @@ export default function ContactoPage(): React.JSX.Element {
           <div className="bg-neutral-950 border border-neutral-800 rounded-sm p-6 sm:p-10 space-y-8">
             <div className="border-b border-neutral-800 pb-4">
               <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF0000] font-semibold block mb-1">
-                {"// FORMULARIO DE CONTRATACIÓN"}
+                {t.contactPage.formTag}
               </span>
               <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-widest text-white">
-                SOLICITUD DE BOOKING
+                {t.contactPage.formTitle}
               </h2>
               <p className="text-xs text-neutral-400 font-mono uppercase tracking-wider mt-1">
-                Completa los datos de tu evento para recibir cotización formal y disponibilidad de calendario.
+                {t.contactPage.formSubtitle}
               </p>
             </div>
 
@@ -152,16 +156,16 @@ export default function ContactoPage(): React.JSX.Element {
               <div className="py-12 flex flex-col items-center justify-center text-center space-y-4">
                 <CheckCircle2 className="w-16 h-16 text-[#FF0000] animate-bounce" />
                 <h3 className="text-2xl font-black uppercase tracking-wide text-white">
-                  ¡SOLICITUD ENVIADA CORRECTAMENTE!
+                  {t.contactPage.formSuccessTitle}
                 </h3>
                 <p className="text-xs sm:text-sm font-mono text-neutral-300 max-w-md leading-relaxed">
-                  Gracias por tu interés en contratar a ANDHRAY. Laura revisará tu solicitud y se comunicará a la brevedad con la disponibilidad y el rider técnico.
+                  {t.contactPage.formSuccessMessage}
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="mt-4 px-6 py-2 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-mono uppercase tracking-widest rounded-sm"
                 >
-                  ENVIAR OTRA CONSULTA
+                  {t.contactPage.formSuccessAnotherButton}
                 </button>
               </div>
             ) : (
@@ -170,12 +174,12 @@ export default function ContactoPage(): React.JSX.Element {
                   {/* Nombre */}
                   <div className="space-y-2">
                     <label className="text-xs font-mono uppercase tracking-widest text-neutral-300 block">
-                      NOMBRE DEL PROMOTOR / CLUB *
+                      {t.contactPage.formNameLabel}
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Ej: Klubnacht / Juan Pérez"
+                      placeholder={t.contactPage.formNamePlaceholder}
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
@@ -185,12 +189,12 @@ export default function ContactoPage(): React.JSX.Element {
                   {/* Email */}
                   <div className="space-y-2">
                     <label className="text-xs font-mono uppercase tracking-widest text-neutral-300 block">
-                      EMAIL DE CONTACTO *
+                      {t.contactPage.formEmailLabel}
                     </label>
                     <input
                       type="email"
                       required
-                      placeholder="booking@tuclub.com"
+                      placeholder={t.contactPage.formEmailPlaceholder}
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
@@ -200,12 +204,12 @@ export default function ContactoPage(): React.JSX.Element {
                   {/* Teléfono / WhatsApp */}
                   <div className="space-y-2">
                     <label className="text-xs font-mono uppercase tracking-widest text-neutral-300 block">
-                      TELÉFONO / WHATSAPP *
+                      {t.contactPage.formPhoneLabel}
                     </label>
                     <input
                       type="tel"
                       required
-                      placeholder="+39 000 0000 / +49 ..."
+                      placeholder={t.contactPage.formPhonePlaceholder}
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
@@ -215,12 +219,12 @@ export default function ContactoPage(): React.JSX.Element {
                   {/* Ciudad y País */}
                   <div className="space-y-2">
                     <label className="text-xs font-mono uppercase tracking-widest text-neutral-300 block">
-                      CIUDAD &amp; PAÍS *
+                      {t.contactPage.formCityLabel}
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Ej: Berlín, Alemania / Milán, Italia"
+                      placeholder={t.contactPage.formCityPlaceholder}
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                       className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
@@ -230,12 +234,12 @@ export default function ContactoPage(): React.JSX.Element {
                   {/* Venue o Festival */}
                   <div className="space-y-2">
                     <label className="text-xs font-mono uppercase tracking-widest text-neutral-300 block">
-                      NOMBRE DE LA SALA / FESTIVAL *
+                      {t.contactPage.formVenueLabel}
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Ej: Tresor / Warehouse 21"
+                      placeholder={t.contactPage.formVenuePlaceholder}
                       value={formData.venue}
                       onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
                       className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] transition-colors"
@@ -245,7 +249,7 @@ export default function ContactoPage(): React.JSX.Element {
                   {/* Fecha propuesta */}
                   <div className="space-y-2">
                     <label className="text-xs font-mono uppercase tracking-widest text-neutral-300 block">
-                      FECHA ESTIMADA DEL EVENTO *
+                      {t.contactPage.formDateLabel}
                     </label>
                     <input
                       type="date"
@@ -260,29 +264,29 @@ export default function ContactoPage(): React.JSX.Element {
                 {/* Tipo de evento */}
                 <div className="space-y-2">
                   <label className="text-xs font-mono uppercase tracking-widest text-neutral-300 block">
-                    FORMATO DE PRESENTACIÓN
+                    {t.contactPage.formFormatLabel}
                   </label>
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value })}
                     className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#FF0000] transition-colors"
                   >
-                    <option value="Club Show" className="bg-neutral-950 text-white">Club Show (DJ Set Extended)</option>
-                    <option value="Festival Headline" className="bg-neutral-950 text-white">Festival Headline / Mainstage</option>
-                    <option value="Showcase Industrial Girls" className="bg-neutral-950 text-white">Showcase Colectivo Industrial Girls</option>
-                    <option value="Live Stream / Podcast" className="bg-neutral-950 text-white">Sesión En Vivo / Broadcast</option>
-                    <option value="Prensa / Entrevista" className="bg-neutral-950 text-white">Entrevista / Media Feature</option>
+                    <option value="Club Show" className="bg-neutral-950 text-white">{t.contactPage.formOptionClub}</option>
+                    <option value="Festival Headline" className="bg-neutral-950 text-white">{t.contactPage.formOptionFestival}</option>
+                    <option value="Showcase Industrial Girls" className="bg-neutral-950 text-white">{t.contactPage.formOptionShowcase}</option>
+                    <option value="Live Stream / Podcast" className="bg-neutral-950 text-white">{t.contactPage.formOptionBroadcast}</option>
+                    <option value="Prensa / Entrevista" className="bg-neutral-950 text-white">{t.contactPage.formOptionPress}</option>
                   </select>
                 </div>
 
                 {/* Mensaje adicional */}
                 <div className="space-y-2">
                   <label className="text-xs font-mono uppercase tracking-widest text-neutral-300 block">
-                    DETALLES ADICIONALES / OFERTA ESTIMADA
+                    {t.contactPage.formDetailsLabel}
                   </label>
                   <textarea
                     rows={4}
-                    placeholder="Detalles sobre aforo, line-up, logística de vuelos/hotel y propuesta económica..."
+                    placeholder={t.contactPage.formDetailsPlaceholder}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full bg-black border border-neutral-800 rounded-sm px-4 py-3 text-xs font-mono text-white placeholder:text-neutral-600 focus:outline-none focus:border-[#FF0000] resize-none transition-colors"
@@ -296,7 +300,7 @@ export default function ContactoPage(): React.JSX.Element {
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-bold uppercase tracking-widest font-mono rounded-sm"
                   >
                     <Send className="w-4 h-4" />
-                    <span>ENVIAR SOLICITUD DE BOOKING</span>
+                    <span>{t.contactPage.formSubmitButton}</span>
                   </button>
                 </div>
               </form>
