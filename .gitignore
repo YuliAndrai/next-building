@@ -30,4 +30,5 @@ target
 programs/**/target
 .tmp.driveupload
 **/.tmp.driveupload
+apps/web/public/press-kit/videos/
 

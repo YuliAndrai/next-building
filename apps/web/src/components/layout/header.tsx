@@ -21,8 +21,8 @@ export function Header() {
   const navLinks = [
     { label: "HOME", href: "/" },
     { label: "MÚSICA", href: "/musica" },
-    { label: "TOUR DATES & CONTACTO", href: "/eventos" },
-    { label: "MULTIMEDIA", href: "/fotos-videos" },
+    { label: "TOUR DATES & CONTACTO", href: "/#tour" },
+    { label: "PRESS KIT", href: "/press-kit" },
   ];
 
   return (
@@ -54,7 +54,7 @@ export function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className="group text-xs uppercase tracking-widest font-mono text-neutral-400 hover:text-white transition-colors relative py-1 flex items-center gap-1.5"
+              className="group text-xs uppercase tracking-widest font-mono text-neutral-400 hover:text-[#FF0000] transition-colors relative py-1 flex items-center gap-1.5"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-50 group-hover:scale-100" />
               <span>{link.label}</span>
@@ -91,7 +91,7 @@ export function Header() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="group text-xs uppercase tracking-widest font-mono text-neutral-400 hover:text-white py-2 border-b border-neutral-900 transition-colors flex items-center gap-2"
+                className="group text-xs uppercase tracking-widest font-mono text-neutral-400 hover:text-[#FF0000] py-2 border-b border-neutral-900 transition-colors flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-50 group-hover:scale-100" />
                 <span>{link.label}</span>
