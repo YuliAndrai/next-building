@@ -38,10 +38,10 @@ export function Footer() {
               <Link href="/musica" className="hover:text-white transition-colors">Música</Link>
             </li>
             <li>
-              <Link href="/eventos" className="hover:text-white transition-colors">Tour Dates &amp; Contacto</Link>
+              <Link href="/#tour" className="hover:text-white transition-colors">Tour Dates &amp; Contacto</Link>
             </li>
             <li>
-              <Link href="/fotos-videos" className="hover:text-white transition-colors">Multimedia</Link>
+              <Link href="/press-kit" className="hover:text-white transition-colors">Press Kit</Link>
             </li>
           </ul>
         </div>
