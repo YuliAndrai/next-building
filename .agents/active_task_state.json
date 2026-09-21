@@ -5,16 +5,16 @@
   "spec_id": "SPEC-EURO-TOUR-DATES",
   "branch": "fix/app-euro-tour-dates-late-nov-dec",
   "parent_branch": "develop",
-  "current_phase": "PHASE_7_ARCHITECT_GATE_2_VALIDATED",
+  "current_phase": "PHASE_8_HUMAN_MERGE_APPROVED",
   "human_design_approval": {
     "approved": true,
     "timestamp": "2026-09-21T00:59:25-05:00",
     "note": "Human design approval granted by user ('si')"
   },
   "human_merge_approval": {
-    "approved": false,
-    "timestamp": null,
-    "note": "Waiting for explicit user acceptance before merge to develop"
+    "approved": true,
+    "timestamp": "2026-09-21T01:29:17-05:00",
+    "note": "Human merge approval granted by user instruction ('Una vez aprobado, realiza el merge a develop')"
   },
   "phases": {
     "PHASE_1_BOOTSTRAP": { "completed": true, "timestamp": "2026-09-21T00:56:15-05:00" },
@@ -40,6 +40,10 @@
       "timestamp": "2026-09-21T01:23:55-05:00",
       "note": "Gate 2 audit passed: full pnpm validate passed with 0 errors (95/95 unit tests, 48/48 harness specs, typecheck, lint, license scan, doc governance, 4-layer architecture)"
     },
-    "PHASE_8_HUMAN_MERGE_APPROVED": { "completed": false, "timestamp": null }
+    "PHASE_8_HUMAN_MERGE_APPROVED": {
+      "completed": true,
+      "timestamp": "2026-09-21T01:29:17-05:00",
+      "note": "PR #2 merged cleanly into develop"
+    }
   }
 }
