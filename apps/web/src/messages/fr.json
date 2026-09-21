@@ -11,7 +11,7 @@
   "home": {
     "heroTitle": "ANDHRAY",
     "heroSubtitle": "SITE OFFICIEL",
-    "badge": "TOURNÉE EUROPÉENNE (NOV - DÉC)",
+    "badge": "TOURNÉE EUROPÉENNE (FIN NOV - DÉC)",
     "slogan": "Musique sensuelle pour âmes sensuelles",
     "listenNow": "ÉCOUTER MAINTENANT",
     "exploreTour": "DÉCOUVRIR LES DATES"
@@ -36,7 +36,7 @@
     "description": "Prochaines dates confirmées de tournée et showcases.",
     "searchPlaceholder": "FILTRER PAR VILLE OU SALLE...",
     "featuredBadge": "TOURNÉE VEDETTE",
-    "featuredTitle": "TOURNÉE EUROPÉENNE (NOV - DÉC)",
+    "featuredTitle": "TOURNÉE EUROPÉENNE (FIN NOV - DÉC)",
     "currentLocationPrefix": "Localisation actuelle :",
     "contactBookingButton": "CONTACTER LE BOOKING",
     "bookingOpenBadge": "BOOKING OUVERT",
@@ -51,7 +51,7 @@
     "tourDate1Month": "OCTOBRE 2026",
     "tourDate1Venue": "Octobre : Dates à annoncer // Booking disponible en Colombie et Amérique latine",
     "tourDate2City": "Italie & Allemagne",
-    "tourDate2Month": "NOV - DÉC 2026",
+    "tourDate2Month": "FIN NOV - DÉC 2026",
     "tourDate2Venue": "TOURNÉE EUROPÉENNE 2026 // Clubs & Showcases"
   },
   "news": {
@@ -108,7 +108,7 @@
     "cardEmailPlatformLabel": "COLLECTIF / PLATEFORME :",
     "cardTourBadge": "TOUR & PRESSE",
     "cardTourTitle": "TOURNÉE EUROPÉENNE 2026",
-    "cardTourDescription": "Disponibilités ouvertes pour des dates en Italie, Allemagne et reste de l'Europe (Novembre – Décembre 2026).",
+    "cardTourDescription": "Disponibilités ouvertes pour des dates en Italie, Allemagne et reste de l'Europe (Fin Novembre – Décembre 2026).",
     "cardTourButton": "KIT DE PRESSE & RIDERS (EPK)",
     "formTag": "// FORMULAIRE DE DEMANDE DE BOOKING",
     "formTitle": "DEMANDE DE BOOKING",

@@ -11,7 +11,7 @@
   "home": {
     "heroTitle": "ANDHRAY",
     "heroSubtitle": "SITIO OFICIAL",
-    "badge": "EURO TOUR (NOV - DIC)",
+    "badge": "EURO TOUR (FINAL NOV - DICIEMBRE)",
     "slogan": "Música sensual para almas sensuales",
     "listenNow": "ESCUCHAR AHORA",
     "exploreTour": "EXPLORAR FECHAS"
@@ -36,7 +36,7 @@
     "description": "Próximas fechas confirmadas de gira y presentaciones en directo.",
     "searchPlaceholder": "FILTRAR POR CIUDAD O SALA...",
     "featuredBadge": "GIRA DESTACADA",
-    "featuredTitle": "EURO TOUR (NOV - DIC)",
+    "featuredTitle": "EURO TOUR (FINAL NOV - DICIEMBRE)",
     "currentLocationPrefix": "Ubicación actual:",
     "contactBookingButton": "CONTACTAR BOOKING",
     "bookingOpenBadge": "BOOKING ABIERTO",
@@ -51,7 +51,7 @@
     "tourDate1Month": "OCTUBRE 2026",
     "tourDate1Venue": "Octubre: Fechas por anunciar // Booking disponible en Colombia y Latinoamérica",
     "tourDate2City": "Italia & Alemania",
-    "tourDate2Month": "NOV - DIC 2026",
+    "tourDate2Month": "FINAL NOV - DICIEMBRE 2026",
     "tourDate2Venue": "EURO TOUR 2026 // Clubes & Showcases"
   },
   "news": {
@@ -108,7 +108,7 @@
     "cardEmailPlatformLabel": "COLECTIVO / PLATAFORMA:",
     "cardTourBadge": "TOUR & PRENSA",
     "cardTourTitle": "EURO TOUR 2026",
-    "cardTourDescription": "Agenda abierta para fechas en Italia, Alemania y resto de Europa (Noviembre – Diciembre 2026).",
+    "cardTourDescription": "Agenda abierta para fechas en Italia, Alemania y resto de Europa (Finales de Noviembre – Diciembre 2026).",
     "cardTourButton": "PRESS KIT & RIDERS (EPK)",
     "formTag": "// FORMULARIO DE CONTRATACIÓN",
     "formTitle": "SOLICITUD DE BOOKING",

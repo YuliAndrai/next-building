@@ -11,7 +11,7 @@
   "home": {
     "heroTitle": "ANDHRAY",
     "heroSubtitle": "官方网站",
-    "badge": "2026欧洲巡演 (11月 - 12月)",
+    "badge": "2026欧洲巡演 (11月下旬 - 12月)",
     "slogan": "为感性灵魂而作的感性音乐",
     "listenNow": "立即聆听",
     "exploreTour": "查看巡演日程"
@@ -36,7 +36,7 @@
     "description": "最新确认的巡演排期与专场演出日程。",
     "searchPlaceholder": "按城市或场地搜索...",
     "featuredBadge": "重点巡演",
-    "featuredTitle": "欧洲巡演 (11月 - 12月)",
+    "featuredTitle": "欧洲巡演 (11月下旬 - 12月)",
     "currentLocationPrefix": "当前位置：",
     "contactBookingButton": "联络演出预订",
     "bookingOpenBadge": "接受预订",
@@ -51,7 +51,7 @@
     "tourDate1Month": "2026年10月",
     "tourDate1Venue": "10月：具体日期即将公布 // 哥伦比亚与拉丁美洲演出接受预订",
     "tourDate2City": "意大利 & 德国",
-    "tourDate2Month": "2026年11月 - 12月",
+    "tourDate2Month": "2026年11月下旬 - 12月",
     "tourDate2Venue": "2026欧洲巡演 // 俱乐部与专场演出"
   },
   "news": {
@@ -108,7 +108,7 @@
     "cardEmailPlatformLabel": "厂牌厂组 / 平台：",
     "cardTourBadge": "巡演与媒体",
     "cardTourTitle": "2026欧洲巡演",
-    "cardTourDescription": "意大利、德国及欧洲其他地区巡演档期现已开放预订（2026年11月至12月）。",
+    "cardTourDescription": "意大利、德国及欧洲其他地区巡演档期现已开放预订（2026年11月下旬至12月）。",
     "cardTourButton": "新闻资料包与技术单 (EPK)",
     "formTag": "// 演出邀约申请表",
     "formTitle": "演出邀约申请",
