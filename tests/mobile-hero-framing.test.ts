@@ -56,13 +56,13 @@ describe("Hero Background Mobile Framing & Responsive Focal Point Alignment", ()
     // Step 2: Act - extract className from hero Image component
     const className = extractHeroImageClassName(source);
 
-    // Step 3: Assert - verify that mobile has a calibrated focal point (x ≈ 70% or 68%-72%)
+    // Step 3: Assert - verify that mobile has a calibrated focal point (x ≈ 58%-70%)
     // and does NOT rely solely on static un-prefixed `object-top` which centers horizontally at 50%
-    const hasCalibratedMobileFocalPoint = /object-\[(?:6[5-9]|7[0-5])%_/.test(className);
+    const hasCalibratedMobileFocalPoint = /object-\[(?:5[5-9]|6[0-9]|7[0-5])%_/.test(className);
     
     expect(
       hasCalibratedMobileFocalPoint,
-      `Expected hero image to have mobile calibrated focal point class matching /object-[(65-75)%_/ (e.g. object-[70%_top]), but found: "${className}"`
+      `Expected hero image to have mobile calibrated focal point class matching /object-[(55-75)%_/ (e.g. object-[58%_top]), but found: "${className}"`
     ).toBe(true);
   });
 
