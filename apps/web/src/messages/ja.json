@@ -11,7 +11,7 @@
   "home": {
     "heroTitle": "ANDHRAY",
     "heroSubtitle": "オフィシャルサイト",
-    "badge": "EURO TOUR 2026 (11月〜12月)",
+    "badge": "EURO TOUR 2026 (11月下旬〜12月)",
     "slogan": "官能的な魂のための官能的な音楽",
     "listenNow": "今すぐ聴く",
     "exploreTour": "ツアー日程を見る"
@@ -36,7 +36,7 @@
     "description": "決定済みの最新ツアースケジュールおよびショーケース日程。",
     "searchPlaceholder": "都市名または会場で絞り込み...",
     "featuredBadge": "注目ツアー",
-    "featuredTitle": "EURO TOUR (11月〜12月)",
+    "featuredTitle": "EURO TOUR (11月下旬〜12月)",
     "currentLocationPrefix": "現在の拠点：",
     "contactBookingButton": "ブッキングに問い合わせる",
     "bookingOpenBadge": "ブッキング受付中",
@@ -51,7 +51,7 @@
     "tourDate1Month": "2026年10月",
     "tourDate1Venue": "10月：日程近日発表 // コロンビアおよびラテンアメリカでのブッキング受付中",
     "tourDate2City": "イタリア & ドイツ",
-    "tourDate2Month": "2026年11月〜12月",
+    "tourDate2Month": "2026年11月下旬〜12月",
     "tourDate2Venue": "EURO TOUR 2026 // クラブ＆ショーケース"
   },
   "news": {
@@ -108,7 +108,7 @@
     "cardEmailPlatformLabel": "コレクティブ / プラットフォーム：",
     "cardTourBadge": "ツアー＆プレス",
     "cardTourTitle": "EURO TOUR 2026",
-    "cardTourDescription": "イタリア、ドイツ、その他ヨーロッパ各地のツアースケジュール受付中（2026年11月〜12月）。",
+    "cardTourDescription": "イタリア、ドイツ、その他ヨーロッパ各地のツアースケジュール受付中（2026年11月下旬〜12月）。",
     "cardTourButton": "プレスキット＆ライダー (EPK)",
     "formTag": "// 出演オファー申請フォーム",
     "formTitle": "ブッキング・オファー申請",

@@ -11,7 +11,7 @@
   "home": {
     "heroTitle": "ANDHRAY",
     "heroSubtitle": "OFFIZIELLE WEBSITE",
-    "badge": "EUROPA-TOUR (NOV - DEZ)",
+    "badge": "EUROPA-TOUR (ENDE NOV - DEZ)",
     "slogan": "Sinnliche Musik für sinnliche Seelen",
     "listenNow": "JETZT ANHÖREN",
     "exploreTour": "TOURDATEN ENTDECKEN"
@@ -36,7 +36,7 @@
     "description": "Bestätigte bevorstehende Tourdaten und Showcases.",
     "searchPlaceholder": "NACH STADT ODER LOCATION FILTERN...",
     "featuredBadge": "HIGHLIGHT-TOUR",
-    "featuredTitle": "EUROPA-TOUR (NOV - DEZ)",
+    "featuredTitle": "EUROPA-TOUR (ENDE NOV - DEZ)",
     "currentLocationPrefix": "Aktueller Standort:",
     "contactBookingButton": "BOOKING KONTAKTIEREN",
     "bookingOpenBadge": "BOOKING OFFEN",
@@ -51,7 +51,7 @@
     "tourDate1Month": "OKTOBER 2026",
     "tourDate1Venue": "Oktober: Termine werden noch bekannt gegeben // Booking verfügbar in Kolumbien & Lateinamerika",
     "tourDate2City": "Italien & Deutschland",
-    "tourDate2Month": "NOV - DEZ 2026",
+    "tourDate2Month": "ENDE NOV - DEZ 2026",
     "tourDate2Venue": "EUROPA-TOUR 2026 // Clubs & Showcases"
   },
   "news": {
@@ -108,7 +108,7 @@
     "cardEmailPlatformLabel": "KOLLEKTIV / PLATTFORM:",
     "cardTourBadge": "TOUR & PRESSE",
     "cardTourTitle": "EUROPA-TOUR 2026",
-    "cardTourDescription": "Offene Tour-Termine für Italien, Deutschland und das restliche Europa (November – Dezember 2026).",
+    "cardTourDescription": "Offene Tour-Termine für Italien, Deutschland und das restliche Europa (Ende November – Dezember 2026).",
     "cardTourButton": "PRESSEKIT & RIDER (EPK)",
     "formTag": "// BOOKING-ANFRAGEFORMULAR",
     "formTitle": "BOOKING-ANFRAGE",

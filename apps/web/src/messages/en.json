@@ -11,7 +11,7 @@
   "home": {
     "heroTitle": "ANDHRAY",
     "heroSubtitle": "OFFICIAL WEBSITE",
-    "badge": "EURO TOUR (NOV - DEC)",
+    "badge": "EURO TOUR (LATE NOV - DEC)",
     "slogan": "Sensual music for sensual souls",
     "listenNow": "LISTEN NOW",
     "exploreTour": "EXPLORE DATES"
@@ -36,7 +36,7 @@
     "description": "Upcoming confirmed tour dates and showcases.",
     "searchPlaceholder": "FILTER BY CITY OR VENUE...",
     "featuredBadge": "FEATURED TOUR",
-    "featuredTitle": "EURO TOUR (NOV - DEC)",
+    "featuredTitle": "EURO TOUR (LATE NOV - DEC)",
     "currentLocationPrefix": "Current location:",
     "contactBookingButton": "CONTACT BOOKING",
     "bookingOpenBadge": "BOOKING OPEN",
@@ -51,7 +51,7 @@
     "tourDate1Month": "OCTOBER 2026",
     "tourDate1Venue": "October: Dates to be announced // Booking available in Colombia & Latin America",
     "tourDate2City": "Italy & Germany",
-    "tourDate2Month": "NOV - DEC 2026",
+    "tourDate2Month": "LATE NOV - DEC 2026",
     "tourDate2Venue": "EURO TOUR 2026 // Clubs & Showcases"
   },
   "news": {
@@ -108,7 +108,7 @@
     "cardEmailPlatformLabel": "COLLECTIVE / PLATFORM:",
     "cardTourBadge": "TOUR & PRESS",
     "cardTourTitle": "EURO TOUR 2026",
-    "cardTourDescription": "Open routing for dates in Italy, Germany, and the rest of Europe (November – December 2026).",
+    "cardTourDescription": "Open routing for dates in Italy, Germany, and the rest of Europe (Late November – December 2026).",
     "cardTourButton": "PRESS KIT & RIDERS (EPK)",
     "formTag": "// BOOKING APPLICATION FORM",
     "formTitle": "BOOKING INQUIRY",

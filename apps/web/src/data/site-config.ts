@@ -301,7 +301,7 @@ export const podcastsData: PodcastSetItem[] = [
 export const siteConfig = {
   artist: {
     name: "ANDHRAY",
-    heroBanner: "EURO TOUR (NOV - DIC)",
+    heroBanner: "EURO TOUR (FINAL NOV - DICIEMBRE)",
     role: "DJ • Productora • Fundadora de Industrial Girls",
     slogan: "Música sensual para almas sensuales",
     genres: ["Hard Dance", "Acid", "Groove"],
@@ -337,7 +337,7 @@ export const siteConfig = {
 
   announcement: {
     enabled: true,
-    text: "EURO TOUR (NOV - DIC) — BOOKING & SHOWCASES",
+    text: "EURO TOUR (FINAL NOV - DICIEMBRE) — BOOKING & SHOWCASES",
     link: "#events"
   },
 
@@ -368,7 +368,7 @@ export const siteConfig = {
     useSeatedWidget: false,
     seatedArtistId: "c96949f0-d93e-45b7-aa12-925369587d20",
     featuredTour: {
-      title: "EURO TOUR (NOV - DIC)",
+      title: "EURO TOUR (FINAL NOV - DICIEMBRE)",
       detail: "Fechas confirmadas en Italia y Alemania. Booking y agenda abierta para promotores y clubes.",
       currentLocation: "Colombia / Gira internacional"
     }
@@ -389,9 +389,9 @@ export const siteConfig = {
     },
     {
       id: "tour-euro-2026",
-      date: "NOV - DIC 2026",
+      date: "FINAL NOV - DICIEMBRE 2026",
       dayNumber: "2026",
-      month: "NOV - DIC",
+      month: "FINAL NOV - DICIEMBRE",
       year: "2026",
       city: "Italia & Alemania",
       country: "",

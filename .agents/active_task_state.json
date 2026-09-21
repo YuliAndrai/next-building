@@ -1,29 +1,45 @@
 {
   "version": "1.0.0",
-  "task_id": "FIX-MOBILE-HERO",
-  "story_id": "STORY-HERO-FRAMING",
-  "spec_id": "SPEC-HERO-FRAMING",
-  "branch": "fix/app-mobile-hero-framing",
+  "task_id": "FIX-EURO-TOUR-DATES",
+  "story_id": "STORY-TOUR-DATES-LATE-NOV-DEC",
+  "spec_id": "SPEC-EURO-TOUR-DATES",
+  "branch": "fix/app-euro-tour-dates-late-nov-dec",
   "parent_branch": "develop",
-  "current_phase": "PHASE_8_HUMAN_MERGE_APPROVED",
+  "current_phase": "PHASE_7_ARCHITECT_GATE_2_VALIDATED",
   "human_design_approval": {
     "approved": true,
-    "timestamp": "2026-09-20T23:03:32-05:00",
-    "note": "Human design approval granted by user ('si') for mobile hero framing fix"
+    "timestamp": "2026-09-21T00:59:25-05:00",
+    "note": "Human design approval granted by user ('si')"
   },
   "human_merge_approval": {
-    "approved": true,
-    "timestamp": "2026-09-20T23:12:35-05:00",
-    "note": "Human acceptance granted by user ('si') for mobile hero framing fix"
+    "approved": false,
+    "timestamp": null,
+    "note": "Waiting for explicit user acceptance before merge to develop"
   },
   "phases": {
-    "PHASE_1_BOOTSTRAP": { "completed": true, "timestamp": "2026-09-20T22:58:55-05:00" },
-    "PHASE_2_DOCS_FILLED": { "completed": true, "timestamp": "2026-09-20T23:00:00-05:00" },
-    "PHASE_3_ARCHITECT_GATE_1_APPROVED": { "completed": true, "timestamp": "2026-09-20T23:03:35-05:00", "note": "Gate 1 approved: presentation layer adjustment in apps/web/src/app/page.tsx with responsive Tailwind object-position classes" },
-    "PHASE_4_HUMAN_DESIGN_APPROVED": { "completed": true, "timestamp": "2026-09-20T23:03:32-05:00" },
-    "PHASE_5_TESTS_RED": { "completed": true, "timestamp": "2026-09-20T23:05:45-05:00", "note": "4 unit tests created in tests/mobile-hero-framing.test.ts; REQ-01 and REQ-02 fail with explicit AssertionError for missing responsive focal point" },
-    "PHASE_6_CODE_GREEN": { "completed": true, "timestamp": "2026-09-20T23:06:28-05:00", "note": "Responsive focal point object-[70%_top] sm:object-[65%_top] md:object-top implemented in apps/web/src/app/page.tsx; 4/4 tests pass" },
-    "PHASE_7_ARCHITECT_GATE_2_VALIDATED": { "completed": true, "timestamp": "2026-09-20T23:07:30-05:00", "note": "Gate 2 audit passed: 4-layer isolation verified, in-code commentary complete, clean root, typecheck and all tests passed" },
-    "PHASE_8_HUMAN_MERGE_APPROVED": { "completed": true, "timestamp": "2026-09-20T23:12:35-05:00", "note": "Human acceptance granted by user ('si') for mobile hero framing fix" }
+    "PHASE_1_BOOTSTRAP": { "completed": true, "timestamp": "2026-09-21T00:56:15-05:00" },
+    "PHASE_2_DOCS_FILLED": { "completed": true, "timestamp": "2026-09-21T00:57:55-05:00" },
+    "PHASE_3_ARCHITECT_GATE_1_APPROVED": {
+      "completed": true,
+      "timestamp": "2026-09-21T00:58:10-05:00",
+      "note": "Gate 1 approved: i18n dictionary and site-config data updates strictly partitioned across Layer 2 and Layer 3"
+    },
+    "PHASE_4_HUMAN_DESIGN_APPROVED": { "completed": true, "timestamp": "2026-09-21T00:59:25-05:00" },
+    "PHASE_5_TESTS_RED": {
+      "completed": true,
+      "timestamp": "2026-09-21T01:00:46-05:00",
+      "note": "4 unit tests in tests/euro-tour-dates.test.ts failed as expected with explicit AssertionErrors"
+    },
+    "PHASE_6_CODE_GREEN": {
+      "completed": true,
+      "timestamp": "2026-09-21T01:20:33-05:00",
+      "note": "All 10 i18n dictionaries and site-config.ts updated with calibrated late Nov - Dec dates; 95/95 tests pass"
+    },
+    "PHASE_7_ARCHITECT_GATE_2_VALIDATED": {
+      "completed": true,
+      "timestamp": "2026-09-21T01:23:55-05:00",
+      "note": "Gate 2 audit passed: full pnpm validate passed with 0 errors (95/95 unit tests, 48/48 harness specs, typecheck, lint, license scan, doc governance, 4-layer architecture)"
+    },
+    "PHASE_8_HUMAN_MERGE_APPROVED": { "completed": false, "timestamp": null }
   }
 }

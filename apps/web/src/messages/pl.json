@@ -11,7 +11,7 @@
   "home": {
     "heroTitle": "ANDHRAY",
     "heroSubtitle": "OFICJALNA STRONA",
-    "badge": "EURO TOUR (LIS - GRU)",
+    "badge": "EURO TOUR (KONIEC LIS - GRU)",
     "slogan": "Zmysłowa muzyka dla zmysłowych dusz",
     "listenNow": "SŁUCHAJ TERAZ",
     "exploreTour": "ZOBACZ DATY"
@@ -36,7 +36,7 @@
     "description": "Potwierdzone występy i daty trasy.",
     "searchPlaceholder": "FILTRUJ WEDŁUG MIASTA LUB KLUBU...",
     "featuredBadge": "WYRÓŻNIONA TRASA",
-    "featuredTitle": "EURO TOUR (LIS - GRU)",
+    "featuredTitle": "EURO TOUR (KONIEC LIS - GRU)",
     "currentLocationPrefix": "Aktualna lokalizacja:",
     "contactBookingButton": "KONTAKT Z BOOKINGIEM",
     "bookingOpenBadge": "BOOKING OTWARTY",
@@ -51,7 +51,7 @@
     "tourDate1Month": "PAŹDZIERNIK 2026",
     "tourDate1Venue": "Październik: Daty wkrótce // Booking dostępny w Kolumbii i Ameryce Łacińskiej",
     "tourDate2City": "Włochy & Niemcy",
-    "tourDate2Month": "LIS - GRU 2026",
+    "tourDate2Month": "KONIEC LIS - GRU 2026",
     "tourDate2Venue": "EURO TOUR 2026 // Kluby & Showcases"
   },
   "news": {
@@ -108,7 +108,7 @@
     "cardEmailPlatformLabel": "KOLEKTYW / PLATFORMA:",
     "cardTourBadge": "TRASA & PRASA",
     "cardTourTitle": "EURO TOUR 2026",
-    "cardTourDescription": "Otwarte terminy we Włoszech, Niemczech i Europie (listopad – grudzień 2026).",
+    "cardTourDescription": "Otwarte terminy we Włoszech, Niemczech i Europie (koniec listopada – grudzień 2026).",
     "cardTourButton": "PRESS KIT & RIDERY (EPK)",
     "formTag": "// FORMULARZ ZGŁOSZENIA BOOKINGU",
     "formTitle": "ZAPYTANIE O BOOKING",
