@@ -1,24 +1,29 @@
 {
   "version": "1.0.0",
-  "task_id": "I18N-8LANG",
-  "story_id": "STORY-I18N",
-  "spec_id": "SPEC-I18N",
-  "branch": "feature/app-internacionalizacion",
+  "task_id": "FIX-MOBILE-HERO",
+  "story_id": "STORY-HERO-FRAMING",
+  "spec_id": "SPEC-HERO-FRAMING",
+  "branch": "fix/app-mobile-hero-framing",
   "parent_branch": "develop",
   "current_phase": "PHASE_8_HUMAN_MERGE_APPROVED",
   "human_design_approval": {
     "approved": true,
-    "timestamp": "2026-09-19T00:10:20-05:00",
-    "note": "Approved with Next.js 16 proxy.ts migration correction"
+    "timestamp": "2026-09-20T23:03:32-05:00",
+    "note": "Human design approval granted by user ('si') for mobile hero framing fix"
+  },
+  "human_merge_approval": {
+    "approved": true,
+    "timestamp": "2026-09-20T23:12:35-05:00",
+    "note": "Human acceptance granted by user ('si') for mobile hero framing fix"
   },
   "phases": {
-    "PHASE_1_BOOTSTRAP": { "completed": true, "timestamp": "2026-09-18T23:51:00-05:00" },
-    "PHASE_2_DOCS_FILLED": { "completed": true, "timestamp": "2026-09-18T23:51:30-05:00" },
-    "PHASE_3_ARCHITECT_GATE_1_APPROVED": { "completed": true, "timestamp": "2026-09-19T00:03:00-05:00" },
-    "PHASE_4_HUMAN_DESIGN_APPROVED": { "completed": true, "timestamp": "2026-09-19T00:10:20-05:00" },
-    "PHASE_5_TESTS_RED": { "completed": true, "timestamp": "2026-09-19T00:17:00-05:00", "note": "22 tests defined in tests/i18n.test.ts, 11 passed on contracts, 11 failed cleanly with AssertionError" },
-    "PHASE_6_CODE_GREEN": { "completed": true, "timestamp": "2026-09-19T00:28:00-05:00", "note": "All 22 i18n unit/integration tests passing (22/22), next-intl integration and proxy.ts complete" },
-    "PHASE_7_ARCHITECT_GATE_2_VALIDATED": { "completed": true, "timestamp": "2026-09-19T00:35:00-05:00", "note": "Gate 2 audit passed: 4-layer isolation verified, in-code commentary complete, clean root, typecheck and all tests passed" },
-    "PHASE_8_HUMAN_MERGE_APPROVED": { "completed": true, "timestamp": "2026-09-19T01:23:15-05:00", "note": "Human acceptance granted by user for full landing and subpage internationalization in 8 languages" }
+    "PHASE_1_BOOTSTRAP": { "completed": true, "timestamp": "2026-09-20T22:58:55-05:00" },
+    "PHASE_2_DOCS_FILLED": { "completed": true, "timestamp": "2026-09-20T23:00:00-05:00" },
+    "PHASE_3_ARCHITECT_GATE_1_APPROVED": { "completed": true, "timestamp": "2026-09-20T23:03:35-05:00", "note": "Gate 1 approved: presentation layer adjustment in apps/web/src/app/page.tsx with responsive Tailwind object-position classes" },
+    "PHASE_4_HUMAN_DESIGN_APPROVED": { "completed": true, "timestamp": "2026-09-20T23:03:32-05:00" },
+    "PHASE_5_TESTS_RED": { "completed": true, "timestamp": "2026-09-20T23:05:45-05:00", "note": "4 unit tests created in tests/mobile-hero-framing.test.ts; REQ-01 and REQ-02 fail with explicit AssertionError for missing responsive focal point" },
+    "PHASE_6_CODE_GREEN": { "completed": true, "timestamp": "2026-09-20T23:06:28-05:00", "note": "Responsive focal point object-[70%_top] sm:object-[65%_top] md:object-top implemented in apps/web/src/app/page.tsx; 4/4 tests pass" },
+    "PHASE_7_ARCHITECT_GATE_2_VALIDATED": { "completed": true, "timestamp": "2026-09-20T23:07:30-05:00", "note": "Gate 2 audit passed: 4-layer isolation verified, in-code commentary complete, clean root, typecheck and all tests passed" },
+    "PHASE_8_HUMAN_MERGE_APPROVED": { "completed": true, "timestamp": "2026-09-20T23:12:35-05:00", "note": "Human acceptance granted by user ('si') for mobile hero framing fix" }
   }
 }
