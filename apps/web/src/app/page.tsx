@@ -34,13 +34,13 @@ export default function HomePage(): React.JSX.Element {
       {/* CAPA DE FOTOGRAFÍA VERTICAL EXTENDIDA (Desbloqueada para descubrir con scroll) */}
       <div className="absolute top-0 left-0 w-full h-[100dvh] sm:h-[120vh] md:h-[180vh] min-h-[100dvh] sm:min-h-[120vh] md:min-h-[180vh] pointer-events-none z-0 overflow-hidden flex justify-center">
         <div className="relative w-full h-full max-w-6xl mx-auto">
-          {/* Step 1: Hero editorial background image with responsive focal point calibrated for mobile screens (artist silhouette perfectly centered at 58%) */}
+          {/* Step 1: Hero editorial background image with responsive focal point calibrated for mobile screens (artist face centered at 65%) */}
           <Image
             src="/hero-bg.jpg"
             alt="Andhray"
             fill
             priority
-            className="object-cover object-[58%_top] sm:object-[62%_top] md:object-top w-full h-full"
+            className="object-cover object-[65%_top] sm:object-[62%_top] md:object-top w-full h-full"
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
           {/* Fusión lateral suave hacia negro puro preservada en desktop */}
