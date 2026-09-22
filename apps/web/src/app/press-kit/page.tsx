@@ -6,11 +6,10 @@
  */
 
 import React from "react";
-import fs from "node:fs";
-import path from "node:path";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/data/site-config";
+import { resolvePressKitMedia } from "@/lib/pipelines/media-pipeline";
 import type { Metadata } from "next";
 import en from "@/messages/en.json";
 import es from "@/messages/es.json";
@@ -39,58 +38,6 @@ export const metadata: Metadata = {
   description: `Official press material for ${siteConfig.artist.name}: High-resolution photography, live performance videos, and technical riders.`,
 };
 
-/**
- * Retrieve verified local media assets from public folders with fallback defaults.
- */
-function getPressKitMedia(): { photos: string[]; videos: string[] } {
-  const fallbackPhotos = [
-    "ANDHRAY1.jpg",
-    "IMG_4123.JPG",
-    "IMG_8451.JPG"
-  ];
-
-  const fallbackVideos = [
-    "Andhray 1.mp4",
-    "C4811_00661212.mp4",
-    "IMG_0012.MOV",
-    "IMG_1468.mov",
-    "IMG_2191.MOV"
-  ];
-
-  let photos = fallbackPhotos;
-  let videos = fallbackVideos;
-
-  try {
-    const photosDir = path.join(process.cwd(), "apps/web/public/press-kit/photos");
-    if (fs.existsSync(photosDir)) {
-      const scanned = fs
-        .readdirSync(photosDir)
-        .filter((file) => /\.(jpe?g|png|webp)$/i.test(file));
-      if (scanned.length > 0) {
-        photos = scanned;
-      }
-    }
-  } catch {
-    // Fallback to static references if filesystem is restricted
-  }
-
-  try {
-    const videosDir = path.join(process.cwd(), "apps/web/public/press-kit/videos");
-    if (fs.existsSync(videosDir)) {
-      const scanned = fs
-        .readdirSync(videosDir)
-        .filter((file) => /\.(mp4|mov|webm)$/i.test(file));
-      if (scanned.length > 0) {
-        videos = scanned;
-      }
-    }
-  } catch {
-    // Fallback to static references if filesystem is restricted
-  }
-
-  return { photos, videos };
-}
-
 interface PressKitPageProps {
   locale?: string;
 }
@@ -99,15 +46,15 @@ interface PressKitPageProps {
  * PressKitPage Component
  *
  * Official press and booking resources hub:
- * - Section 01: High-resolution official photographs (PHOTOS).
+ * - Section 01: High-resolution official photographs (PHOTOS) resolved via Vercel Blob / CDN pipeline.
  * - Section 02: Raw live video records & footage (VIDEOS).
  *
- * @param props Optional locale property for static server rendering.
- * @returns {React.JSX.Element} Rendered EPK page.
+ * @param {PressKitPageProps} [props] Optional locale property for server rendering.
+ * @returns {Promise<React.JSX.Element>} Rendered EPK page.
  */
-export default function PressKitPage({ locale }: PressKitPageProps = {}): React.JSX.Element {
-  // Step 1: Read media assets from directory
-  const { photos, videos } = getPressKitMedia();
+export default async function PressKitPage({ locale }: PressKitPageProps = {}): Promise<React.JSX.Element> {
+  // Step 1: Read media assets through resilient application pipeline (Vercel Blob + fallbacks)
+  const { photos, videos } = await resolvePressKitMedia();
 
   // Step 2: Resolve safe locale and matching dictionary
   const safeLocale = resolveSafeLocale(locale);
@@ -138,24 +85,26 @@ export default function PressKitPage({ locale }: PressKitPageProps = {}): React.
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {photos.map((photoName) => (
+              {photos.map((photo) => (
                 <article
-                  key={photoName}
+                  key={photo.id}
                   className="border border-neutral-800 hover:border-[#FF0000]/60 bg-neutral-950 p-3 rounded-sm transition-colors duration-200 group flex flex-col justify-between"
                 >
                   <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-neutral-900">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={`/press-kit/photos/${encodeURIComponent(photoName)}`}
-                      alt={`${t.pressKitPage.photoAlt} - ${photoName}`}
+                      src={photo.url}
+                      alt={`${t.pressKitPage.photoAlt} - ${photo.id}`}
                       className="w-full h-full object-cover rounded-sm filter contrast-110 group-hover:scale-[1.02] transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
 
                   <a
-                    href={`/press-kit/photos/${encodeURIComponent(photoName)}`}
-                    download
+                    href={photo.downloadUrl || photo.url}
+                    download={photo.id}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-3 flex items-center justify-between text-[11px] font-mono text-neutral-400 hover:text-[#FF0000] transition-colors pt-1"
                   >
                     <span>{t.pressKitPage.downloadOriginal}</span>

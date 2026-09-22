@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T05:34:31.033Z",
+  "generatedAt": "2026-09-22T06:35:43.909Z",
   "nodes": [
     {
       "id": "AGENTS.md",
@@ -134,6 +134,18 @@
       "path": "knowledge\\fixes\\fix-app-euro-tour-dates-late-nov-dec.md"
     },
     {
+      "id": "knowledge\\fixes\\fix-app-migrate-photos-to-vercel-blob-implementation.md",
+      "type": "governance",
+      "label": "fix-app-migrate-photos-to-vercel-blob-implementation",
+      "path": "knowledge\\fixes\\fix-app-migrate-photos-to-vercel-blob-implementation.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-migrate-photos-to-vercel-blob.md",
+      "type": "governance",
+      "label": "fix-app-migrate-photos-to-vercel-blob",
+      "path": "knowledge\\fixes\\fix-app-migrate-photos-to-vercel-blob.md"
+    },
+    {
       "id": "knowledge\\fixes\\fix-app-mobile-hero-framing-implementation.md",
       "type": "governance",
       "label": "fix-app-mobile-hero-framing-implementation",
@@ -144,6 +156,18 @@
       "type": "governance",
       "label": "fix-app-mobile-hero-framing",
       "path": "knowledge\\fixes\\fix-app-mobile-hero-framing.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-redirect-known-google-links-implementation.md",
+      "type": "governance",
+      "label": "fix-app-redirect-known-google-links-implementation",
+      "path": "knowledge\\fixes\\fix-app-redirect-known-google-links-implementation.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-redirect-known-google-links.md",
+      "type": "governance",
+      "label": "fix-app-redirect-known-google-links",
+      "path": "knowledge\\fixes\\fix-app-redirect-known-google-links.md"
     },
     {
       "id": "knowledge\\governance\\clean-code-folder-structure.md",
