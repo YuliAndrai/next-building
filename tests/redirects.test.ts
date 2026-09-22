@@ -265,4 +265,23 @@ describe("Next.js 16 Request Proxy Canonical HTTP 301 Redirects with Locale Nego
     expect((res as Response).status).toBe(301);
     expect((res as Response).headers.get("location")).toBe("http://localhost:3001/en/press-kit");
   });
+
+  /**
+   * @spec REQ-REDIRECT-10
+   * Ensures that `proxy` redirects deprecated /fotos-videos to /[locale]/press-kit via HTTP 301.
+   */
+  test("@spec REQ-REDIRECT-10: proxy redirects deprecated /fotos-videos to /[locale]/press-kit via HTTP 301", async () => {
+    // Step 1: Arrange - request to deprecated route with Spanish locale
+    const req = new Request("http://localhost:3001/fotos-videos", {
+      headers: { "accept-language": "es-ES,es;q=0.9" },
+    });
+
+    // Step 2: Act - process request through proxy handler
+    const res = await proxy(req);
+
+    // Step 3: Assert - 301 status and redirected to /es/press-kit
+    expect(res).toBeInstanceOf(Response);
+    expect((res as Response).status).toBe(301);
+    expect((res as Response).headers.get("location")).toBe("http://localhost:3001/es/press-kit");
+  });
 });

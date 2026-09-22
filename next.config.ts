@@ -46,6 +46,11 @@ const nextConfig: NextConfig = {
         source: "/nuevos-lanzamientos",
         destination: "/musica",
         permanent: true
+      },
+      {
+        source: "/fotos-videos",
+        destination: "/press-kit",
+        permanent: true
       }
     ];
 

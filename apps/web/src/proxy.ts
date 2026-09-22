@@ -88,6 +88,7 @@ export const LEGACY_URL_REDIRECTS: Record<string, string> = {
   "/biografia": "#bio",
   "/galeria": "/press-kit",
   "/nuevos-lanzamientos": "/musica",
+  "/fotos-videos": "/press-kit",
 };
 
 /**
