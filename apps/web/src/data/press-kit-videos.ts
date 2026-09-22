@@ -63,6 +63,14 @@ export const PRESS_KIT_VIDEOS: readonly PressKitVideo[] = Object.freeze([
     watchUrl: "https://youtube.com/shorts/zZ40FMDKgL8",
   },
   {
+    id: "andhray-short-03",
+    youtubeId: "iUUqvl6Bc2M",
+    title: "ANDHRAY - Live Reel 03",
+    kind: "short",
+    aspectRatio: "9:16",
+    watchUrl: "https://youtube.com/shorts/iUUqvl6Bc2M",
+  },
+  {
     id: "andhray-live-01",
     youtubeId: "7k-WS8nDfhA",
     title: "ANDHRAY - Live Concert Performance 01",

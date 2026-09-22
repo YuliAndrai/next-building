@@ -96,7 +96,7 @@ export function YouTubeEmbed({
           className="flex items-center justify-between text-[11px] font-mono text-neutral-400 hover:text-[#FF0000] transition-colors pt-1"
         >
           <span className="truncate pr-2">{title}</span>
-          <span className="shrink-0 font-bold text-xs" aria-hidden="true">&nearr;</span>
+          <span className="shrink-0 font-bold text-xs" aria-hidden="true">↗</span>
         </a>
       )}
     </div>

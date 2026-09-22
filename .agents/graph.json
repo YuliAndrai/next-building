@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T12:44:14.462Z",
+  "generatedAt": "2026-09-22T13:21:29.401Z",
   "nodes": [
     {
       "id": "AGENTS.md",
@@ -120,6 +120,18 @@
       "type": "governance",
       "label": "feature-app-internacionalizacion",
       "path": "knowledge\\features\\feature-app-internacionalizacion.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-add-press-kit-short-video-implementation.md",
+      "type": "governance",
+      "label": "fix-app-add-press-kit-short-video-implementation",
+      "path": "knowledge\\fixes\\fix-app-add-press-kit-short-video-implementation.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-add-press-kit-short-video.md",
+      "type": "governance",
+      "label": "fix-app-add-press-kit-short-video",
+      "path": "knowledge\\fixes\\fix-app-add-press-kit-short-video.md"
     },
     {
       "id": "knowledge\\fixes\\fix-app-euro-tour-dates-late-nov-dec-implementation.md",
