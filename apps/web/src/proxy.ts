@@ -81,12 +81,24 @@ function isStaticOrInternalAsset(pathname: string): boolean {
 }
 
 /**
+ * Canonical HTTP 301 redirects for legacy Google-indexed URLs.
+ * Maps legacy paths to modern targets, preserving locale context and passing link equity.
+ */
+export const LEGACY_URL_REDIRECTS: Record<string, string> = {
+  "/biografia": "#bio",
+  "/galeria": "/press-kit",
+  "/nuevos-lanzamientos": "/musica",
+  "/fotos-videos": "/press-kit",
+};
+
+/**
  * Next.js 16 Request Proxy Handler.
  *
  * Intercepts incoming requests at the network boundary to handle:
  * 1. Static asset and internal bypass.
- * 2. Root path ('/') Accept-Language locale negotiation and redirection.
- * 3. Localized route rewrites.
+ * 2. Legacy Google-indexed URL canonical 301 redirects with locale negotiation.
+ * 3. Root path ('/') Accept-Language locale negotiation and redirection.
+ * 4. Localized route rewrites.
  *
  * @param request The incoming Request or NextRequest.
  * @returns Response with redirect/rewrite, or undefined to pass through.
@@ -101,7 +113,20 @@ export async function proxy(request: Request | NextRequest): Promise<Response | 
     return undefined;
   }
 
-  // Step 3: Handle root path ('/') detection and redirection
+  // Step 3: Intercept legacy Google URLs without locale prefix (HTTP 301)
+  const cleanPath = pathname.replace(/\/+$/, "");
+  const legacyTargetWithoutLocale = LEGACY_URL_REDIRECTS[cleanPath];
+  if (legacyTargetWithoutLocale) {
+    const acceptLanguage = request.headers.get("accept-language");
+    const detectedLocale = parseAcceptLanguage(acceptLanguage) || DEFAULT_LOCALE;
+    const destination = legacyTargetWithoutLocale.startsWith("#")
+      ? `/${detectedLocale}${legacyTargetWithoutLocale}`
+      : `/${detectedLocale}${legacyTargetWithoutLocale}`;
+    const targetUrl = new URL(`${destination}${url.search}`, url.origin);
+    return Response.redirect(targetUrl.toString(), 301);
+  }
+
+  // Step 4: Handle root path ('/') detection and redirection
   if (pathname === "/" || pathname === "") {
     const acceptLanguage = request.headers.get("accept-language");
     const detectedLocale = parseAcceptLanguage(acceptLanguage) || DEFAULT_LOCALE;
@@ -110,7 +135,7 @@ export async function proxy(request: Request | NextRequest): Promise<Response | 
     return Response.redirect(targetUrl.toString(), 307);
   }
 
-  // Step 4: Check if path starts with a supported locale
+  // Step 5: Check if path starts with a supported locale
   const segments = pathname.split("/").filter(Boolean);
   const firstSegment = segments[0];
 
@@ -118,7 +143,18 @@ export async function proxy(request: Request | NextRequest): Promise<Response | 
     const locale = firstSegment;
     const restPath = `/${segments.slice(1).join("/")}`;
 
-    // Step 5: Check if restPath matches a localized slug to rewrite to canonical internal route
+    // Step 5a: Check if restPath matches a legacy Google URL under a locale prefix (HTTP 301)
+    const cleanRestPath = restPath.replace(/\/+$/, "");
+    const legacyTargetWithLocale = LEGACY_URL_REDIRECTS[cleanRestPath];
+    if (legacyTargetWithLocale) {
+      const destination = legacyTargetWithLocale.startsWith("#")
+        ? `/${locale}${legacyTargetWithLocale}`
+        : `/${locale}${legacyTargetWithLocale}`;
+      const targetUrl = new URL(`${destination}${url.search}`, url.origin);
+      return Response.redirect(targetUrl.toString(), 301);
+    }
+
+    // Step 5b: Check if restPath matches a localized slug to rewrite to canonical internal route
     for (const [canonicalPath, localizedMap] of Object.entries(localizedPathnames)) {
       if (typeof localizedMap === "object" && localizedMap !== null) {
         const record = localizedMap as Record<SupportedLocale, string>;
@@ -134,8 +170,10 @@ export async function proxy(request: Request | NextRequest): Promise<Response | 
     return undefined;
   }
 
-  // Step 6: If path has no supported locale prefix, redirect to default locale with path
-  const targetUrl = new URL(`/${DEFAULT_LOCALE}${pathname}${url.search}`, url.origin);
+  // Step 6: If path has no supported locale prefix, detect locale via Accept-Language and redirect
+  const acceptLanguage = request.headers.get("accept-language");
+  const detectedLocale = parseAcceptLanguage(acceptLanguage) || DEFAULT_LOCALE;
+  const targetUrl = new URL(`/${detectedLocale}${pathname}${url.search}`, url.origin);
   return Response.redirect(targetUrl.toString(), 307);
 }
 
