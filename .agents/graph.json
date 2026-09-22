@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T04:50:49.776Z",
+  "generatedAt": "2026-09-22T05:34:31.033Z",
   "nodes": [
     {
       "id": "AGENTS.md",
@@ -108,6 +108,42 @@
       "type": "governance",
       "label": "index",
       "path": "knowledge\\database\\models\\index.md"
+    },
+    {
+      "id": "knowledge\\features\\feature-app-internacionalizacion-implementation.md",
+      "type": "governance",
+      "label": "feature-app-internacionalizacion-implementation",
+      "path": "knowledge\\features\\feature-app-internacionalizacion-implementation.md"
+    },
+    {
+      "id": "knowledge\\features\\feature-app-internacionalizacion.md",
+      "type": "governance",
+      "label": "feature-app-internacionalizacion",
+      "path": "knowledge\\features\\feature-app-internacionalizacion.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-euro-tour-dates-late-nov-dec-implementation.md",
+      "type": "governance",
+      "label": "fix-app-euro-tour-dates-late-nov-dec-implementation",
+      "path": "knowledge\\fixes\\fix-app-euro-tour-dates-late-nov-dec-implementation.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-euro-tour-dates-late-nov-dec.md",
+      "type": "governance",
+      "label": "fix-app-euro-tour-dates-late-nov-dec",
+      "path": "knowledge\\fixes\\fix-app-euro-tour-dates-late-nov-dec.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-mobile-hero-framing-implementation.md",
+      "type": "governance",
+      "label": "fix-app-mobile-hero-framing-implementation",
+      "path": "knowledge\\fixes\\fix-app-mobile-hero-framing-implementation.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-mobile-hero-framing.md",
+      "type": "governance",
+      "label": "fix-app-mobile-hero-framing",
+      "path": "knowledge\\fixes\\fix-app-mobile-hero-framing.md"
     },
     {
       "id": "knowledge\\governance\\clean-code-folder-structure.md",

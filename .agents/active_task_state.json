@@ -1,49 +1,52 @@
 {
   "version": "1.0.0",
-  "task_id": "FIX-EURO-TOUR-DATES",
-  "story_id": "STORY-TOUR-DATES-LATE-NOV-DEC",
-  "spec_id": "SPEC-EURO-TOUR-DATES",
-  "branch": "fix/app-euro-tour-dates-late-nov-dec",
+  "task_id": "FIX-REDIRECT-GOOGLE-LINKS",
+  "story_id": "STORY-REDIRECT-KNOWN-GOOGLE-LINKS",
+  "spec_id": "SPEC-REDIRECT-KNOWN-GOOGLE-LINKS",
+  "branch": "fix/app-redirect-known-google-links",
   "parent_branch": "develop",
-  "current_phase": "PHASE_8_HUMAN_MERGE_APPROVED",
+  "current_phase": "PHASE_7_ARCHITECT_GATE_2_VALIDATED",
   "human_design_approval": {
     "approved": true,
-    "timestamp": "2026-09-21T00:59:25-05:00",
+    "timestamp": "2026-09-22T00:41:04-05:00",
     "note": "Human design approval granted by user ('si')"
   },
-  "human_merge_approval": {
-    "approved": true,
-    "timestamp": "2026-09-21T01:29:17-05:00",
-    "note": "Human merge approval granted by user instruction ('Una vez aprobado, realiza el merge a develop')"
-  },
   "phases": {
-    "PHASE_1_BOOTSTRAP": { "completed": true, "timestamp": "2026-09-21T00:56:15-05:00" },
-    "PHASE_2_DOCS_FILLED": { "completed": true, "timestamp": "2026-09-21T00:57:55-05:00" },
+    "PHASE_1_BOOTSTRAP": {
+      "completed": true,
+      "timestamp": "2026-09-22T00:34:34-05:00"
+    },
+    "PHASE_2_DOCS_FILLED": {
+      "completed": true,
+      "timestamp": "2026-09-22T00:35:10-05:00"
+    },
     "PHASE_3_ARCHITECT_GATE_1_APPROVED": {
       "completed": true,
-      "timestamp": "2026-09-21T00:58:10-05:00",
-      "note": "Gate 1 approved: i18n dictionary and site-config data updates strictly partitioned across Layer 2 and Layer 3"
+      "timestamp": "2026-09-22T00:39:55-05:00",
+      "note": "Gate 1 approved: Next.js redirects() permanent HTTP 301 configuration for legacy Google URLs (/biografia -> /#bio, /galeria -> /fotos-videos, /nuevos-lanzamientos -> /musica). Scaffolded tests/redirects.test.ts."
     },
-    "PHASE_4_HUMAN_DESIGN_APPROVED": { "completed": true, "timestamp": "2026-09-21T00:59:25-05:00" },
+    "PHASE_4_HUMAN_DESIGN_APPROVED": {
+      "completed": true,
+      "timestamp": "2026-09-22T00:41:04-05:00",
+      "note": "Human design approval granted by user ('si')"
+    },
     "PHASE_5_TESTS_RED": {
       "completed": true,
-      "timestamp": "2026-09-21T01:00:46-05:00",
-      "note": "4 unit tests in tests/euro-tour-dates.test.ts failed as expected with explicit AssertionErrors"
+      "timestamp": "2026-09-22T00:41:15-05:00",
+      "note": "tests/redirects.test.ts failed 4/5 assertions as expected in RED phase"
     },
     "PHASE_6_CODE_GREEN": {
       "completed": true,
-      "timestamp": "2026-09-21T01:20:33-05:00",
-      "note": "All 10 i18n dictionaries and site-config.ts updated with calibrated late Nov - Dec dates; 95/95 tests pass"
+      "timestamp": "2026-09-22T00:42:00-05:00",
+      "note": "Next.js permanent HTTP 301 redirects implemented in next.config.ts; 100/100 tests pass"
     },
     "PHASE_7_ARCHITECT_GATE_2_VALIDATED": {
       "completed": true,
-      "timestamp": "2026-09-21T01:23:55-05:00",
-      "note": "Gate 2 audit passed: full pnpm validate passed with 0 errors (95/95 unit tests, 48/48 harness specs, typecheck, lint, license scan, doc governance, 4-layer architecture)"
+      "timestamp": "2026-09-22T00:45:30-05:00",
+      "note": "Gate 2 audit passed: 4-layer isolation verified, monorepo structure clean, full pnpm validate passed with 0 errors (100/100 tests, 48/48 harness specs, typecheck, lint, licenses, doc governance)"
     },
     "PHASE_8_HUMAN_MERGE_APPROVED": {
-      "completed": true,
-      "timestamp": "2026-09-21T01:29:17-05:00",
-      "note": "PR #2 merged cleanly into develop"
+      "completed": false
     }
   }
 }
