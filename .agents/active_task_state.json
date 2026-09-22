@@ -1,59 +1,59 @@
 {
   "version": "1.0.0",
-  "task_id": "FIX-APP-MIGRATE-VIDEOS-TO-YOUTUBE-EMBEDS",
-  "story_id": "STORY-MIGRATE-VIDEOS-TO-YOUTUBE-EMBEDS",
-  "spec_id": "SPEC-MIGRATE-VIDEOS-TO-YOUTUBE-EMBEDS",
-  "branch": "fix/app-migrate-videos-to-youtube-embeds",
+  "task_id": "FIX-APP-ADD-PRESS-KIT-SHORT-VIDEO",
+  "story_id": "STORY-ADD-PRESS-KIT-SHORT-VIDEO",
+  "spec_id": "SPEC-ADD-PRESS-KIT-SHORT-VIDEO",
+  "branch": "fix/app-add-press-kit-short-video",
   "parent_branch": "develop",
   "current_phase": "PHASE_8_HUMAN_MERGE_APPROVED",
   "human_design_approval": {
     "approved": true,
-    "timestamp": "2026-09-22T02:03:15-05:00",
+    "timestamp": "2026-09-22T08:19:55-05:00",
     "note": "Human design approval granted by user ('si, confirmo')"
   },
   "human_merge_approval": {
     "approved": true,
-    "timestamp": "2026-09-22T07:44:00-05:00",
-    "note": "Human merge acceptance confirmed by user ('si')"
+    "timestamp": "2026-09-22T08:25:25-05:00",
+    "note": "Human merge acceptance confirmed by user ('si, pr open')"
   },
   "phases": {
     "PHASE_1_BOOTSTRAP": {
       "completed": true,
-      "timestamp": "2026-09-22T01:58:49-05:00"
+      "timestamp": "2026-09-22T08:16:37-05:00"
     },
     "PHASE_2_DOCS_FILLED": {
       "completed": true,
-      "timestamp": "2026-09-22T01:59:20-05:00"
+      "timestamp": "2026-09-22T08:17:05-05:00"
     },
     "PHASE_3_ARCHITECT_GATE_1_APPROVED": {
       "completed": true,
-      "timestamp": "2026-09-22T02:01:30-05:00",
-      "note": "Gate 1 Approved: 4-layer file paths verified and physically scaffolded."
+      "timestamp": "2026-09-22T08:19:00-05:00",
+      "note": "Gate 1 Architectural Review passed: 4-layer boundaries, topological graph, root whitelist, and contract integrity verified."
     },
     "PHASE_4_HUMAN_DESIGN_APPROVED": {
       "completed": true,
-      "timestamp": "2026-09-22T02:03:15-05:00",
+      "timestamp": "2026-09-22T08:19:55-05:00",
       "note": "Human design approval granted by user ('si, confirmo')"
     },
     "PHASE_5_TESTS_RED": {
       "completed": true,
-      "timestamp": "2026-09-22T02:03:42-05:00",
-      "note": "tests/youtube-media.test.ts designed with 6 tests. Exactly 2 tests fail (RED) asserting zero disk reads and YouTubeEmbed integration."
+      "timestamp": "2026-09-22T08:20:30-05:00",
+      "note": "tests/youtube-media.test.ts updated with 7 tests. Exactly 3 tests fail (RED) asserting 6 videos and unicode arrow ↗."
     },
     "PHASE_6_CODE_GREEN": {
       "completed": true,
-      "timestamp": "2026-09-22T07:37:15-05:00",
-      "note": "YouTubeEmbed integrated into press-kit/page.tsx, getPressKitVideos pipeline implemented, 700 MB videos deleted from disk, 122/122 unit tests green."
+      "timestamp": "2026-09-22T08:21:15-05:00",
+      "note": "andhray-short-03 added to press-kit-videos.ts, arrow glyph corrected to ↗ in youtube-embed.tsx, 7/7 tests pass."
     },
     "PHASE_7_ARCHITECT_GATE_2_VALIDATED": {
       "completed": true,
-      "timestamp": "2026-09-22T07:40:45-05:00",
-      "note": "Gate 2 audit passed: 4-layer isolation verified, monorepo root clean, all 122 unit tests passing, full pnpm validate succeeded with 0 errors."
+      "timestamp": "2026-09-22T08:23:05-05:00",
+      "note": "Gate 2 audit passed: 4-layer isolation verified, 123 unit tests green, full pnpm validate passed with 0 errors."
     },
     "PHASE_8_HUMAN_MERGE_APPROVED": {
       "completed": true,
-      "timestamp": "2026-09-22T07:44:00-05:00",
-      "note": "Human merge acceptance confirmed by user ('si'); proceeding with commit, PR creation and merge."
+      "timestamp": "2026-09-22T08:25:25-05:00",
+      "note": "Human merge acceptance confirmed by user ('si, pr open'); proceeding with commit, PR and merges."
     }
   }
 }

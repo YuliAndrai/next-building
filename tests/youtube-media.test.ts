@@ -21,11 +21,12 @@ describe("Press Kit YouTube Video Migration Suite (TDD Primal)", () => {
   // 1. Domain Video Registry (Layer 3)
   // ==========================================================================
   describe("Domain Layer: Canonical Video Registry Contracts", () => {
-    test("@spec REQ-VIDEO-01: Exposes exactly 5 canonical YouTube videos in user-requested order", () => {
+    test("@spec REQ-VIDEO-01: Exposes exactly 6 canonical YouTube videos in user-requested order", () => {
       // Arrange
       const expectedIds = [
         "nVKHhhkLOF0", // Short 1
         "zZ40FMDKgL8", // Short 2
+        "iUUqvl6Bc2M", // Short 3 (New)
         "7k-WS8nDfhA", // Live 1
         "0cv6JDcuJgI", // Live 2
         "zycfjPiSrT0", // Live 3
@@ -35,7 +36,7 @@ describe("Press Kit YouTube Video Migration Suite (TDD Primal)", () => {
       const actualIds = PRESS_KIT_VIDEOS.map((v) => v.youtubeId);
 
       // Assert: Exact count and sequence invariant
-      expect(PRESS_KIT_VIDEOS.length).toBe(5);
+      expect(PRESS_KIT_VIDEOS.length).toBe(6);
       expect(actualIds).toEqual(expectedIds);
     });
 
@@ -44,6 +45,7 @@ describe("Press Kit YouTube Video Migration Suite (TDD Primal)", () => {
       const expectedFormats: Record<string, { kind: VideoKind; aspectRatio: VideoAspectRatio }> = {
         nVKHhhkLOF0: { kind: "short", aspectRatio: "9:16" },
         zZ40FMDKgL8: { kind: "short", aspectRatio: "9:16" },
+        iUUqvl6Bc2M: { kind: "short", aspectRatio: "9:16" },
         "7k-WS8nDfhA": { kind: "standard", aspectRatio: "16:9" },
         "0cv6JDcuJgI": { kind: "standard", aspectRatio: "16:9" },
         zycfjPiSrT0: { kind: "standard", aspectRatio: "16:9" },
@@ -80,14 +82,14 @@ describe("Press Kit YouTube Video Migration Suite (TDD Primal)", () => {
       const videos2 = getPressKitVideos();
 
       // Assert
-      expect(videos1).toHaveLength(5);
+      expect(videos1).toHaveLength(6);
       expect(videos1).toEqual(videos2);
       expect(videos1).not.toBe(videos2); // Distinct array reference
     });
   });
 
   // ==========================================================================
-  // 3. Presentation Layer & Monorepo Hygiene (Layer 1 & Layer 4)
+  // 3. Presentation Layer & Typography (Layer 1 & Layer 4)
   // ==========================================================================
   describe("Presentation & Architecture Decoupling (RED Check)", () => {
     test("@spec REQ-VIDEO-05: press-kit/page.tsx does NOT use fs.readdirSync or read local video filesystem", () => {
@@ -108,6 +110,16 @@ describe("Press Kit YouTube Video Migration Suite (TDD Primal)", () => {
       // Assert: Page must consume pipeline and presentation embed
       expect(pageContent).toContain("getPressKitVideos");
       expect(pageContent).toContain("YouTubeEmbed");
+    });
+
+    test("@spec REQ-VIDEO-07: YouTubeEmbed renders clean unicode arrow glyph and does not output literal &nearr;", () => {
+      // Arrange
+      const componentPath = path.join(process.cwd(), "apps/web/src/components/media/youtube-embed.tsx");
+      const content = fs.readFileSync(componentPath, "utf8");
+
+      // Assert: Must not contain raw &nearr; entity string, must contain clean glyph ↗
+      expect(content).not.toContain("&nearr;");
+      expect(content).toContain("↗");
     });
   });
 });
