@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T06:35:43.909Z",
+  "generatedAt": "2026-09-22T12:44:14.462Z",
   "nodes": [
     {
       "id": "AGENTS.md",
@@ -144,6 +144,18 @@
       "type": "governance",
       "label": "fix-app-migrate-photos-to-vercel-blob",
       "path": "knowledge\\fixes\\fix-app-migrate-photos-to-vercel-blob.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-migrate-videos-to-youtube-embeds-implementation.md",
+      "type": "governance",
+      "label": "fix-app-migrate-videos-to-youtube-embeds-implementation",
+      "path": "knowledge\\fixes\\fix-app-migrate-videos-to-youtube-embeds-implementation.md"
+    },
+    {
+      "id": "knowledge\\fixes\\fix-app-migrate-videos-to-youtube-embeds.md",
+      "type": "governance",
+      "label": "fix-app-migrate-videos-to-youtube-embeds",
+      "path": "knowledge\\fixes\\fix-app-migrate-videos-to-youtube-embeds.md"
     },
     {
       "id": "knowledge\\fixes\\fix-app-mobile-hero-framing-implementation.md",

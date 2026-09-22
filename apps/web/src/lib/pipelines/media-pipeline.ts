@@ -13,6 +13,7 @@ import {
   FALLBACK_PRESS_KIT_PHOTOS,
   FALLBACK_PRESS_KIT_VIDEOS,
 } from "@/data/media-registry";
+import { PRESS_KIT_VIDEOS, type PressKitVideo } from "@/data/press-kit-videos";
 import { isBlobConfigured, listBlobs, getBlobUrl } from "@/lib/infrastructure/blob-storage";
 
 /**
@@ -99,3 +100,23 @@ export async function resolvePressKitMedia(): Promise<PressKitMediaResponse> {
     videos: [...FALLBACK_PRESS_KIT_VIDEOS],
   };
 }
+
+/**
+ * Resolves the catalog of official Press Kit YouTube video showcases.
+ * Retrieves canonical video metadata configured with responsive aspect ratios.
+ *
+ * Execution Flow:
+ * // Step 1: Read canonical video descriptors from domain registry
+ * // Step 2: Return defensive copy to guarantee domain immutability
+ *
+ * Security Invariants:
+ * - Returns a shallow copy of the immutable domain registry, preventing external runtime mutations.
+ *
+ * @returns {PressKitVideo[]} Strongly typed press kit video descriptors.
+ */
+export function getPressKitVideos(): PressKitVideo[] {
+  // Step 1: Read canonical video descriptors from domain registry
+  // Step 2: Return defensive copy to guarantee domain immutability
+  return [...PRESS_KIT_VIDEOS];
+}
+
