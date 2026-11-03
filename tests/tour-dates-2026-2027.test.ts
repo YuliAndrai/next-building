@@ -93,9 +93,8 @@ describe("ANDHRAY Tour 2026-2027: 'Closing 2026 // Opening 2027'", () => {
     const barcelonaM7 = tourDates.find((d) => d.city === "Barcelona" && d.venue.includes("M7 Club"));
     expect(barcelonaM7).toBeDefined();
 
-    const florence = tourDates.find((d) => d.city === "Florence");
-    expect(florence).toBeDefined();
-    expect(florence?.venue).toContain("Warehouse 303");
+    const florence = tourDates.find((d) => d.city === "Florence" || d.venue.includes("Warehouse 303"));
+    expect(florence).toBeUndefined();
 
     const padua = tourDates.find((d) => d.city === "Padua");
     expect(padua).toBeDefined();

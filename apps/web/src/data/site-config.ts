@@ -399,19 +399,6 @@ export const upcomingTourDates: TourDate[] = [
     type: "show"
   },
   {
-    id: "tour-florence-2026",
-    date: "11.12.2026",
-    dayNumber: "11",
-    month: "DICIEMBRE",
-    year: "2026",
-    city: "Florence",
-    country: "Italy",
-    venue: "Warehouse 303",
-    ticketUrl: "/contacto",
-    status: "booking",
-    type: "show"
-  },
-  {
     id: "tour-padua-2026",
     date: "12.12.2026",
     dayNumber: "12",

@@ -103,7 +103,7 @@ export function NewsSection(): React.JSX.Element {
                   EUROPE & MIDDLE EAST:
                 </span>
                 <p className="text-neutral-400 text-xs">
-                  Barcelona • Spain (Nøir) • Florence • Padua • Tenerife • Dubai (UAE) • Madrid
+                  Barcelona • Spain (Nøir) • Padua • Tenerife • Dubai (UAE) • Madrid
                 </p>
               </div>
             </div>
