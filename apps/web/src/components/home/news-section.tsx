@@ -13,7 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useI18n } from "@/i18n/client";
 import { siteConfig } from "@/data/site-config";
-import { Calendar, Mail, ArrowUpRight, Sparkles } from "lucide-react";
+import { Calendar, Mail, ArrowUpRight, Sparkles, MessageCircle } from "lucide-react";
 
 /**
  * NewsSection Component
@@ -118,11 +118,21 @@ export function NewsSection(): React.JSX.Element {
                 <span>{t.news.viewTourDatesButton}</span>
               </Link>
               <a
-                href="mailto:industrialgirls.techno@gmail.com"
+                href="https://wa.me/573137721671?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20de%20Booking%20para%20el%20Tour%20de%20ANDHRAY"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-[#25D366]/70 bg-black text-white hover:bg-[#25D366] hover:text-black transition-colors text-xs font-mono uppercase tracking-widest rounded-sm w-full sm:w-auto text-center group"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366] group-hover:text-black transition-colors" />
+                <span>WhatsApp Booking</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href="mailto:industrialgirls.techno@gmail.com?subject=Booking%20Inquiry%20-%20ANDHRAY%20Tour%20Closing%202026%20Opening%202027"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-neutral-800 bg-neutral-900 text-neutral-300 hover:text-white hover:border-neutral-700 transition-colors text-xs font-mono uppercase tracking-widest rounded-sm w-full sm:w-auto text-center"
               >
                 <Mail className="w-3.5 h-3.5 text-[#FF0000]" />
-                <span>Bookings: industrialgirls.techno@gmail.com</span>
+                <span>Email Booking</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
