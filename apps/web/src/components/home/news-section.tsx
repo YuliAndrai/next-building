@@ -95,7 +95,7 @@ export function NewsSection(): React.JSX.Element {
                   LATAM:
                 </span>
                 <p className="text-neutral-400 text-xs">
-                  Pereira ☑️ • Pasto ☑️ • Quito (Ecuador) • Cuenca (Ecuador) • 💿 EP Release: 02 ++GATTA
+                  Pereira, Colombia ☑️ • Pasto, Colombia ☑️ • Quito, Ecuador • Cuenca, Ecuador
                 </p>
               </div>
               <div className="text-[11px] font-mono text-neutral-400 pt-1 border-t border-neutral-900">
@@ -103,7 +103,7 @@ export function NewsSection(): React.JSX.Element {
                   EUROPE & MIDDLE EAST:
                 </span>
                 <p className="text-neutral-400 text-xs">
-                  Barcelona • Spain (Nøir) • Padua • Lyon (France) • Tenerife • Dubai (UAE) • Madrid
+                  Barcelona, Spain • Spain • Padua, Italy • Lyon, France • Tenerife, Spain • Dubai, UAE • Madrid, Spain
                 </p>
               </div>
             </div>
