@@ -99,7 +99,7 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
               
               {/* Optional Flyer Thumbnail */}
               {flyerImage && (
-                <div className="relative w-28 h-36 shrink-0 rounded-sm overflow-hidden border border-neutral-800 hidden sm:block bg-black">
+                <div className="relative w-20 h-28 sm:w-28 sm:h-36 shrink-0 rounded-sm overflow-hidden border border-neutral-800 bg-black block mx-auto sm:mx-0 shadow-lg">
                   <Image
                     src={flyerImage}
                     alt="Tour Flyer"
@@ -142,7 +142,7 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
         )}
 
         {/* Step 7: Tab Selector (Próximos Shows vs. Fechas Pasadas) */}
-        <div className="flex items-center gap-2 mb-6 border-b border-neutral-800/80 pb-3">
+        <div className="flex items-center gap-2 mb-6 border-b border-neutral-800/80 pb-3 overflow-x-auto no-scrollbar">
           <button
             type="button"
             onClick={() => setActiveTab("upcoming")}

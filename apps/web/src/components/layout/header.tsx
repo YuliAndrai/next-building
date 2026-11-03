@@ -43,8 +43,8 @@ export function Header(): React.JSX.Element {
   // Step 2: Build localized navigation links with current locale prefix
   const navLinks = [
     { label: t.nav.home, href: `/${locale}` },
-    { label: t.nav.music, href: `/${locale}/musica` },
-    { label: t.nav.events, href: `/${locale}/#tour` },
+    { label: t.nav.music, href: `/${locale}/musica`, badge: "EP 18 NOV" },
+    { label: t.nav.events, href: `/${locale}/#tour`, badge: "TOUR 26/27" },
     { label: t.nav.press, href: `/${locale}/press-kit` },
   ];
 
@@ -119,10 +119,17 @@ export function Header(): React.JSX.Element {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="group text-xs uppercase tracking-widest font-mono text-neutral-400 hover:text-[#FF0000] py-2 border-b border-neutral-900 transition-colors flex items-center gap-2"
+                className="group text-xs uppercase tracking-widest font-mono text-neutral-400 hover:text-[#FF0000] py-2.5 border-b border-neutral-900 transition-colors flex items-center justify-between"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-50 group-hover:scale-100" />
-                <span>{link.label}</span>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] opacity-0 group-hover:opacity-100 transition-all duration-200 transform scale-50 group-hover:scale-100" />
+                  <span>{link.label}</span>
+                </div>
+                {link.badge && (
+                  <span className="px-2 py-0.5 border border-neutral-800 bg-neutral-950 text-[10px] font-mono text-neutral-400 group-hover:border-[#FF0000]/60 group-hover:text-[#FF0000] transition-colors rounded-sm">
+                    {link.badge}
+                  </span>
+                )}
               </Link>
             ))}
           </div>

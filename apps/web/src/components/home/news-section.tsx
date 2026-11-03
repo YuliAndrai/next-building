@@ -109,17 +109,17 @@ export function NewsSection(): React.JSX.Element {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <Link
                 href={`/${locale}/#events`}
-                className="inline-flex items-center gap-2 px-6 py-3 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 text-xs font-bold uppercase tracking-widest rounded-sm font-mono shadow-[0_0_15px_rgba(255,0,0,0.15)]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 text-xs font-bold uppercase tracking-widest rounded-sm font-mono shadow-[0_0_15px_rgba(255,0,0,0.15)] w-full sm:w-auto text-center"
               >
                 <Calendar className="w-4 h-4" />
                 <span>{t.news.viewTourDatesButton}</span>
               </Link>
               <a
                 href="mailto:industrialgirls.techno@gmail.com"
-                className="inline-flex items-center gap-2 px-5 py-3 border border-neutral-800 bg-neutral-900 text-neutral-300 hover:text-white hover:border-neutral-700 transition-colors text-xs font-mono uppercase tracking-widest rounded-sm"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-neutral-800 bg-neutral-900 text-neutral-300 hover:text-white hover:border-neutral-700 transition-colors text-xs font-mono uppercase tracking-widest rounded-sm w-full sm:w-auto text-center"
               >
                 <Mail className="w-3.5 h-3.5 text-[#FF0000]" />
                 <span>Bookings: industrialgirls.techno@gmail.com</span>
