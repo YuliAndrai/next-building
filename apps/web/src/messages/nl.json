@@ -52,7 +52,13 @@
     "tourDate1Venue": "Oktober: Data binnenkort // Boekingen geopend in Colombia & Latijns-Amerika",
     "tourDate2City": "Italië & Duitsland",
     "tourDate2Month": "EIND NOV - DEC 2026",
-    "tourDate2Venue": "EURO TOUR 2026 // Clubs & Showcases"
+    "tourDate2Venue": "EURO TOUR 2026 // Clubs & Showcases",
+    "campaignTitle": "CLOSING 2026 // OPENING 2027",
+    "pastShowsTitle": "EERDERE DATA",
+    "pastShowsSubtitle": "ARCHIEF VAN AFGERONDE SHOWS",
+    "upcomingShowsTitle": "AANKOMENDE SHOWS",
+    "milestoneReleaseBadge": "RELEASE",
+    "completedBadge": "VOLTOOID"
   },
   "news": {
     "title": "LAATSTE NIEUWS",
@@ -65,7 +71,11 @@
     "featuredTrackType": "Original Mix • Fast Techno & Groove",
     "upcomingBadge": "BINNENKORT",
     "upcomingTitle": "Nieuwe Original Mix EP (2026)",
-    "upcomingDescription": "Binnenkort beschikbaar op alle officiële streaming- en downloadplatforms."
+    "upcomingDescription": "Binnenkort beschikbaar op alle officiële streaming- en downloadplatforms.",
+    "tourAnnouncementBadge": "INTERNATIONALE TOUR",
+    "tourAnnouncementTitle": "ANDHRAY // CLOSING 2026 // OPENING 2027",
+    "tourAnnouncementDescription": "Eerste officiële tour-aankondiging: Ecuador, Spanje, Italië, Verenigde Arabische Emiraten en exclusieve releases.",
+    "viewTourDatesButton": "BEKIJK DATA & ROUTING"
   },
   "booking": {
     "title": "BOOKING & MANAGEMENT",

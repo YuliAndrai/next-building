@@ -14,7 +14,8 @@ export interface TourDate {
   country: string;
   venue: string;
   ticketUrl: string;
-  status: "tickets" | "sold-out" | "rsvp" | "booking";
+  status: "tickets" | "sold-out" | "rsvp" | "booking" | "completed";
+  type?: "show" | "release" | "past";
 }
 
 export interface MusicRelease {
@@ -107,6 +108,9 @@ export interface NewsItem {
   id: string;
   title: string;
   category: string;
+  description?: string;
+  image?: string;
+  bookingEmail?: string;
   youtubeEmbedUrl?: string;
   originalUrl?: string;
   spotifyEmbedUrl?: string;
@@ -298,10 +302,199 @@ export const podcastsData: PodcastSetItem[] = [
   { title: "COMME DANS LES FILMS #16 by Parfait", date: "2023", url: "https://soundcloud.com/parfaitparfait/comme-dans-les-films-16-andhray" }
 ];
 
+
+export const pastTourDates: TourDate[] = [
+  {
+    id: "tour-past-pereira-2026",
+    date: "24.10.2026",
+    dayNumber: "24",
+    month: "OCTUBRE",
+    year: "2026",
+    city: "Pereira",
+    country: "Colombia",
+    venue: "Tunnel x Station Group ☑️",
+    ticketUrl: "/contacto",
+    status: "completed",
+    type: "past"
+  },
+  {
+    id: "tour-past-pasto-2026",
+    date: "31.10.2026",
+    dayNumber: "31",
+    month: "OCTUBRE",
+    year: "2026",
+    city: "Pasto",
+    country: "Colombia",
+    venue: "Void Psy x Macabro",
+    ticketUrl: "/contacto",
+    status: "completed",
+    type: "past"
+  }
+];
+
+export const upcomingTourDates: TourDate[] = [
+  {
+    id: "tour-quito-2026",
+    date: "06.11.2026",
+    dayNumber: "06",
+    month: "NOVIEMBRE",
+    year: "2026",
+    city: "Quito",
+    country: "Ecuador",
+    venue: "Kønqüeêr x Antrum",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
+    id: "tour-cuenca-2026",
+    date: "07.11.2026",
+    dayNumber: "07",
+    month: "NOVIEMBRE",
+    year: "2026",
+    city: "Cuenca",
+    country: "Ecuador",
+    venue: "Hideout",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
+    id: "tour-release-gatta-2026",
+    date: "18.11.2026",
+    dayNumber: "18",
+    month: "NOVIEMBRE",
+    year: "2026",
+    city: "💿 EP RELEASE",
+    country: "Worldwide",
+    venue: "02 ++GATTA",
+    ticketUrl: "/musica",
+    status: "booking",
+    type: "release"
+  },
+  {
+    id: "tour-barcelona-m7-2026",
+    date: "27.11.2026",
+    dayNumber: "27",
+    month: "NOVIEMBRE",
+    year: "2026",
+    city: "Barcelona",
+    country: "Spain",
+    venue: "M7 Club",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
+    id: "tour-spain-noir-2026",
+    date: "05.12.2026",
+    dayNumber: "05",
+    month: "DICIEMBRE",
+    year: "2026",
+    city: "Spain",
+    country: "Spain",
+    venue: "Nøir Secret Rave",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
+    id: "tour-florence-2026",
+    date: "11.12.2026",
+    dayNumber: "11",
+    month: "DICIEMBRE",
+    year: "2026",
+    city: "Florence",
+    country: "Italy",
+    venue: "Warehouse 303",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
+    id: "tour-padua-2026",
+    date: "12.12.2026",
+    dayNumber: "12",
+    month: "DICIEMBRE",
+    year: "2026",
+    city: "Padua",
+    country: "Italy",
+    venue: "Loco Club x Industrial Girls 7th Anniv.",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
+    id: "tour-barcelona-meet-2026",
+    date: "19.12.2026",
+    dayNumber: "19",
+    month: "DICIEMBRE",
+    year: "2026",
+    city: "Barcelona",
+    country: "Spain",
+    venue: "Meet & Greet x Nalgotika",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
+    id: "tour-tenerife-2026",
+    date: "25.12.2026",
+    dayNumber: "25",
+    month: "DICIEMBRE",
+    year: "2026",
+    city: "Tenerife",
+    country: "Spain",
+    venue: "ElDiabloCanario x Industrial Girls 7th Anniv.",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
+    id: "tour-release-bday-2027",
+    date: "06.01.2027",
+    dayNumber: "06",
+    month: "ENERO",
+    year: "2027",
+    city: "🎂 SPECIAL RELEASE",
+    country: "Worldwide",
+    venue: "BIRTHDAY TRACK RELEASE",
+    ticketUrl: "/musica",
+    status: "booking",
+    type: "release"
+  },
+  {
+    id: "tour-dubai-2027",
+    date: "09.01.2027",
+    dayNumber: "09",
+    month: "ENERO",
+    year: "2027",
+    city: "Dubai",
+    country: "UAE",
+    venue: "Club & Showcase Date",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
+    id: "tour-madrid-2027",
+    date: "15.01.2027",
+    dayNumber: "15",
+    month: "ENERO",
+    year: "2027",
+    city: "Madrid",
+    country: "Spain",
+    venue: "UnderHell x LegionTechno, Sala Muv",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  }
+];
+
 export const siteConfig = {
   artist: {
     name: "ANDHRAY",
-    heroBanner: "EURO TOUR (FINAL NOV - DICIEMBRE)",
+    heroBanner: "CLOSING 2026 // OPENING 2027", // Historical archive: heroBanner: "EURO TOUR (FINAL NOV - DICIEMBRE)"
     role: "DJ • Productora • Fundadora de Industrial Girls",
     slogan: "Música sensual para almas sensuales",
     genres: ["Hard Dance", "Acid", "Groove"],
@@ -317,6 +510,14 @@ export const siteConfig = {
   },
 
   news: [
+    {
+      id: "news-tour-closing-2026-opening-2027",
+      title: "ANDHRAY // Closing 2026 - Opening 2027",
+      category: "GIRA INTERNACIONAL // PRIMER ANUNCIO",
+      description: "Fechas confirmadas en LATAM, Europa y Medio Oriente (Ecuador, España, Italia, EAU) y lanzamientos discográficos.",
+      image: "/primeras-fechas-confirmadas-tour-cierre-2026/ANDHRAY_TOUR 2026 2027.jpg",
+      bookingEmail: "industrialgirls.techno@gmail.com"
+    },
     {
       id: "news-hor-berlin",
       title: "Andhray | HÖR Berlin (July 24 / 2026)",
@@ -337,7 +538,7 @@ export const siteConfig = {
 
   announcement: {
     enabled: true,
-    text: "EURO TOUR (FINAL NOV - DICIEMBRE) — BOOKING & SHOWCASES",
+    text: "CLOSING 2026 // OPENING 2027 — LATAM • EUROPE • MIDDLE EAST", // Historical archive: text: "EURO TOUR (FINAL NOV - DICIEMBRE) — BOOKING & SHOWCASES"
     link: "#events"
   },
 
@@ -368,38 +569,17 @@ export const siteConfig = {
     useSeatedWidget: false,
     seatedArtistId: "c96949f0-d93e-45b7-aa12-925369587d20",
     featuredTour: {
-      title: "EURO TOUR (FINAL NOV - DICIEMBRE)",
-      detail: "Fechas confirmadas en Italia y Alemania. Booking y agenda abierta para promotores y clubes.",
-      currentLocation: "Colombia / Gira internacional"
+      title: "CLOSING 2026 // OPENING 2027", // Historical archive: title: "EURO TOUR (FINAL NOV - DICIEMBRE)", date: "FINAL NOV - DICIEMBRE 2026", month: "FINAL NOV - DICIEMBRE"
+      subtitle: "LATAM • EUROPE & MIDDLE EAST",
+      detail: "Primer anuncio de gira internacional: Colombia, Ecuador, España, Italia, Emiratos Árabes Unidos e hitos discográficos. Agenda abierta para promotores y clubes.",
+      currentLocation: "Latinoamérica / Europa / Medio Oriente",
+      flyerImage: "/primeras-fechas-confirmadas-tour-cierre-2026/ANDHRAY_TOUR 2026 2027.jpg",
+      bookingEmail: "industrialgirls.techno@gmail.com"
     }
   },
 
-  tourDates: [
-    {
-      id: "tour-octubre-2026",
-      date: "OCTUBRE 2026",
-      dayNumber: "2026",
-      month: "OCTUBRE",
-      year: "2026",
-      city: "Colombia & Latinoamérica",
-      country: "",
-      venue: "Octubre: Fechas por anunciar // Booking disponible en Colombia y Latinoamérica",
-      ticketUrl: "/contacto",
-      status: "booking"
-    },
-    {
-      id: "tour-euro-2026",
-      date: "FINAL NOV - DICIEMBRE 2026",
-      dayNumber: "2026",
-      month: "FINAL NOV - DICIEMBRE",
-      year: "2026",
-      city: "Italia & Alemania",
-      country: "",
-      venue: "EURO TOUR 2026 // Clubes & Showcases",
-      ticketUrl: "/contacto",
-      status: "booking"
-    }
-  ] as TourDate[],
+  tourDates: upcomingTourDates as TourDate[],
+  pastTourDates: pastTourDates as TourDate[],
 
   tracks: releasesData as TrackItem[],
 

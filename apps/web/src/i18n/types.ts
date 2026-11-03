@@ -125,6 +125,12 @@ export interface MessagesSchema {
     readonly tourDate2City: string;
     readonly tourDate2Month: string;
     readonly tourDate2Venue: string;
+    readonly campaignTitle: string;
+    readonly pastShowsTitle: string;
+    readonly pastShowsSubtitle: string;
+    readonly upcomingShowsTitle: string;
+    readonly milestoneReleaseBadge: string;
+    readonly completedBadge: string;
   };
   readonly news: {
     readonly title: string;
@@ -138,6 +144,10 @@ export interface MessagesSchema {
     readonly upcomingBadge: string;
     readonly upcomingTitle: string;
     readonly upcomingDescription: string;
+    readonly tourAnnouncementBadge: string;
+    readonly tourAnnouncementTitle: string;
+    readonly tourAnnouncementDescription: string;
+    readonly viewTourDatesButton: string;
   };
   readonly booking: {
     readonly title: string;

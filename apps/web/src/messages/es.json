@@ -52,7 +52,13 @@
     "tourDate1Venue": "Octubre: Fechas por anunciar // Booking disponible en Colombia y Latinoamérica",
     "tourDate2City": "Italia & Alemania",
     "tourDate2Month": "FINAL NOV - DICIEMBRE 2026",
-    "tourDate2Venue": "EURO TOUR 2026 // Clubes & Showcases"
+    "tourDate2Venue": "EURO TOUR 2026 // Clubes & Showcases",
+    "campaignTitle": "CLOSING 2026 // OPENING 2027",
+    "pastShowsTitle": "FECHAS PASADAS",
+    "pastShowsSubtitle": "HISTORIAL DE SHOWS CONCLUIDOS",
+    "upcomingShowsTitle": "PRÓXIMOS SHOWS",
+    "milestoneReleaseBadge": "LANZAMIENTO",
+    "completedBadge": "CONCLUIDO"
   },
   "news": {
     "title": "ÚLTIMAS NOTICIAS",
@@ -65,7 +71,11 @@
     "featuredTrackType": "Original Mix • Fast Techno & Groove",
     "upcomingBadge": "PRÓXIMAMENTE",
     "upcomingTitle": "Nuevo EP Original Mix (2026)",
-    "upcomingDescription": "Escúchalo en todas las plataformas oficiales de streaming y descarga digital."
+    "upcomingDescription": "Escúchalo en todas las plataformas oficiales de streaming y descarga digital.",
+    "tourAnnouncementBadge": "GIRA INTERNACIONAL",
+    "tourAnnouncementTitle": "ANDHRAY // CLOSING 2026 // OPENING 2027",
+    "tourAnnouncementDescription": "Primer anuncio oficial de gira: Ecuador, España, Italia, Emiratos Árabes Unidos y lanzamientos exclusivos.",
+    "viewTourDatesButton": "VER ITINERARIO & FECHAS"
   },
   "booking": {
     "title": "BOOKING Y MANAGEMENT",
