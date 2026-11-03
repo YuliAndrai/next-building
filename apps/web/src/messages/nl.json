@@ -69,9 +69,9 @@
     "watchLiveButton": "LIVE-SET BEKIJKEN",
     "featuredTrackTitle": "UITGELICHTE TRACK",
     "featuredTrackType": "Original Mix • Fast Techno & Groove",
-    "upcomingBadge": "BINNENKORT",
-    "upcomingTitle": "Nieuwe Original Mix EP (2026)",
-    "upcomingDescription": "Binnenkort beschikbaar op alle officiële streaming- en downloadplatforms.",
+    "upcomingBadge": "18 NOV 2026 // AANKOMENDE RELEASE",
+    "upcomingTitle": "EP RELEASE: 02 ++GATTA",
+    "upcomingDescription": "Officiële release op 18 November 2026 op alle streaming- en downloadplatforms.",
     "tourAnnouncementBadge": "INTERNATIONALE TOUR",
     "tourAnnouncementTitle": "ANDHRAY // CLOSING 2026 // OPENING 2027",
     "tourAnnouncementDescription": "Eerste officiële tour-aankondiging: Ecuador, Spanje, Italië, Verenigde Arabische Emiraten en exclusieve releases.",
@@ -162,7 +162,12 @@
     "liveSessionBadge": "LIVE SESSIE // YOUTUBE",
     "featuredSetBadge": "UITGELICHTE SET",
     "watchOnYoutube": "BEKIJKEN OP YOUTUBE",
-    "listenOnSoundcloud": "LUISTEREN OP SOUNDCLOUD"
+    "listenOnSoundcloud": "LUISTEREN OP SOUNDCLOUD",
+    "upcomingReleaseBadge": "AANKOMENDE RELEASE // 18 NOV 2026",
+    "upcomingReleaseTitle": "02 ++GATTA",
+    "upcomingReleaseType": "EP RELEASE",
+    "upcomingReleaseDate": "18.11.2026",
+    "upcomingReleaseDescription": "Nieuwe EP van ANDHRAY. Officiële release op 18 November 2026 op alle platforms."
   },
   "mediaPage": {
     "title": "FOTO'S & VIDEO'S",

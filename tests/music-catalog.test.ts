@@ -130,4 +130,16 @@ describe("Music Discography, Channels & Podcasts", () => {
       });
     });
   });
+
+  describe("Upcoming EP Release", () => {
+    test("configures upcoming release for 02 ++GATTA on 18.11.2026", () => {
+      expect((siteConfig as any).upcomingRelease).toBeDefined();
+      const upcoming = (siteConfig as any).upcomingRelease;
+      expect(upcoming.title).toBe("02 ++GATTA");
+      expect(upcoming.type).toBe("EP RELEASE");
+      expect(upcoming.displayDate).toBe("18 NOV 2026");
+      expect(upcoming.formattedDate).toBe("18.11.2026");
+      expect(upcoming.releaseDate).toBe("2026-11-18");
+    });
+  });
 });

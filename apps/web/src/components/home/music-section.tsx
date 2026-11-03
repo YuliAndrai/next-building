@@ -84,6 +84,40 @@ export function MusicSection(): React.JSX.Element {
           </div>
         </div>
 
+        {/* Step 3.5: Upcoming EP Release Card (02 ++GATTA - 18 NOV 2026) */}
+        <div className="p-6 sm:p-8 bg-neutral-950 border border-neutral-800 rounded-sm hover:border-[#FF0000]/60 transition-all duration-300 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#FF0000]/10 blur-[100px] rounded-full pointer-events-none" />
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-2 max-w-2xl">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-black border border-[#FF0000]/60 text-[10px] font-mono text-[#FF0000] font-bold uppercase tracking-widest rounded-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" />
+                  {t.musicPage.upcomingReleaseBadge}
+                </span>
+                <span className="px-2.5 py-0.5 bg-black border border-neutral-800 text-white font-mono text-[11px] font-bold tracking-wider rounded-sm">
+                  {t.musicPage.upcomingReleaseType}
+                </span>
+                <span className="px-2.5 py-0.5 bg-neutral-900 border border-neutral-800 text-white font-mono text-[11px] font-bold tracking-wider rounded-sm">
+                  18 NOV 2026
+                </span>
+              </div>
+              <h3 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-white font-mono">
+                {t.musicPage.upcomingReleaseTitle}
+              </h3>
+              <p className="text-xs sm:text-sm text-neutral-300 font-sans leading-relaxed">
+                {t.musicPage.upcomingReleaseDescription}
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+              <div className="px-4 py-3 bg-black/80 border border-neutral-800 rounded-sm text-center md:text-right font-mono">
+                <span className="text-[10px] text-neutral-500 uppercase tracking-widest block">RELEASE DATE</span>
+                <span className="text-sm font-bold text-[#FF0000] tracking-widest">18.11.2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Step 4: Tracklist Digital con Mini Players Embebidos Directos */}
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-3 border-b border-neutral-800">

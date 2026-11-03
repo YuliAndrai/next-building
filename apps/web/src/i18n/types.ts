@@ -227,6 +227,11 @@ export interface MessagesSchema {
     readonly tracklistTag: string;
     readonly tracklistTitle: string;
     readonly tracklistSubtitle: string;
+    readonly upcomingReleaseBadge: string;
+    readonly upcomingReleaseTitle: string;
+    readonly upcomingReleaseType: string;
+    readonly upcomingReleaseDate: string;
+    readonly upcomingReleaseDescription: string;
     readonly channelAriaLabel: string;
     readonly recordingsTag: string;
     readonly recordingsTitle: string;

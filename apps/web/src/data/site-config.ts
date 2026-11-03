@@ -568,6 +568,17 @@ export const siteConfig = {
   tourDates: upcomingTourDates as TourDate[],
   pastTourDates: pastTourDates as TourDate[],
 
+  upcomingRelease: {
+    id: "ep-02-gatta",
+    title: "02 ++GATTA",
+    type: "EP RELEASE",
+    releaseDate: "2026-11-18",
+    displayDate: "18 NOV 2026",
+    formattedDate: "18.11.2026",
+    label: "Industrial Girls Records",
+    description: "Nuevo EP de ANDHRAY: 02 ++GATTA. Lanzamiento oficial el 18 de Noviembre de 2026 en todas las plataformas de streaming."
+  },
+
   tracks: releasesData as TrackItem[],
 
   podcastsAndSets: podcastsData as PodcastSetItem[],

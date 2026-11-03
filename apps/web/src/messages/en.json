@@ -69,9 +69,9 @@
     "watchLiveButton": "WATCH LIVE SET",
     "featuredTrackTitle": "FEATURED TRACK",
     "featuredTrackType": "Original Mix • Fast Techno & Groove",
-    "upcomingBadge": "COMING SOON",
-    "upcomingTitle": "New Original Mix EP (2026)",
-    "upcomingDescription": "Listen across all official streaming and download platforms.",
+    "upcomingBadge": "18 NOV 2026 // UPCOMING RELEASE",
+    "upcomingTitle": "EP RELEASE: 02 ++GATTA",
+    "upcomingDescription": "Official release on November 18, 2026. Available across all streaming and digital platforms.",
     "tourAnnouncementBadge": "INTERNATIONAL TOUR",
     "tourAnnouncementTitle": "ANDHRAY // CLOSING 2026 // OPENING 2027",
     "tourAnnouncementDescription": "First official tour announcement: Ecuador, Spain, Italy, United Arab Emirates, and exclusive releases.",
@@ -162,7 +162,12 @@
     "liveSessionBadge": "LIVE SESSION // YOUTUBE",
     "featuredSetBadge": "FEATURED SET",
     "watchOnYoutube": "WATCH ON YOUTUBE",
-    "listenOnSoundcloud": "LISTEN ON SOUNDCLOUD"
+    "listenOnSoundcloud": "LISTEN ON SOUNDCLOUD",
+    "upcomingReleaseBadge": "UPCOMING RELEASE // 18 NOV 2026",
+    "upcomingReleaseTitle": "02 ++GATTA",
+    "upcomingReleaseType": "EP RELEASE",
+    "upcomingReleaseDate": "18.11.2026",
+    "upcomingReleaseDescription": "ANDHRAY's brand-new EP. Official release on November 18, 2026 across all streaming and download platforms."
   },
   "mediaPage": {
     "title": "PHOTOS & VIDEOS",

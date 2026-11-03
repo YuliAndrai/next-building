@@ -69,9 +69,9 @@
     "watchLiveButton": "VER DJ SET EN DIRECTO",
     "featuredTrackTitle": "TRACK DESTACADO",
     "featuredTrackType": "Original Mix • Fast Techno & Groove",
-    "upcomingBadge": "PRÓXIMAMENTE",
-    "upcomingTitle": "Nuevo EP Original Mix (2026)",
-    "upcomingDescription": "Escúchalo en todas las plataformas oficiales de streaming y descarga digital.",
+    "upcomingBadge": "18 NOV 2026 // PRÓXIMO LANZAMIENTO",
+    "upcomingTitle": "EP RELEASE: 02 ++GATTA",
+    "upcomingDescription": "Lanzamiento oficial el 18 de Noviembre de 2026. Disponible en todas las plataformas de streaming y descarga digital.",
     "tourAnnouncementBadge": "GIRA INTERNACIONAL",
     "tourAnnouncementTitle": "ANDHRAY // CLOSING 2026 // OPENING 2027",
     "tourAnnouncementDescription": "Primer anuncio oficial de gira: Ecuador, España, Italia, Emiratos Árabes Unidos y lanzamientos exclusivos.",
@@ -162,7 +162,12 @@
     "liveSessionBadge": "SESIÓN EN VIVO // YOUTUBE",
     "featuredSetBadge": "SET DESTACADO",
     "watchOnYoutube": "VER EN YOUTUBE",
-    "listenOnSoundcloud": "ESCUCHAR EN SOUNDCLOUD"
+    "listenOnSoundcloud": "ESCUCHAR EN SOUNDCLOUD",
+    "upcomingReleaseBadge": "PRÓXIMO LANZAMIENTO // 18 NOV 2026",
+    "upcomingReleaseTitle": "02 ++GATTA",
+    "upcomingReleaseType": "EP RELEASE",
+    "upcomingReleaseDate": "18.11.2026",
+    "upcomingReleaseDescription": "Nuevo EP de ANDHRAY. Lanzamiento discográfico oficial el 18 de Noviembre de 2026 en todas las plataformas de streaming y compra digital."
   },
   "mediaPage": {
     "title": "FOTOS Y VIDEOS",

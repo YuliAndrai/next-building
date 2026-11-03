@@ -95,7 +95,7 @@ export function NewsSection(): React.JSX.Element {
                   LATAM:
                 </span>
                 <p className="text-neutral-400 text-xs">
-                  Pereira, Colombia ☑️ • Pasto, Colombia ☑️ • Quito, Ecuador • Cuenca, Ecuador
+                  Pereira, Colombia ☑️ • Pasto, Colombia ☑️ • Quito, Ecuador • Cuenca, Ecuador • 💿 18.11 EP: 02 ++GATTA
                 </p>
               </div>
               <div className="text-[11px] font-mono text-neutral-400 pt-1 border-t border-neutral-900">
@@ -192,9 +192,15 @@ export function NewsSection(): React.JSX.Element {
           </div>
 
           <div className="border border-neutral-800 bg-neutral-950 p-4 rounded-sm hover:border-[#FF0000]/60 transition-colors duration-200">
-            <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest block mb-1">
-              {t.news.upcomingBadge}
-            </span>
+            <div className="flex items-center justify-between gap-2 mb-1.5">
+              <span className="text-[10px] font-mono text-[#FF0000] font-bold uppercase tracking-widest flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" />
+                {t.news.upcomingBadge}
+              </span>
+              <span className="px-2 py-0.5 bg-black border border-neutral-800 text-[10px] font-mono font-bold text-white rounded-sm">
+                18 NOV 2026
+              </span>
+            </div>
             <h4 className="text-sm font-bold text-white uppercase font-mono">
               {t.news.upcomingTitle}
             </h4>
