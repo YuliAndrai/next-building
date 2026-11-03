@@ -14,7 +14,7 @@ import Image from "next/image";
 import Script from "next/script";
 import { siteConfig, TourDate, pastTourDates } from "@/data/site-config";
 import { useI18n } from "@/i18n/client";
-import { Ticket, MapPin, Search, Globe, Disc, CheckCircle2, Calendar } from "lucide-react";
+import { Ticket, MapPin, Search, Globe, Disc, CheckCircle2, Calendar, MessageCircle, Mail } from "lucide-react";
 
 interface TourDatesSectionProps {
   standalone?: boolean;
@@ -129,12 +129,22 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
                 </p>
               </div>
 
-              <div className="shrink-0 flex flex-col gap-2">
+              <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
                 <a
-                  href={`/${locale}/#contact`}
-                  className="inline-flex items-center justify-center px-6 py-3 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-bold uppercase tracking-widest rounded-sm font-mono"
+                  href="https://wa.me/573137721671?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20de%20Booking%20para%20el%20Tour%20de%20ANDHRAY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-[#25D366]/70 bg-black text-white hover:bg-[#25D366] hover:text-black transition-all duration-300 text-xs font-bold uppercase tracking-widest rounded-sm font-mono w-full sm:w-auto shadow-[0_0_15px_rgba(37,211,102,0.15)] group"
                 >
-                  {t.tour.contactBookingButton}
+                  <MessageCircle className="w-4 h-4 text-[#25D366] group-hover:text-black transition-colors" />
+                  <span>WHATSAPP BOOKING</span>
+                </a>
+                <a
+                  href="mailto:industrialgirls.techno@gmail.com?subject=Booking%20Inquiry%20-%20ANDHRAY%20Tour%20Closing%202026%20Opening%202027"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-bold uppercase tracking-widest rounded-sm font-mono w-full sm:w-auto"
+                >
+                  <Mail className="w-3.5 h-3.5 text-[#FF0000]" />
+                  <span>EMAIL BOOKING</span>
                 </a>
               </div>
             </div>
@@ -274,8 +284,10 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
                         </Link>
                       ) : show.status === "booking" ? (
                         <a
-                          href={show.ticketUrl.startsWith("#") ? `/${locale}${show.ticketUrl}` : `/${locale}${show.ticketUrl}`}
-                          className="inline-flex items-center gap-2 px-6 py-2.5 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-bold uppercase tracking-widest rounded-sm font-mono"
+                          href={`https://wa.me/573137721671?text=Hola%20ANDHRAY%2C%20quisiera%20consultar%20disponibilidad%20de%20Booking%20para%20${encodeURIComponent(show.city)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 px-6 py-2.5 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-bold uppercase tracking-widest rounded-sm font-mono w-full sm:w-auto"
                         >
                           <span>{t.tour.bookingOpenBadge}</span>
                         </a>
