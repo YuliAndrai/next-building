@@ -41,7 +41,7 @@ export function HeroSection(): React.JSX.Element {
           {/* 1. Badge de Gira */}
           <Link href={`/${locale}/#tour`} className="inline-block group">
             <span className="inline-flex items-center gap-1.5 border border-neutral-800 bg-neutral-950/80 backdrop-blur-md px-3.5 py-1 rounded-sm text-[11px] font-mono tracking-widest text-neutral-300 hover:border-[#FF0000]/60 transition-colors">
-              <span>{t.home.badge}</span>
+              <span>{t.tour.campaignTitle || t.home.badge}</span>
               <span className="transition-colors group-hover:text-[#FF0000]">&rarr;</span>
             </span>
           </Link>

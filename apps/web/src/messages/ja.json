@@ -52,7 +52,13 @@
     "tourDate1Venue": "10月：日程近日発表 // コロンビアおよびラテンアメリカでのブッキング受付中",
     "tourDate2City": "イタリア & ドイツ",
     "tourDate2Month": "2026年11月下旬〜12月",
-    "tourDate2Venue": "EURO TOUR 2026 // クラブ＆ショーケース"
+    "tourDate2Venue": "EURO TOUR 2026 // クラブ＆ショーケース",
+    "campaignTitle": "CLOSING 2026 // OPENING 2027",
+    "pastShowsTitle": "過去の公演",
+    "pastShowsSubtitle": "終了した公演のアーカイブ",
+    "upcomingShowsTitle": "今後の公演",
+    "milestoneReleaseBadge": "リリース",
+    "completedBadge": "終了"
   },
   "news": {
     "title": "最新ニュース",
@@ -63,9 +69,13 @@
     "watchLiveButton": "ライブ配信を視聴する",
     "featuredTrackTitle": "注目トラック",
     "featuredTrackType": "Original Mix • Fast Techno & Groove",
-    "upcomingBadge": "近日リリース",
-    "upcomingTitle": "新作 Original Mix EP (2026)",
-    "upcomingDescription": "各種公式ストリーミングおよびデジタルダウンロードプラットフォームにて配信予定。"
+    "upcomingBadge": "2026年11月18日 // 次回リリース",
+    "upcomingTitle": "EP RELEASE: 02 ++GATTA",
+    "upcomingDescription": "2026年11月18日 公式リリース。各種ストリーミングおよびデジタル配信プラットフォームにて配信開始。",
+    "tourAnnouncementBadge": "国際ツアー",
+    "tourAnnouncementTitle": "ANDHRAY // CLOSING 2026 // OPENING 2027",
+    "tourAnnouncementDescription": "公式ツアー第1弾発表：エクアドル、スペイン、イタリア、アラブ首長国連邦、および限定リリース。",
+    "viewTourDatesButton": "日程とツアールートを見る"
   },
   "booking": {
     "title": "ブッキング＆マネジメント",
@@ -152,7 +162,12 @@
     "liveSessionBadge": "ライブセッション // YOUTUBE",
     "featuredSetBadge": "フィーチャード・セット",
     "watchOnYoutube": "YOUTUBEで視聴",
-    "listenOnSoundcloud": "SOUNDCLOUDで聴く"
+    "listenOnSoundcloud": "SOUNDCLOUDで聴く",
+    "upcomingReleaseBadge": "次回リリース // 2026年11月18日",
+    "upcomingReleaseTitle": "02 ++GATTA",
+    "upcomingReleaseType": "EP RELEASE",
+    "upcomingReleaseDate": "18.11.2026",
+    "upcomingReleaseDescription": "ANDHRAYの最新EP。2026年11月18日に全ストリーミングおよびデジタル配信プラットフォームにて公式リリース。"
   },
   "mediaPage": {
     "title": "フォト＆ビデオ",

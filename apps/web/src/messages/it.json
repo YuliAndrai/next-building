@@ -52,7 +52,13 @@
     "tourDate1Venue": "Ottobre: Date da annunciare // Booking disponibile in Colombia e America Latina",
     "tourDate2City": "Italia e Germania",
     "tourDate2Month": "FINE NOV - DIC 2026",
-    "tourDate2Venue": "EURO TOUR 2026 // Club & Showcase"
+    "tourDate2Venue": "EURO TOUR 2026 // Club & Showcase",
+    "campaignTitle": "CLOSING 2026 // OPENING 2027",
+    "pastShowsTitle": "DATE PASSATE",
+    "pastShowsSubtitle": "ARCHIVIO DEI LIVE CONCLUSI",
+    "upcomingShowsTitle": "PROSSIMI SHOW",
+    "milestoneReleaseBadge": "RELEASE",
+    "completedBadge": "COMPLETATO"
   },
   "news": {
     "title": "ULTIME NOTIZIE",
@@ -63,9 +69,13 @@
     "watchLiveButton": "GUARDA IL DJ SET DAL VIVO",
     "featuredTrackTitle": "BRANO IN PRIMO PIANO",
     "featuredTrackType": "Original Mix • Fast Techno & Groove",
-    "upcomingBadge": "PROSSIMAMENTE",
-    "upcomingTitle": "Nuovo EP Original Mix (2026)",
-    "upcomingDescription": "Ascoltalo su tutte le piattaforme ufficiali di streaming e download digitale."
+    "upcomingBadge": "18 NOV 2026 // PROSSIMA USCITA",
+    "upcomingTitle": "EP RELEASE: 02 ++GATTA",
+    "upcomingDescription": "Uscita ufficiale il 18 Novembre 2026 su tutte le piattaforme di streaming e download digitale.",
+    "tourAnnouncementBadge": "TOUR INTERNAZIONALE",
+    "tourAnnouncementTitle": "ANDHRAY // CLOSING 2026 // OPENING 2027",
+    "tourAnnouncementDescription": "Primo annuncio ufficiale del tour: Ecuador, Spagna, Italia, Emirati Arabi Uniti e uscite musicali esclusive.",
+    "viewTourDatesButton": "VEDI DATE & ROUTING"
   },
   "booking": {
     "title": "BOOKING E MANAGEMENT",
@@ -152,7 +162,12 @@
     "liveSessionBadge": "SESSIONE DAL VIVO // YOUTUBE",
     "featuredSetBadge": "SET IN PRIMO PIANO",
     "watchOnYoutube": "GUARDA SU YOUTUBE",
-    "listenOnSoundcloud": "ASCOLTA SU SOUNDCLOUD"
+    "listenOnSoundcloud": "ASCOLTA SU SOUNDCLOUD",
+    "upcomingReleaseBadge": "PROSSIMA USCITA // 18 NOV 2026",
+    "upcomingReleaseTitle": "02 ++GATTA",
+    "upcomingReleaseType": "EP RELEASE",
+    "upcomingReleaseDate": "18.11.2026",
+    "upcomingReleaseDescription": "Nuovo EP di ANDHRAY. Uscita discografica ufficiale il 18 Novembre 2026 su tutte le piattaforme."
   },
   "mediaPage": {
     "title": "FOTO E VIDEO",

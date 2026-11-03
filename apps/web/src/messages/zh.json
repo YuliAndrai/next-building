@@ -52,7 +52,13 @@
     "tourDate1Venue": "10月：具体日期即将公布 // 哥伦比亚与拉丁美洲演出接受预订",
     "tourDate2City": "意大利 & 德国",
     "tourDate2Month": "2026年11月下旬 - 12月",
-    "tourDate2Venue": "2026欧洲巡演 // 俱乐部与专场演出"
+    "tourDate2Venue": "2026欧洲巡演 // 俱乐部与专场演出",
+    "campaignTitle": "CLOSING 2026 // OPENING 2027",
+    "pastShowsTitle": "往期演出",
+    "pastShowsSubtitle": "已结束演出归档",
+    "upcomingShowsTitle": "即将到来的演出",
+    "milestoneReleaseBadge": "新发单曲",
+    "completedBadge": "已结束"
   },
   "news": {
     "title": "最新资讯",
@@ -63,9 +69,13 @@
     "watchLiveButton": "观看现场直播录播",
     "featuredTrackTitle": "精选曲目",
     "featuredTrackType": "Original Mix • Fast Techno & Groove",
-    "upcomingBadge": "即将推出",
-    "upcomingTitle": "全新原创 EP (2026)",
-    "upcomingDescription": "即将登陆所有主流流媒体及数字下载平台，敬请期待。"
+    "upcomingBadge": "2026年11月18日 // 即将发行",
+    "upcomingTitle": "EP RELEASE: 02 ++GATTA",
+    "upcomingDescription": "2026年11月18日官方正式发行。全平台流媒体与数字下载同步上线。",
+    "tourAnnouncementBadge": "国际巡演",
+    "tourAnnouncementTitle": "ANDHRAY // CLOSING 2026 // OPENING 2027",
+    "tourAnnouncementDescription": "官方巡演首轮公布：厄瓜多尔、西班牙、意大利、阿联酋及独家音乐发布。",
+    "viewTourDatesButton": "查看巡演日程与行程"
   },
   "booking": {
     "title": "演出预订与艺人经纪",
@@ -152,7 +162,12 @@
     "liveSessionBadge": "现场录播 // YOUTUBE",
     "featuredSetBadge": "焦点精选SET",
     "watchOnYoutube": "在 YOUTUBE 上观看",
-    "listenOnSoundcloud": "在 SOUNDCLOUD 上收听"
+    "listenOnSoundcloud": "在 SOUNDCLOUD 上收听",
+    "upcomingReleaseBadge": "即将发行 // 2026年11月18日",
+    "upcomingReleaseTitle": "02 ++GATTA",
+    "upcomingReleaseType": "EP RELEASE",
+    "upcomingReleaseDate": "18.11.2026",
+    "upcomingReleaseDescription": "ANDHRAY 全新 EP 专辑。2026年11月18日全球各大流媒体与数字音乐平台正式发行。"
   },
   "mediaPage": {
     "title": "照片与视频",

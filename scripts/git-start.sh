@@ -71,7 +71,7 @@ ensure_base_branch_available() {
   if git show-ref --verify --quiet "refs/heads/${base_branch}"; then
     git checkout "${base_branch}"
     if [[ "${base_branch}" == "develop" ]] && git remote get-url origin >/dev/null 2>&1; then
-      git pull --ff-only origin develop
+      git pull --ff-only origin develop || true
     fi
     return 0
   fi

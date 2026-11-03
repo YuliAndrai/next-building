@@ -52,7 +52,13 @@
     "tourDate1Venue": "Octobre : Dates à annoncer // Booking disponible en Colombie et Amérique latine",
     "tourDate2City": "Italie & Allemagne",
     "tourDate2Month": "FIN NOV - DÉC 2026",
-    "tourDate2Venue": "TOURNÉE EUROPÉENNE 2026 // Clubs & Showcases"
+    "tourDate2Venue": "TOURNÉE EUROPÉENNE 2026 // Clubs & Showcases",
+    "campaignTitle": "CLOSING 2026 // OPENING 2027",
+    "pastShowsTitle": "DATES PASSÉES",
+    "pastShowsSubtitle": "ARCHIVE DES SPECTACLES PASSÉS",
+    "upcomingShowsTitle": "SPECTACLES À VENIR",
+    "milestoneReleaseBadge": "SORTIE",
+    "completedBadge": "TERMINÉ"
   },
   "news": {
     "title": "DERNIÈRES NOUVELLES",
@@ -63,9 +69,13 @@
     "watchLiveButton": "REGARDER LE DJ SET EN DIRECT",
     "featuredTrackTitle": "MORCEAU EN VEDETTE",
     "featuredTrackType": "Original Mix • Fast Techno & Groove",
-    "upcomingBadge": "PROCHAINEMENT",
-    "upcomingTitle": "Nouvel EP Original Mix (2026)",
-    "upcomingDescription": "À écouter sur l'ensemble des plateformes officielles de streaming et téléchargement."
+    "upcomingBadge": "18 NOV 2026 // PROCHAINE SORTIE",
+    "upcomingTitle": "EP RELEASE: 02 ++GATTA",
+    "upcomingDescription": "Sortie officielle le 18 Novembre 2026 sur toutes les plateformes de streaming et téléchargement.",
+    "tourAnnouncementBadge": "TOURNÉE INTERNATIONALE",
+    "tourAnnouncementTitle": "ANDHRAY // CLOSING 2026 // OPENING 2027",
+    "tourAnnouncementDescription": "Première annonce officielle de la tournée : Équateur, Espagne, Italie, Émirats Arabes Unis et sorties exclusives.",
+    "viewTourDatesButton": "VOIR LES DATES ET L'ITINÉRAIRE"
   },
   "booking": {
     "title": "BOOKING & MANAGEMENT",
@@ -152,7 +162,12 @@
     "liveSessionBadge": "SESSION EN DIRECT // YOUTUBE",
     "featuredSetBadge": "SET EN VEDETTE",
     "watchOnYoutube": "REGARDER SUR YOUTUBE",
-    "listenOnSoundcloud": "ÉCOUTER SUR SOUNDCLOUD"
+    "listenOnSoundcloud": "ÉCOUTER SUR SOUNDCLOUD",
+    "upcomingReleaseBadge": "PROCHAINE SORTIE // 18 NOV 2026",
+    "upcomingReleaseTitle": "02 ++GATTA",
+    "upcomingReleaseType": "EP RELEASE",
+    "upcomingReleaseDate": "18.11.2026",
+    "upcomingReleaseDescription": "Nouvel EP d'ANDHRAY. Sortie officielle le 18 Novembre 2026 sur toutes les plateformes."
   },
   "mediaPage": {
     "title": "PHOTOS & VIDÉOS",
