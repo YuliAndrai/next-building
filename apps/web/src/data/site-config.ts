@@ -412,19 +412,6 @@ export const upcomingTourDates: TourDate[] = [
     type: "show"
   },
   {
-    id: "tour-barcelona-meet-2026",
-    date: "19.12.2026",
-    dayNumber: "19",
-    month: "DICIEMBRE",
-    year: "2026",
-    city: "Barcelona",
-    country: "Spain",
-    venue: "Meet & Greet x Nalgotika",
-    ticketUrl: "/contacto",
-    status: "booking",
-    type: "show"
-  },
-  {
     id: "tour-tenerife-2026",
     date: "25.12.2026",
     dayNumber: "25",

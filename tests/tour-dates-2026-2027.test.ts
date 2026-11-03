@@ -96,6 +96,9 @@ describe("ANDHRAY Tour 2026-2027: 'Closing 2026 // Opening 2027'", () => {
     const florence = tourDates.find((d) => d.city === "Florence" || d.venue.includes("Warehouse 303"));
     expect(florence).toBeUndefined();
 
+    const nalgotika = tourDates.find((d) => d.venue.includes("Nalgotika"));
+    expect(nalgotika).toBeUndefined();
+
     const padua = tourDates.find((d) => d.city === "Padua");
     expect(padua).toBeDefined();
     expect(padua?.venue).toContain("Loco Club x Industrial Girls 7th Anniv.");
