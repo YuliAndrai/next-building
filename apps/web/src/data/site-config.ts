@@ -412,6 +412,19 @@ export const upcomingTourDates: TourDate[] = [
     type: "show"
   },
   {
+    id: "tour-lyon-2026",
+    date: "17.12.2026",
+    dayNumber: "17",
+    month: "DICIEMBRE",
+    year: "2026",
+    city: "Lyon",
+    country: "France",
+    venue: "TBA",
+    ticketUrl: "/contacto",
+    status: "booking",
+    type: "show"
+  },
+  {
     id: "tour-tenerife-2026",
     date: "25.12.2026",
     dayNumber: "25",

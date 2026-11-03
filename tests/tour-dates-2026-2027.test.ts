@@ -103,6 +103,11 @@ describe("ANDHRAY Tour 2026-2027: 'Closing 2026 // Opening 2027'", () => {
     expect(padua).toBeDefined();
     expect(padua?.venue).toContain("Loco Club x Industrial Girls 7th Anniv.");
 
+    const lyon = tourDates.find((d) => d.city === "Lyon");
+    expect(lyon).toBeDefined();
+    expect(lyon?.country).toBe("France");
+    expect(lyon?.venue).toBe("TBA");
+
     const tenerife = tourDates.find((d) => d.city === "Tenerife");
     expect(tenerife).toBeDefined();
     expect(tenerife?.venue).toContain("ElDiabloCanario x Industrial Girls 7th Anniv.");
