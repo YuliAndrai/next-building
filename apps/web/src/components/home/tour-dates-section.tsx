@@ -116,6 +116,10 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
                     <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" />
                     {t.tour.featuredBadge}
                   </span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 border border-[#FF0000]/60 bg-[#FF0000]/10 text-[10px] font-mono uppercase tracking-widest text-[#FF0000] font-semibold rounded-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" />
+                    {t.tour.bookingOpenBadge}
+                  </span>
                   <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider flex items-center gap-1.5">
                     <Globe className="w-3.5 h-3.5 text-neutral-500" />
                     <span>{t.tour.currentLocationPrefix} {t.tour.featuredLocation}</span>
@@ -269,47 +273,39 @@ export function TourDatesSection({ standalone = false }: TourDatesSectionProps):
                     </div>
 
                     {/* Right: Ticket / Booking / Release Action Button */}
-                    <div className="flex items-center justify-end">
+                    <div className="flex items-center justify-start md:justify-end w-full md:w-auto pt-2 md:pt-0">
                       {isCompleted ? (
-                        <span className="px-5 py-2 border border-neutral-800 bg-neutral-900/60 text-neutral-500 text-xs font-mono font-bold uppercase tracking-widest rounded-sm">
+                        <span className="px-5 py-2 border border-neutral-800 bg-neutral-900/60 text-neutral-500 text-xs font-mono font-bold uppercase tracking-widest rounded-sm w-full md:w-auto text-center">
                           {t.tour.completedBadge}
                         </span>
                       ) : isRelease ? (
                         <Link
                           href={`/${locale}/musica`}
-                          className="inline-flex items-center gap-2 px-5 py-2.5 border border-neutral-700 bg-neutral-950 text-white hover:border-[#FF0000] hover:text-[#FF0000] text-xs font-bold uppercase tracking-widest transition-colors rounded-sm font-mono"
+                          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-neutral-700 bg-neutral-950 text-white hover:border-[#FF0000] hover:text-[#FF0000] text-xs font-bold uppercase tracking-widest transition-colors rounded-sm font-mono w-full md:w-auto text-center"
                         >
                           <Disc className="w-3.5 h-3.5" />
                           <span>DISCOGRAFÍA</span>
                         </Link>
-                      ) : show.status === "booking" ? (
-                        <a
-                          href={`https://wa.me/573137721671?text=Hola%20ANDHRAY%2C%20quisiera%20consultar%20disponibilidad%20de%20Booking%20para%20${encodeURIComponent(show.city)}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-6 py-2.5 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-bold uppercase tracking-widest rounded-sm font-mono w-full sm:w-auto"
-                        >
-                          <span>{t.tour.bookingOpenBadge}</span>
-                        </a>
+                      
                       ) : show.status === "sold-out" ? (
-                        <span className="px-5 py-2 border border-neutral-800 bg-neutral-900 text-neutral-500 text-xs font-mono font-bold uppercase tracking-widest rounded-sm">
+                        <span className="px-5 py-2 border border-neutral-800 bg-neutral-900 text-neutral-500 text-xs font-mono font-bold uppercase tracking-widest rounded-sm w-full md:w-auto text-center">
                           {t.tour.soldOutBadge}
                         </span>
                       ) : show.status === "rsvp" ? (
                         <a
-                          href={show.ticketUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-6 py-2 border border-neutral-700 bg-black text-white hover:border-[#FF0000] hover:text-[#FF0000] text-xs font-bold uppercase tracking-widest transition-colors rounded-sm font-mono"
+                          href={show.ticketUrl.startsWith("http") ? show.ticketUrl : `/${locale}${show.ticketUrl.startsWith("/") ? "" : "/"}${show.ticketUrl}`}
+                          target={show.ticketUrl.startsWith("http") ? "_blank" : undefined}
+                          rel={show.ticketUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="inline-flex items-center justify-center px-6 py-2 border border-neutral-700 bg-black text-white hover:border-[#FF0000] hover:text-[#FF0000] text-xs font-bold uppercase tracking-widest transition-colors rounded-sm font-mono w-full md:w-auto text-center"
                         >
                           {t.tour.rsvpBadge}
                         </a>
                       ) : (
                         <a
-                          href={show.ticketUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-2.5 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-bold uppercase tracking-widest rounded-sm font-mono"
+                          href={show.ticketUrl.startsWith("http") ? show.ticketUrl : `/${locale}${show.ticketUrl.startsWith("/") ? "" : "/"}${show.ticketUrl}`}
+                          target={show.ticketUrl.startsWith("http") ? "_blank" : undefined}
+                          rel={show.ticketUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="inline-flex items-center justify-center gap-2 px-6 py-2.5 border border-[#FF0000] bg-black text-white hover:bg-[#FF0000] hover:text-black transition-all duration-300 shadow-none hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] text-xs font-bold uppercase tracking-widest rounded-sm font-mono w-full md:w-auto text-center"
                         >
                           <Ticket className="w-3.5 h-3.5" />
                           <span>{t.tour.ticketsBadge}</span>

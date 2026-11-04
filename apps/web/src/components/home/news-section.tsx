@@ -73,6 +73,10 @@ export function NewsSection(): React.JSX.Element {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" />
                 {t.news.tourAnnouncementBadge}
               </span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 border border-[#FF0000]/60 bg-[#FF0000]/10 text-[10px] font-mono uppercase tracking-widest text-[#FF0000] font-semibold rounded-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF0000] animate-pulse" />
+                {t.tour.bookingOpenBadge}
+              </span>
               <span className="text-[11px] font-mono text-neutral-400 uppercase tracking-wider flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-[#FF0000]" />
                 <span>FIRST CONFIRMED DATES</span>
