@@ -343,7 +343,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "Ecuador",
     venue: "Kønqüeêr x Antrum",
     ticketUrl: "/contacto",
-    status: "booking",
+    status: "tickets",
     type: "show"
   },
   {
@@ -356,7 +356,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "Ecuador",
     venue: "Hideout",
     ticketUrl: "/contacto",
-    status: "booking",
+    status: "tickets",
     type: "show"
   },
   {
@@ -369,7 +369,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "Worldwide",
     venue: "02 ++GATTA",
     ticketUrl: "/musica",
-    status: "booking",
+    status: "tickets",
     type: "release"
   },
   {
@@ -382,7 +382,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "Spain",
     venue: "M7 Club",
     ticketUrl: "/contacto",
-    status: "booking",
+    status: "tickets",
     type: "show"
   },
   {
@@ -395,7 +395,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "Spain",
     venue: "Nøir Secret Rave",
     ticketUrl: "/contacto",
-    status: "booking",
+    status: "tickets",
     type: "show"
   },
   {
@@ -408,7 +408,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "Italy",
     venue: "Loco Club x Industrial Girls 7th Anniv.",
     ticketUrl: "/contacto",
-    status: "booking",
+    status: "tickets",
     type: "show"
   },
   {
@@ -421,7 +421,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "France",
     venue: "TBA",
     ticketUrl: "/contacto",
-    status: "booking",
+    status: "tickets",
     type: "show"
   },
   {
@@ -434,7 +434,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "Spain",
     venue: "ElDiabloCanario x Industrial Girls 7th Anniv.",
     ticketUrl: "/contacto",
-    status: "booking",
+    status: "tickets",
     type: "show"
   },
   {
@@ -447,7 +447,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "Worldwide",
     venue: "BIRTHDAY TRACK RELEASE",
     ticketUrl: "/musica",
-    status: "booking",
+    status: "tickets",
     type: "release"
   },
   {
@@ -460,7 +460,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "UAE",
     venue: "Club & Showcase Date",
     ticketUrl: "/contacto",
-    status: "booking",
+    status: "tickets",
     type: "show"
   },
   {
@@ -473,7 +473,7 @@ export const upcomingTourDates: TourDate[] = [
     country: "Spain",
     venue: "UnderHell x LegionTechno, Sala Muv",
     ticketUrl: "/contacto",
-    status: "booking",
+    status: "tickets",
     type: "show"
   }
 ];
