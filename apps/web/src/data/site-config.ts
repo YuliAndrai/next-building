@@ -399,6 +399,19 @@ export const upcomingTourDates: TourDate[] = [
     type: "show"
   },
   {
+    id: "tour-barcelona-city-hall-2026",
+    date: "09.12.2026",
+    dayNumber: "09",
+    month: "DICIEMBRE",
+    year: "2026",
+    city: "Barcelona",
+    country: "Spain",
+    venue: "City Hall x Industrial Girls 7th Anniv. x Nalgotika",
+    ticketUrl: "/contacto",
+    status: "tickets",
+    type: "show"
+  },
+  {
     id: "tour-padua-2026",
     date: "12.12.2026",
     dayNumber: "12",

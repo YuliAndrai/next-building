@@ -107,7 +107,7 @@ export function NewsSection(): React.JSX.Element {
                   EUROPE & MIDDLE EAST:
                 </span>
                 <p className="text-neutral-400 text-xs">
-                  Barcelona, Spain • Spain • Padua, Italy • Lyon, France • Tenerife, Spain • Dubai, UAE • Madrid, Spain
+                  Barcelona (27.11 M7 / 09.12 City Hall), Spain • Spain • Padua, Italy • Lyon, France • Tenerife, Spain • Dubai, UAE • Madrid, Spain
                 </p>
               </div>
             </div>
