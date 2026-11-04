@@ -97,7 +97,10 @@ describe("ANDHRAY Tour 2026-2027: 'Closing 2026 // Opening 2027'", () => {
     expect(florence).toBeUndefined();
 
     const nalgotika = tourDates.find((d) => d.venue.includes("Nalgotika"));
-    expect(nalgotika).toBeUndefined();
+    expect(nalgotika).toBeDefined();
+    expect(nalgotika?.city).toBe("Barcelona");
+    expect(nalgotika?.date).toBe("09.12.2026");
+    expect(nalgotika?.venue).toContain("City Hall");
 
     const padua = tourDates.find((d) => d.city === "Padua");
     expect(padua).toBeDefined();
